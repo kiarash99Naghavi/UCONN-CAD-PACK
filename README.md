@@ -4,6 +4,8 @@ Final submission for the ASME IDETC-CIE 2026 Hackathon (Autodesk neuralCAD-Edit 
 
 We edit 3D CAD models from one-sentence customer instructions with a three-agent harness over CadQuery: a strategist plans, an executor writes code, deterministic gates reject bad geometry for free, and a QA agent verifies what survives. Everything in this folder is self-contained: the code, the dashboard, the output CAD files for all 48 tasks, the ground truth meshes, the scores, and the presentation.
 
+**Demo:** [Demo/CADPACK.mov](Demo/CADPACK.mov) shows the system in action, end to end.
+
 ## Final scores
 
 Computed with the benchmark's own metric code (`src/utils/evals_diff.py` and `src/utils/evals_feature_geometric.py`), same defaults as the published baselines, over all 48 edit tasks:
