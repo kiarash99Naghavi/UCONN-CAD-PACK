@@ -1,0 +1,201 @@
+/* Styling that Dash's inline `style` dicts cannot reach: descendants of
+   dcc.Markdown, pseudo-elements, hover states and scrollbars. */
+
+:root {
+  --ink: #151a24;
+  --ink-2: #5b6472;
+  --ink-3: #8a93a3;
+  --accent: #2a78d6;
+  --border: #e1e6f0;
+  --tile: #f5f7fb;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Plotly sizing ---------------------------------------------------
+   Plotly writes an absolute pixel width onto its own root element when it
+   first draws. Inside a CSS grid that measurement happens before the track is
+   resolved, so the canvas keeps a width its cell never had and the card
+   overflows. Forcing 100% makes the container the authority. */
+.js-plotly-plot,
+.js-plotly-plot .plot-container,
+.js-plotly-plot .svg-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.dash-graph { min-width: 0; }
+
+/* ---- the presentation prose on tab 1 -------------------------------- */
+.overview-md {
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.66;
+  max-width: 82ch;
+}
+.overview-md h1 {
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  margin: 0 0 14px;
+}
+.overview-md h2 {
+  font-size: 19px;
+  letter-spacing: -0.2px;
+  margin: 30px 0 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.overview-md h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 6px;
+}
+.overview-md h3 {
+  font-size: 15px;
+  margin: 20px 0 6px;
+  color: var(--ink-2);
+}
+.overview-md p { margin: 0 0 13px; }
+.overview-md ul, .overview-md ol { margin: 0 0 13px; padding-left: 22px; }
+.overview-md li { margin-bottom: 5px; }
+.overview-md strong { color: var(--ink); font-weight: 650; }
+.overview-md a { color: var(--accent); text-decoration: none; }
+.overview-md a:hover { text-decoration: underline; }
+.overview-md code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  background: var(--tile);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+.overview-md pre {
+  background: var(--tile);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 13px 15px;
+  overflow-x: auto;
+}
+.overview-md pre code { background: none; border: none; padding: 0; }
+.overview-md blockquote {
+  margin: 0 0 14px;
+  padding: 2px 0 2px 15px;
+  border-left: 3px solid var(--accent);
+  color: var(--ink-2);
+}
+.overview-md table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 6px 0 18px;
+  font-size: 13px;
+}
+.overview-md th {
+  text-align: left;
+  padding: 8px 11px;
+  color: var(--ink-3);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.overview-md td {
+  padding: 8px 11px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.overview-md tr:last-child td { border-bottom: none; }
+
+/* ---- the clickable pipeline blocks ---------------------------------- */
+div[id*="mnode"]:hover,
+div[id*="fnode"]:hover {
+  box-shadow: 0 3px 10px rgba(16, 24, 40, 0.13) !important;
+}
+
+/* ---- tab 6, the animation flow --------------------------------------- */
+/* The pulse runs as long as the block is active, so it is the one animation
+   here that is not a 200-500 ms entry: a sub-second loop would strobe. */
+@keyframes flow-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(42, 120, 214, 0.45); }
+  70%  { box-shadow: 0 0 0 9px rgba(42, 120, 214, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(42, 120, 214, 0); }
+}
+.flow-active { animation: flow-pulse 1.3s ease-out infinite; }
+
+/* the agent strip under the diagram, lit while that agent is the one working */
+@keyframes flow-agent-glow {
+  0%   { box-shadow: 0 0 0 0 rgba(28, 122, 69, 0.35); }
+  70%  { box-shadow: 0 0 0 7px rgba(28, 122, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(28, 122, 69, 0); }
+}
+.flow-agent-on { animation: flow-agent-glow 1.4s ease-out infinite; }
+
+/* the router bar over the agents. Red, because it is the one block up there
+   that is not an LLM call: it is the state machine deciding what happens next */
+@keyframes flow-router-glow {
+  0%   { box-shadow: 0 0 0 0 rgba(227, 73, 72, 0.40); }
+  70%  { box-shadow: 0 0 0 8px rgba(227, 73, 72, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(227, 73, 72, 0); }
+}
+.flow-router-on { animation: flow-router-glow 1.4s ease-out infinite; }
+
+@keyframes flow-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.flow-stage-card { animation: flow-rise 0.3s ease-out; }
+
+@keyframes flow-zoom-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+.flow-zoom-panel { animation: flow-zoom-in 0.25s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-active,
+  .flow-agent-on,
+  .flow-router-on,
+  .flow-stage-card,
+  .flow-zoom-panel { animation: none; }
+}
+
+/* ---- folds ----------------------------------------------------------- */
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before {
+  content: "▸ ";
+  display: inline-block;
+  transition: transform 0.12s ease;
+}
+details[open] > summary::before { content: "▾ "; }
+
+/* ---- tabs ------------------------------------------------------------ */
+.tab-container .tab:hover { color: var(--accent) !important; }
+
+/* ---- dropdown -------------------------------------------------------- */
+.Select-control, .Select-menu-outer {
+  border-color: var(--border) !important;
+  font-size: 13px;
+}
+.Select-value-label, .Select-placeholder { color: var(--ink) !important; }
+
+/* ---- tables ---------------------------------------------------------- */
+table tbody tr:hover { background: var(--tile); }
+
+/* ---- scrollbars in the code panes ------------------------------------ */
+pre::-webkit-scrollbar { height: 9px; width: 9px; }
+pre::-webkit-scrollbar-thumb {
+  background: #cfd6e2;
+  border-radius: 5px;
+}
+pre::-webkit-scrollbar-track { background: transparent; }
+
+/* ---- print / projector ----------------------------------------------- */
+@media (max-width: 900px) {
+  .overview-md { font-size: 14px; }
+}

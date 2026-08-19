@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-08-16T19:26:56-04:00",
+  "task_number": 44,
+  "task_total": 48,
+  "task_name": "SUJ2G2UMJQR7PMBX_1759209987.785593",
+  "difficulty": "medium",
+  "instruction": "Hi , Please convert the round edges of the gear into straight spur gear teeth. ",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 268519,
+    "output_tokens": 145084,
+    "reasoning_tokens": 94996,
+    "cached_input_tokens": 80896,
+    "total_tokens": 413603,
+    "llm_calls": 16,
+    "cost_estimate": 2.50108,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 45199,
+        "output_tokens": 7994
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 223320,
+        "output_tokens": 137090
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 20519,
+        "output_tokens": 1475,
+        "reasoning_tokens": 1024,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.05656
+      },
+      "executor": {
+        "input_tokens": 175975,
+        "output_tokens": 129195,
+        "reasoning_tokens": 84300,
+        "cached_input_tokens": 80896,
+        "llm_calls": 9,
+        "cost_estimate": 2.11669
+      },
+      "qa": {
+        "input_tokens": 33421,
+        "output_tokens": 3131,
+        "reasoning_tokens": 1860,
+        "cached_input_tokens": 0,
+        "llm_calls": 3,
+        "cost_estimate": 0.10232
+      },
+      "strategist-replan": {
+        "input_tokens": 24680,
+        "output_tokens": 6519,
+        "reasoning_tokens": 4969,
+        "cached_input_tokens": 0,
+        "llm_calls": 2,
+        "cost_estimate": 0.13446
+      },
+      "one-shot-fallback": {
+        "input_tokens": 13924,
+        "output_tokens": 4764,
+        "reasoning_tokens": 2843,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.09106
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786920446.817543/brep_end/1786920446.817543"
+}

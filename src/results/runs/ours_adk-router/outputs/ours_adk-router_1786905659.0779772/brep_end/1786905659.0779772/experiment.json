@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-08-16T14:43:29-04:00",
+  "task_number": 48,
+  "task_total": 48,
+  "task_name": "ZK22J6VYRKQ2RTFD_1758875163.609787",
+  "difficulty": "easy",
+  "instruction": "Add 0.2 mm chamfer to the hole edges to improve fitting.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.4-2026-03-05",
+    "executor": "gpt-5.4-2026-03-05",
+    "qa": "gpt-5.4-mini-2026-03-17"
+  },
+  "token_counts": {
+    "input_tokens": 34828,
+    "output_tokens": 14630,
+    "reasoning_tokens": 11162,
+    "total_tokens": 49458,
+    "llm_calls": 3,
+    "cost_estimate": 0.26577,
+    "per_model": {
+      "gpt-5.4-2026-03-05": {
+        "input_tokens": 25085,
+        "output_tokens": 13774
+      },
+      "gpt-5.4-mini-2026-03-17": {
+        "input_tokens": 9743,
+        "output_tokens": 856
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786905659.0779772/brep_end/1786905659.0779772"
+}

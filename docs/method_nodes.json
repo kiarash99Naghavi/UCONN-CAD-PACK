@@ -1,0 +1,431 @@
+{
+  "nodes": [
+    {
+      "id": "dataset",
+      "label": "Task library",
+      "kind": "source",
+      "row": 1,
+      "summary": "Holds the 48 benchmark requests: for each one, the input part, the customer's sentence, and the human expert's answer key.",
+      "inputs": [
+        "request_id"
+      ],
+      "outputs": [
+        "instruction text",
+        "input .step",
+        "7 colour renders of the input",
+        "ground-truth .stl"
+      ],
+      "detail": "The answer key is never shown to any agent. The colour renders are the dataset's own images of the input part, and they are attached to the run only when the instruction contains a word the measured index cannot answer: an appearance word, a view word, a deictic 'that', or a dimension word such as 'taller'. Three of the 48 inputs are already invalid B-reps, so validity is judged relative to the input rather than absolutely.",
+      "file": "src/pipeline.py"
+    },
+    {
+      "id": "inspect",
+      "label": "Part inspector",
+      "kind": "tool",
+      "row": 2,
+      "summary": "Turns an opaque solid into a text index of everything measurable about it.",
+      "inputs": [
+        "input .step"
+      ],
+      "outputs": [
+        "hole families by radius",
+        "cylindrical faces with sweep angle",
+        "planar faces",
+        "openings labelled BLIND or THROUGH",
+        "bores and ports as paired mouths",
+        "bounding box and per-solid table"
+      ],
+      "detail": "The STEP file has no feature tree and no names, so this is the only way an agent can refer to a feature. Two measurements exist because instructions select by property rather than by coordinate. Every opening is labelled BLIND or THROUGH by probing the solid between two aligned mouths, so 'make that slot cut through' can be aimed at the one that is not already through. Coaxial rings of one radius are collapsed into the bore or port they bound, with a length, so a tube is not read as two unrelated circles.",
+      "file": "src/tools/geometry.py"
+    },
+    {
+      "id": "render_in",
+      "label": "Camera rig (before)",
+      "kind": "tool",
+      "row": 2,
+      "summary": "Renders the input part from seven camera positions in a child process.",
+      "inputs": [
+        "input .step",
+        "view list",
+        "image size 512"
+      ],
+      "outputs": [
+        "7 PNG views: iso + 6 orthographic"
+      ],
+      "detail": "The six orthographic views are the ones the benchmark itself compares; the isometric is added because on a part whose features are arranged in 3D the orthographic views flatten them. Rendering must run in a separate process: the OCC offscreen viewer needs a process main thread and fails silently on a background thread, which is how the dashboard can run a job at the same time. Cameras auto-frame the part, which is why a translated part looks identical and needs a numeric gate instead.",
+      "file": "src/tools/render.py"
+    },
+    {
+      "id": "strategist",
+      "label": "Strategist",
+      "kind": "agent",
+      "row": 3,
+      "summary": "Turns one customer sentence into 1 to 5 ordered sub-goals that can each be checked on their own.",
+      "inputs": [
+        "instruction text",
+        "geometry index",
+        "dataset colour renders when a cue word is present",
+        "tag vocabulary"
+      ],
+      "outputs": [
+        "ordered sub-goals",
+        "rationale per sub-goal",
+        "tags",
+        "envelope per sub-goal"
+      ],
+      "detail": "It decides the decomposition, which feature each step targets, and the envelope: which bounding box faces that step is allowed to move, which the router later enforces as a contract. Its rules are written against measured failures: choose the instance by the property the sentence uses (BLIND against THROUGH, sweep angle, largest radius) rather than by position, prove a position is empty before putting a new feature there, and size an unstated dimension so the feature reaches through the surface it serves. When it is wrong the whole run is wrong, because every attempt below it is judged against its wording; a fully rejected sub-goal can send its collected feedback back here for one new plan, twice at most.",
+      "file": "src/agents/strategist.py"
+    },
+    {
+      "id": "skillref",
+      "label": "Skill provider",
+      "kind": "tool",
+      "row": 4,
+      "summary": "Picks the verified CadQuery recipe sections a sub-goal needs, inside a token budget.",
+      "inputs": [
+        "sub-goal tags",
+        "focus terms",
+        "instruction"
+      ],
+      "outputs": [
+        "recipe text within RECIPES_MAX_TOKENS",
+        "section ids"
+      ],
+      "detail": "A tag pins its section outright; keyword scoring fills the rest of the 4100 token budget. That figure is the measured point at which the localization section still fits beside the largest tag section. The block is off by default (USE_SKILL_RECIPES=0) for a running ablation, because it had grown to more than the geometry index costs, and each run records the setting so the A and B rows label themselves.",
+      "file": "src/tools/skillref.py"
+    },
+    {
+      "id": "executor",
+      "label": "Executor",
+      "kind": "agent",
+      "row": 4,
+      "summary": "Writes one CadQuery function for exactly one sub-goal.",
+      "inputs": [
+        "one sub-goal + tags",
+        "geometry index",
+        "verified recipes",
+        "last approved script",
+        "7 views of the state it is editing",
+        "feedback from its last failure"
+      ],
+      "outputs": [
+        "my_cad_function source",
+        "approach sentence"
+      ],
+      "detail": "It decides how to select the target and which operation to use, and it is the only component that writes code. It never sees the other sub-goals, and it is deliberately not shown its own rejected attempt, because that geometry was discarded and picturing it invites refinement of a part that no longer exists. Its prompt lists the API forms that do not exist in this build (cadquery 2.8.0 and OCP 7.9.3), for instance that normalAt takes no arguments and that Vector.Length is a property. On the last proposal of a sub-goal it switches to last resort mode and reaches for the bluntest thing that could work.",
+      "file": "src/agents/executor.py"
+    },
+    {
+      "id": "lint",
+      "label": "Regex check",
+      "kind": "gate",
+      "row": 5,
+      "summary": "Reads the generated code and rejects API calls that are certain to fail here, before any process is spent.",
+      "inputs": [
+        "generated function source"
+      ],
+      "outputs": [
+        "(rule, precise remedy) pairs",
+        "repair feedback text"
+      ],
+      "detail": "Two checks feed one repair loop. A hand-written table names traps harvested after they cost a run, such as makeCompound handed raw .wrapped objects (8 crashed attempts across 5 sessions) and the lowercase topods import that does not exist (3 more). A generic check parses the script and asks the installed CadQuery and OCP whether each called attribute really exists, offering the closest real name back, which is how AddFace was caught against the real AddFaceToRemove. It only judges names it typed with certainty and skips anything dynamic, because a false positive costs a repair round trip on correct code. A hit is repaired in place, up to twice, and does not spend the attempt.",
+      "file": "src/tools/lint.py"
+    },
+    {
+      "id": "runner",
+      "label": "Sandbox runner",
+      "kind": "tool",
+      "row": 6,
+      "summary": "Runs the generated function in an isolated subprocess and exports what it produced.",
+      "inputs": [
+        "clean function source",
+        "the .step it starts from",
+        "attempt directory"
+      ],
+      "outputs": [
+        "tmp.step",
+        "faces, edges, volume, bbox",
+        "the script's own prints and any traceback"
+      ],
+      "detail": "The subprocess is capped at 180 s and the child exits rather than taking the harness with it. A crash is not a wasted attempt: the traceback and the script's prints are matched against known runtime traps and returned as a specific remedy, for instance that an empty Bnd_Box means the boolean before it produced nothing, or that 'cannot find a solid on the stack' means the workplane was never seeded with the part. A result with essentially no material is rejected here as well.",
+      "file": "src/tools/runner.py"
+    },
+    {
+      "id": "compare",
+      "label": "Change measurer",
+      "kind": "gate",
+      "row": 7,
+      "summary": "Measures the new part against the one it started from and rejects the clear failures without asking any model.",
+      "inputs": [
+        "before .step",
+        "after .step",
+        "sub-goal tags",
+        "declared envelope"
+      ],
+      "outputs": [
+        "faces, edges and volume delta",
+        "no-op verdict",
+        "phantom material verdict",
+        "wrong direction verdict",
+        "frame drift verdict",
+        "undeclared envelope moves"
+      ],
+      "detail": "Five deterministic rejections live here. No-op: the output is geometrically identical, which scores zero, and a no-op caused by a misspelled API name the script's own try/except swallowed is charged as a typo so it does not condemn the approach. Phantom material: summed volume rose while occupied volume did not, meaning a duplicate body buried inside existing material. Direction: a sub-goal tagged cut-hole-slot that added material, or add-body that removed it, which caught a fillet shipping -52.02 mm^3 where the human's edit was +2.87 mm^3. Frame drift: the part was translated, rescaled or re-centred, which the auto-framed views cannot show. Envelope: a bounding box face moved that the sub-goal never declared. Each rejection returns text saying what to do differently, not just a retry.",
+      "file": "src/tools/geometry.py"
+    },
+    {
+      "id": "render_out",
+      "label": "Camera rig (after)",
+      "kind": "tool",
+      "row": 8,
+      "summary": "Renders the surviving attempt from the same seven cameras, so before and after can be compared image by image.",
+      "inputs": [
+        "tmp.step that passed the gates",
+        "view list"
+      ],
+      "outputs": [
+        "7 PNG views of the attempt",
+        "optional change-coloured views"
+      ],
+      "detail": "Every image is labelled with its view name and with BEFORE or AFTER, because a model asked to compare unlabelled pairs will confuse them. When the change can be isolated, the after views are additionally colour coded to show which region moved, with a legend, so QA is not hunting for a 2 mm difference across seven grey pictures.",
+      "file": "src/tools/render.py"
+    },
+    {
+      "id": "qa",
+      "label": "QA inspector",
+      "kind": "agent",
+      "row": 9,
+      "summary": "A separate model with no stake in the edit, which judges the attempt against its sub-goal and can reject it.",
+      "inputs": [
+        "the sub-goal + the customer instruction",
+        "the rest of the plan, labelled done or not run yet",
+        "7 views before and 7 after",
+        "measured diff",
+        "cumulative diff since the original",
+        "its own earlier verdicts"
+      ],
+      "outputs": [
+        "achieved",
+        "partial",
+        "confidence",
+        "issues",
+        "plan_flaw",
+        "guidance"
+      ],
+      "detail": "Three outcomes, not two: accepted, partial (the geometry is kept and refined in place) and rejected (the geometry is discarded). It judges completeness against this sub-goal only, which is why the rest of the plan is quoted to it: a correct flange was once marked partial for missing the four D=0.5 mm mounting holes that were the next sub-goal's entire content, the refinement cut them, and the holes sub-goal then no-opped and was rejected. It also raises plan_flaw when the sub-goal's own premise contradicts the instruction, which sends the sub-goal back to the strategist instead of retrying a doomed approach.",
+      "file": "src/agents/qa.py"
+    },
+    {
+      "id": "router",
+      "label": "Run controller",
+      "kind": "tool",
+      "row": 10,
+      "summary": "The state machine that applies each verdict, keeps the budgets, and decides which geometry is carried forward.",
+      "inputs": [
+        "QA verdict",
+        "gate verdicts",
+        "attempt counters",
+        "checkpoints"
+      ],
+      "outputs": [
+        "accepted_step per sub-goal",
+        "feedback text for the next attempt",
+        "replan request",
+        "the state the run reverts to"
+      ],
+      "detail": "Two budgets per sub-goal: three design proposals (attempts that produced geometry someone could judge) and zero extra headroom for barren ones (a crash, a no-op), so a typo cannot retire a sub-goal that never put a proposal in front of QA. Before a verdict is applied it drops any QA finding whose distinctive vocabulary belongs to a sub-goal that has not run yet, and a partial whose every issue was out of scope is promoted to a full acceptance. What advances is always the last geometry that passed QA, never simply whatever ran last, and the geometry is re-indexed from the accepted state before the next sub-goal starts.",
+      "file": "src/adk/router.py"
+    },
+    {
+      "id": "finalize",
+      "label": "Submission writer",
+      "kind": "tool",
+      "row": 11,
+      "summary": "Writes the submission folder in the exact layout the benchmark ingests.",
+      "inputs": [
+        "the last accepted .step",
+        "run state, token counts, cost"
+      ],
+      "outputs": [
+        "tmp.step",
+        "tmp.stl",
+        "7 jpg views",
+        "settings.json",
+        "session_state.json and every attempt's geometry"
+      ],
+      "detail": "The STL is what gets scored, so it is exported here from the accepted STEP rather than from any intermediate state. If nothing was ever accepted, the unedited input is shipped, which scores zero on diff F1 but is still a valid submission. Every attempt's script, geometry and views are kept beside it so any decision in the run can be replayed and audited.",
+      "file": "src/adk/router.py"
+    },
+    {
+      "id": "evaluate",
+      "label": "Benchmark scorer",
+      "kind": "sink",
+      "row": 12,
+      "summary": "Scores the submission with the benchmark's own metric code against the human expert's edit.",
+      "inputs": [
+        "predicted tmp.stl",
+        "ground-truth .stl",
+        "the start part"
+      ],
+      "outputs": [
+        "chamfer_similarity_norm",
+        "volume_f1",
+        "diff_f1"
+      ],
+      "detail": "The benchmark's own evals are imported rather than reimplemented, so the numbers are comparable with the published baselines. Diff F1 voxelises the start, the ground truth and our part on one shared grid, takes each edit's changed voxels as an XOR against the start, and computes F1 between those two change sets, with no alignment step. A missing or unloadable STL scores 0.0 on all three, exactly as the benchmark treats a failed edit.",
+      "file": "src/evaluate.py"
+    }
+  ],
+  "edges": [
+    {
+      "from": "dataset",
+      "to": "inspect",
+      "label": "input .step",
+      "kind": "forward"
+    },
+    {
+      "from": "dataset",
+      "to": "render_in",
+      "label": "input .step",
+      "kind": "forward"
+    },
+    {
+      "from": "dataset",
+      "to": "strategist",
+      "label": "instruction",
+      "kind": "forward"
+    },
+    {
+      "from": "inspect",
+      "to": "strategist",
+      "label": "geometry index",
+      "kind": "forward"
+    },
+    {
+      "from": "render_in",
+      "to": "strategist",
+      "label": "7 views (only on a cue word)",
+      "kind": "forward"
+    },
+    {
+      "from": "strategist",
+      "to": "skillref",
+      "label": "tags + focus terms",
+      "kind": "forward"
+    },
+    {
+      "from": "strategist",
+      "to": "executor",
+      "label": "one sub-goal, tags, envelope",
+      "kind": "forward"
+    },
+    {
+      "from": "skillref",
+      "to": "executor",
+      "label": "verified recipes",
+      "kind": "forward"
+    },
+    {
+      "from": "inspect",
+      "to": "executor",
+      "label": "geometry index",
+      "kind": "forward"
+    },
+    {
+      "from": "render_in",
+      "to": "executor",
+      "label": "7 views of the last approved state",
+      "kind": "forward"
+    },
+    {
+      "from": "executor",
+      "to": "lint",
+      "label": "function source",
+      "kind": "forward"
+    },
+    {
+      "from": "lint",
+      "to": "executor",
+      "label": "repair in place, no attempt spent",
+      "kind": "feedback"
+    },
+    {
+      "from": "lint",
+      "to": "runner",
+      "label": "clean source",
+      "kind": "forward"
+    },
+    {
+      "from": "runner",
+      "to": "compare",
+      "label": "tmp.step",
+      "kind": "forward"
+    },
+    {
+      "from": "runner",
+      "to": "executor",
+      "label": "traceback + the script's prints",
+      "kind": "feedback"
+    },
+    {
+      "from": "compare",
+      "to": "executor",
+      "label": "no-op, phantom, direction, drift, envelope",
+      "kind": "feedback"
+    },
+    {
+      "from": "compare",
+      "to": "render_out",
+      "label": "tmp.step that survived the gates",
+      "kind": "forward"
+    },
+    {
+      "from": "compare",
+      "to": "qa",
+      "label": "measured diff + cumulative diff",
+      "kind": "forward"
+    },
+    {
+      "from": "render_out",
+      "to": "qa",
+      "label": "7 views before, 7 after",
+      "kind": "forward"
+    },
+    {
+      "from": "qa",
+      "to": "router",
+      "label": "achieved / partial / rejected",
+      "kind": "forward"
+    },
+    {
+      "from": "router",
+      "to": "executor",
+      "label": "rejected: start fresh, partial: refine in place",
+      "kind": "feedback"
+    },
+    {
+      "from": "router",
+      "to": "strategist",
+      "label": "replan: every attempt failed",
+      "kind": "feedback"
+    },
+    {
+      "from": "router",
+      "to": "finalize",
+      "label": "the last accepted .step",
+      "kind": "forward"
+    },
+    {
+      "from": "finalize",
+      "to": "evaluate",
+      "label": "tmp.stl + views",
+      "kind": "forward"
+    },
+    {
+      "from": "dataset",
+      "to": "evaluate",
+      "label": "ground-truth .stl",
+      "kind": "forward"
+    }
+  ]
+}

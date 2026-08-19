@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-16T22:06:30-04:00",
+  "task_number": 31,
+  "task_total": 48,
+  "task_name": "F332D3FXML85WLR2_1769424096.996583",
+  "difficulty": "easy",
+  "instruction": "Add rounds to all edges of the part. R=0,2mm",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 41367,
+    "output_tokens": 14720,
+    "reasoning_tokens": 8926,
+    "cached_input_tokens": 4608,
+    "total_tokens": 56087,
+    "llm_calls": 4,
+    "cost_estimate": 0.27847,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 11754,
+        "output_tokens": 752
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 29613,
+        "output_tokens": 13968
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 11754,
+        "output_tokens": 752,
+        "reasoning_tokens": 512,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.0311
+      },
+      "executor": {
+        "input_tokens": 18747,
+        "output_tokens": 13598,
+        "reasoning_tokens": 8243,
+        "cached_input_tokens": 4608,
+        "llm_calls": 2,
+        "cost_estimate": 0.22318
+      },
+      "qa": {
+        "input_tokens": 10866,
+        "output_tokens": 370,
+        "reasoning_tokens": 171,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.0242
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786932132.4412851/brep_end/1786932132.4412851"
+}

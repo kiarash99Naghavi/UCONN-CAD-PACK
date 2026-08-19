@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-16T20:51:43-04:00",
+  "task_number": 19,
+  "task_total": 48,
+  "task_name": "B7A2N74ZJBF9MZHU_1770166308.11235",
+  "difficulty": "easy",
+  "instruction": "If this is a spanner, the main cutout is too deep which is weakening the tool. Make the cutout shallower by 10mm, but keep the \"size\" of the spanner the same - meaning the parallel surfaces remain 20mm apart.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 76391,
+    "output_tokens": 37931,
+    "reasoning_tokens": 25993,
+    "cached_input_tokens": 9728,
+    "total_tokens": 114322,
+    "llm_calls": 6,
+    "cost_estimate": 0.66472,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 15661,
+        "output_tokens": 1494
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 60730,
+        "output_tokens": 36437
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 15661,
+        "output_tokens": 1494,
+        "reasoning_tokens": 1024,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.04832
+      },
+      "executor": {
+        "input_tokens": 37921,
+        "output_tokens": 30275,
+        "reasoning_tokens": 19719,
+        "cached_input_tokens": 9728,
+        "llm_calls": 3,
+        "cost_estimate": 0.49021
+      },
+      "qa": {
+        "input_tokens": 22809,
+        "output_tokens": 6162,
+        "reasoning_tokens": 5250,
+        "cached_input_tokens": 0,
+        "llm_calls": 2,
+        "cost_estimate": 0.12618
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786927269.640435/brep_end/1786927269.640435"
+}

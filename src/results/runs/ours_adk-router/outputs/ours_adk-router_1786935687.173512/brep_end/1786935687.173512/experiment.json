@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-16T23:13:27-04:00",
+  "task_number": 6,
+  "task_total": 48,
+  "task_name": "3YH2WFSRM22W7DKT_1769177116.6129558",
+  "difficulty": "hard",
+  "instruction": "Design simple locking mechanism in the area of the hook to secure carried load.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 55783,
+    "output_tokens": 46856,
+    "reasoning_tokens": 37077,
+    "cached_input_tokens": 8704,
+    "total_tokens": 102639,
+    "llm_calls": 5,
+    "cost_estimate": 0.7536,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 11889,
+        "output_tokens": 1506
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 43894,
+        "output_tokens": 45350
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 11889,
+        "output_tokens": 1506,
+        "reasoning_tokens": 1024,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.04189
+      },
+      "executor": {
+        "input_tokens": 32875,
+        "output_tokens": 40632,
+        "reasoning_tokens": 31750,
+        "cached_input_tokens": 8704,
+        "llm_calls": 3,
+        "cost_estimate": 0.62638
+      },
+      "qa": {
+        "input_tokens": 11019,
+        "output_tokens": 4718,
+        "reasoning_tokens": 4303,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.08534
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786935687.173512/brep_end/1786935687.173512"
+}

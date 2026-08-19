@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-16T20:48:40-04:00",
+  "task_number": 23,
+  "task_total": 48,
+  "task_name": "B7A2N74ZJBF9MZHU_1770169718.2982779",
+  "difficulty": "medium",
+  "instruction": "Reduce overall height of Nozzle Volcano part by 1mm, reduction should be made in threaded area.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 61045,
+    "output_tokens": 10898,
+    "reasoning_tokens": 8327,
+    "cached_input_tokens": 0,
+    "total_tokens": 71943,
+    "llm_calls": 3,
+    "cost_estimate": 0.2594,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 28138,
+        "output_tokens": 989
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 32907,
+        "output_tokens": 9909
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 28138,
+        "output_tokens": 989,
+        "reasoning_tokens": 512,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.06309
+      },
+      "executor": {
+        "input_tokens": 21624,
+        "output_tokens": 6301,
+        "reasoning_tokens": 4429,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.12606
+      },
+      "qa": {
+        "input_tokens": 11283,
+        "output_tokens": 3608,
+        "reasoning_tokens": 3386,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.07026
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786927291.9001012/brep_end/1786927291.9001012"
+}

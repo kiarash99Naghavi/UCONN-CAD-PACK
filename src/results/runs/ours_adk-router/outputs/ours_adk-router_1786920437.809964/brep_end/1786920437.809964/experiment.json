@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-16T18:52:37-04:00",
+  "task_number": 47,
+  "task_total": 48,
+  "task_name": "ZK22J6VYRKQ2RTFD_1758874422.1403751",
+  "difficulty": "hard",
+  "instruction": "Add a connecting hole of 1.7 millimetre diameter and apply 0.1 millimetre grooves to increase grip and prevent slipping.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 69435,
+    "output_tokens": 18537,
+    "reasoning_tokens": 10751,
+    "cached_input_tokens": 0,
+    "total_tokens": 87972,
+    "llm_calls": 5,
+    "cost_estimate": 0.38103,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 17438,
+        "output_tokens": 2101
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 51997,
+        "output_tokens": 16436
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 17438,
+        "output_tokens": 2101,
+        "reasoning_tokens": 1411,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.05993
+      },
+      "executor": {
+        "input_tokens": 30173,
+        "output_tokens": 15126,
+        "reasoning_tokens": 8479,
+        "cached_input_tokens": 0,
+        "llm_calls": 2,
+        "cost_estimate": 0.26457
+      },
+      "qa": {
+        "input_tokens": 21824,
+        "output_tokens": 1310,
+        "reasoning_tokens": 861,
+        "cached_input_tokens": 0,
+        "llm_calls": 2,
+        "cost_estimate": 0.05653
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786920437.809964/brep_end/1786920437.809964"
+}

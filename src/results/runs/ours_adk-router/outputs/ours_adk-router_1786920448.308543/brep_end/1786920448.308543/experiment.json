@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-08-16T19:14:09-04:00",
+  "task_number": 42,
+  "task_total": 48,
+  "task_name": "SUJ2G2UMJQR7PMBX_1759203739.2515829",
+  "difficulty": "hard",
+  "instruction": "Hi , Please create a filling system on the radiator , including a pouring section and a cap.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 320852,
+    "output_tokens": 74759,
+    "reasoning_tokens": 46951,
+    "cached_input_tokens": 80896,
+    "total_tokens": 395611,
+    "llm_calls": 20,
+    "cost_estimate": 1.60812,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 70016,
+        "output_tokens": 10343
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 250836,
+        "output_tokens": 64416
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 20784,
+        "output_tokens": 2336,
+        "reasoning_tokens": 1622,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.06908
+      },
+      "executor": {
+        "input_tokens": 213690,
+        "output_tokens": 55712,
+        "reasoning_tokens": 35350,
+        "cached_input_tokens": 80896,
+        "llm_calls": 12,
+        "cost_estimate": 1.15393
+      },
+      "strategist-replan": {
+        "input_tokens": 49232,
+        "output_tokens": 8007,
+        "reasoning_tokens": 5087,
+        "cached_input_tokens": 0,
+        "llm_calls": 4,
+        "cost_estimate": 0.19825
+      },
+      "qa": {
+        "input_tokens": 22966,
+        "output_tokens": 3148,
+        "reasoning_tokens": 2176,
+        "cached_input_tokens": 0,
+        "llm_calls": 2,
+        "cost_estimate": 0.08426
+      },
+      "one-shot-fallback": {
+        "input_tokens": 14180,
+        "output_tokens": 5556,
+        "reasoning_tokens": 2716,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.1026
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786920448.308543/brep_end/1786920448.308543"
+}

@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1338" height="809" viewBox="0 0 1338 809" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="150%" height="160%">
+    <feDropShadow dx="1.4" dy="1.8" stdDeviation="1.3" flood-color="#0f172a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <path d="M 0 1 L 9 5 L 0 9 z" fill="#334155"/></marker>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <path d="M 0 1 L 9 5 L 0 9 z" fill="#b45309"/></marker>
+  <marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 1 L 9 5 L 0 9 z" fill="#1f4fa8"/></marker>
+  <style>.lbl{paint-order:stroke;stroke:#ffffff;stroke-width:2.6px;stroke-linejoin:round}</style>
+</defs>
+<rect width="1338" height="809" fill="#ffffff"/>
+<text x="669.0" y="30.0" font-size="16" font-weight="700" text-anchor="middle" fill="#0f172a">CADEDITOR — one edit request, end to end</text>
+<text x="669.0" y="48.0" font-size="9.5" font-weight="normal" text-anchor="middle" fill="#64748b">port names are the signals on the wires · rows run left to right, top to bottom · amber wires retry the attempt</text>
+<rect x="74.0" y="74.0" width="249.8" height="71.0" rx="3" fill="#e8edf4" stroke="#5b6b83" stroke-width="1.2" filter="url(#sh)"/>
+<text x="315.8" y="99.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">input .step</text>
+<text x="315.8" y="114.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">instruction</text>
+<text x="315.8" y="129.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">ground-truth .stl</text>
+<text x="198.9" y="159.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Task library</text>
+<text x="198.9" y="170.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">sourcecode/…/data/edit_192_external</text>
+<rect x="427.8" y="84.5" width="235.1" height="50.0" rx="3" fill="#fdeec8" stroke="#a2691a" stroke-width="1.2" filter="url(#sh)"/>
+<text x="435.8" y="110.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">input .step</text>
+<text x="654.9" y="110.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">geometry index</text>
+<text x="545.4" y="148.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Part inspector</text>
+<text x="545.4" y="159.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/tools/geometry.py</text>
+<rect x="766.9" y="84.5" width="200.8" height="50.0" rx="3" fill="#fde4dc" stroke="#b4441f" stroke-width="1.2" filter="url(#sh)"/>
+<text x="774.9" y="110.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">input .step</text>
+<text x="959.7" y="110.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">3 views</text>
+<text x="867.3" y="148.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Camera rig</text>
+<text x="867.3" y="159.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/tools/render.py</text>
+<rect x="1071.7" y="74.0" width="220.4" height="71.0" rx="3" fill="#d9f4e2" stroke="#1c7a45" stroke-width="1.2" filter="url(#sh)"/>
+<text x="1079.7" y="99.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">instruction</text>
+<text x="1079.7" y="114.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">geometry index</text>
+<text x="1079.7" y="129.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">3 views</text>
+<text x="1284.1" y="99.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">ordered sub-goals</text>
+<text x="1181.9" y="159.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Strategist</text>
+<text x="1181.9" y="170.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/agents/strategist.py</text>
+<rect x="74.0" y="276.5" width="249.8" height="86.0" rx="3" fill="#e9e3fb" stroke="#6d3fc4" stroke-width="1.2" filter="url(#sh)"/>
+<text x="82.0" y="302.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">ordered sub-goals</text>
+<text x="82.0" y="317.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">gate verdicts</text>
+<text x="82.0" y="332.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">accept / partial / reject</text>
+<text x="315.8" y="302.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">tags + focus terms</text>
+<text x="315.8" y="317.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">sub-goal + feedback</text>
+<text x="315.8" y="332.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">current .step</text>
+<text x="315.8" y="347.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">accepted .step</text>
+<text x="198.9" y="376.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Run controller</text>
+<text x="198.9" y="387.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/adk/router.py</text>
+<rect x="427.8" y="294.5" width="235.1" height="50.0" rx="3" fill="#fdeec8" stroke="#a2691a" stroke-width="1.2" filter="url(#sh)"/>
+<text x="435.8" y="320.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">tags + focus terms</text>
+<text x="654.9" y="320.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">verified recipes</text>
+<text x="545.4" y="358.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Skill provider</text>
+<text x="545.4" y="369.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/tools/skillref.py</text>
+<rect x="766.9" y="269.0" width="200.8" height="101.0" rx="3" fill="#d9f4e2" stroke="#1c7a45" stroke-width="1.2" filter="url(#sh)"/>
+<text x="774.9" y="294.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">verified recipes</text>
+<text x="774.9" y="309.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">sub-goal + feedback</text>
+<text x="774.9" y="324.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">geometry index</text>
+<text x="774.9" y="339.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">repair request</text>
+<text x="774.9" y="354.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">traceback + prints</text>
+<text x="959.7" y="294.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">function source</text>
+<text x="867.3" y="384.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Executor</text>
+<text x="867.3" y="395.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/agents/executor.py</text>
+<rect x="1071.7" y="291.5" width="220.4" height="56.0" rx="3" fill="#fdeec8" stroke="#a2691a" stroke-width="1.2" filter="url(#sh)"/>
+<text x="1079.7" y="317.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">function source</text>
+<text x="1284.1" y="317.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">repair request</text>
+<text x="1284.1" y="332.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">clean source</text>
+<text x="1181.9" y="361.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Regex check</text>
+<text x="1181.9" y="372.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/tools/lint.py</text>
+<rect x="74.0" y="482.0" width="249.8" height="56.0" rx="3" fill="#fde4dc" stroke="#b4441f" stroke-width="1.2" filter="url(#sh)"/>
+<text x="82.0" y="507.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">clean source</text>
+<text x="82.0" y="522.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">current .step</text>
+<text x="315.8" y="507.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">tmp.step</text>
+<text x="315.8" y="522.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">traceback + prints</text>
+<text x="198.9" y="552.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Sandbox runner</text>
+<text x="198.9" y="563.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/tools/runner.py → exec_script.py</text>
+<rect x="427.8" y="482.0" width="235.1" height="56.0" rx="3" fill="#fdeec8" stroke="#a2691a" stroke-width="1.2" filter="url(#sh)"/>
+<text x="435.8" y="507.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">tmp.step</text>
+<text x="654.9" y="507.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">measured diff</text>
+<text x="654.9" y="522.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">gate verdicts</text>
+<text x="545.4" y="552.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Change measurer</text>
+<text x="545.4" y="563.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/tools/geometry.py</text>
+<rect x="766.9" y="485.0" width="200.8" height="50.0" rx="3" fill="#fde4dc" stroke="#b4441f" stroke-width="1.2" filter="url(#sh)"/>
+<text x="774.9" y="510.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">tmp.step</text>
+<text x="959.7" y="510.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">6 ortho views</text>
+<text x="867.3" y="549.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Camera rig (after)</text>
+<text x="867.3" y="560.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/tools/render.py</text>
+<rect x="1071.7" y="482.0" width="220.4" height="56.0" rx="3" fill="#d9f4e2" stroke="#1c7a45" stroke-width="1.2" filter="url(#sh)"/>
+<text x="1079.7" y="507.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">measured diff</text>
+<text x="1079.7" y="522.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">6 ortho views</text>
+<text x="1284.1" y="507.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">accept / partial / reject</text>
+<text x="1181.9" y="552.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">QA inspector</text>
+<text x="1181.9" y="563.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/agents/qa.py</text>
+<rect x="74.0" y="660.5" width="249.8" height="50.0" rx="3" fill="#e9e3fb" stroke="#6d3fc4" stroke-width="1.2" filter="url(#sh)"/>
+<text x="82.0" y="686.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">accepted .step</text>
+<text x="315.8" y="686.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">tmp.step + tmp.stl + 7 jpgs</text>
+<text x="198.9" y="724.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Submission writer</text>
+<text x="198.9" y="735.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/adk/router.py</text>
+<rect x="427.8" y="660.5" width="235.1" height="50.0" rx="3" fill="#d7e6fb" stroke="#1f4fa8" stroke-width="1.2" filter="url(#sh)"/>
+<text x="435.8" y="686.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">tmp.step + tmp.stl + 7 jpgs</text>
+<text x="654.9" y="686.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">predicted .stl</text>
+<text x="545.4" y="724.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Submission folder</text>
+<text x="545.4" y="735.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">results/runs/&lt;user&gt;/outputs/…</text>
+<rect x="766.9" y="650.0" width="200.8" height="71.0" rx="3" fill="#fdeec8" stroke="#a2691a" stroke-width="1.2" filter="url(#sh)"/>
+<text x="774.9" y="675.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">predicted .stl</text>
+<text x="774.9" y="690.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">ground-truth .stl</text>
+<text x="959.7" y="705.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">chamfer · volume F1 · diff F1</text>
+<text x="867.3" y="735.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Benchmark scorer</text>
+<text x="867.3" y="746.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/evaluate.py</text>
+<rect x="1071.7" y="660.5" width="220.4" height="50.0" rx="3" fill="#d7e6fb" stroke="#1f4fa8" stroke-width="1.2" filter="url(#sh)"/>
+<text x="1079.7" y="686.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">chamfer · volume F1 · diff F1</text>
+<text x="1181.9" y="724.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">The three metrics</text>
+<text x="1181.9" y="735.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">0.0 for a crash, a no-op or a missing file</text>
+<path d="M 323.8,96.5 L 371.8,96.5 Q 375.8,96.5 375.8,100.5 L 375.8,103.0 Q 375.8,107.0 379.8,107.0 L 427.8,107.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 323.8,96.5 L 332.8,96.5 Q 336.8,96.5 336.8,100.5 L 336.8,189.0 Q 336.8,193.0 340.8,193.0 L 749.9,193.0 Q 753.9,193.0 753.9,189.0 L 753.9,111.0 Q 753.9,107.0 757.9,107.0 L 766.9,107.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="478.6" y="189.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">input .step</text>
+<path d="M 323.8,111.5 L 340.8,111.5 Q 344.8,111.5 344.8,115.5 L 344.8,201.0 Q 344.8,205.0 348.8,205.0 L 1046.7,205.0 Q 1050.7,205.0 1050.7,201.0 L 1050.7,100.5 Q 1050.7,96.5 1054.7,96.5 L 1071.7,96.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="697.8" y="201.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">instruction</text>
+<path d="M 662.9,107.0 L 687.9,107.0 Q 691.9,107.0 691.9,111.0 L 691.9,213.0 Q 691.9,217.0 695.9,217.0 L 1038.7,217.0 Q 1042.7,217.0 1042.7,213.0 L 1042.7,115.5 Q 1042.7,111.5 1046.7,111.5 L 1071.7,111.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="923.4" y="213.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">geometry index</text>
+<path d="M 967.7,107.0 L 1015.7,107.0 Q 1019.7,107.0 1019.7,111.0 L 1019.7,122.5 Q 1019.7,126.5 1023.7,126.5 L 1071.7,126.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 1292.1,96.5 L 1301.1,96.5 Q 1305.1,96.5 1305.1,100.5 L 1305.1,225.0 Q 1305.1,229.0 1301.1,229.0 L 41.0,229.0 Q 37.0,229.0 37.0,233.0 L 37.0,295.0 Q 37.0,299.0 41.0,299.0 L 74.0,299.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="873.9" y="225.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">ordered sub-goals</text>
+<path d="M 323.8,299.0 L 371.8,299.0 Q 375.8,299.0 375.8,303.0 L 375.8,313.0 Q 375.8,317.0 379.8,317.0 L 427.8,317.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 662.9,317.0 L 710.9,317.0 Q 714.9,317.0 714.9,313.0 L 714.9,295.5 Q 714.9,291.5 718.9,291.5 L 766.9,291.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 323.8,314.0 L 332.8,314.0 Q 336.8,314.0 336.8,318.0 L 336.8,414.0 Q 336.8,418.0 340.8,418.0 L 749.9,418.0 Q 753.9,418.0 753.9,414.0 L 753.9,310.5 Q 753.9,306.5 757.9,306.5 L 766.9,306.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="478.6" y="414.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">sub-goal + feedback</text>
+<path d="M 662.9,107.0 L 679.9,107.0 Q 683.9,107.0 683.9,111.0 L 683.9,237.0 Q 683.9,241.0 687.9,241.0 L 749.9,241.0 Q 753.9,241.0 753.9,245.0 L 753.9,317.5 Q 753.9,321.5 757.9,321.5 L 766.9,321.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="718.9" y="237.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">geometry index</text>
+<path d="M 967.7,291.5 L 1015.7,291.5 Q 1019.7,291.5 1019.7,295.5 L 1019.7,310.0 Q 1019.7,314.0 1023.7,314.0 L 1071.7,314.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 1292.1,314.0 L 1309.1,314.0 Q 1313.1,314.0 1313.1,318.0 L 1313.1,426.0 Q 1313.1,430.0 1309.1,430.0 L 749.9,430.0 Q 745.9,430.0 745.9,426.0 L 745.9,340.5 Q 745.9,336.5 749.9,336.5 L 766.9,336.5" fill="none" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="1029.5" y="426.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#b45309" class="lbl">repair request</text>
+<path d="M 1292.1,329.0 L 1317.1,329.0 Q 1321.1,329.0 1321.1,333.0 L 1321.1,438.0 Q 1321.1,442.0 1317.1,442.0 L 49.0,442.0 Q 45.0,442.0 45.0,446.0 L 45.0,500.5 Q 45.0,504.5 49.0,504.5 L 74.0,504.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="478.9" y="438.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">clean source</text>
+<path d="M 323.8,329.0 L 332.8,329.0 Q 336.8,329.0 336.8,333.0 L 336.8,450.0 Q 336.8,454.0 332.8,454.0 L 41.0,454.0 Q 37.0,454.0 37.0,458.0 L 37.0,515.5 Q 37.0,519.5 41.0,519.5 L 74.0,519.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="234.9" y="450.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">current .step</text>
+<path d="M 323.8,504.5 L 371.8,504.5 Q 375.8,504.5 379.8,504.5 L 427.8,504.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 323.8,504.5 L 332.8,504.5 Q 336.8,504.5 336.8,508.5 L 336.8,582.0 Q 336.8,586.0 340.8,586.0 L 749.9,586.0 Q 753.9,586.0 753.9,582.0 L 753.9,511.5 Q 753.9,507.5 757.9,507.5 L 766.9,507.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="478.6" y="582.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">tmp.step</text>
+<path d="M 323.8,519.5 L 340.8,519.5 Q 344.8,519.5 344.8,523.5 L 344.8,594.0 Q 344.8,598.0 348.8,598.0 L 741.9,598.0 Q 745.9,598.0 745.9,594.0 L 745.9,355.5 Q 745.9,351.5 749.9,351.5 L 766.9,351.5" fill="none" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="545.4" y="594.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#b45309" class="lbl">traceback + prints</text>
+<path d="M 662.9,504.5 L 687.9,504.5 Q 691.9,504.5 691.9,508.5 L 691.9,606.0 Q 691.9,610.0 695.9,610.0 L 1038.7,610.0 Q 1042.7,610.0 1042.7,606.0 L 1042.7,508.5 Q 1042.7,504.5 1046.7,504.5 L 1071.7,504.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="923.4" y="606.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">measured diff</text>
+<path d="M 967.7,507.5 L 1015.7,507.5 Q 1019.7,507.5 1019.7,511.5 L 1019.7,515.5 Q 1019.7,519.5 1023.7,519.5 L 1071.7,519.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 662.9,519.5 L 671.9,519.5 Q 675.9,519.5 675.9,523.5 L 675.9,618.0 Q 675.9,622.0 671.9,622.0 L 41.0,622.0 Q 37.0,622.0 37.0,618.0 L 37.0,318.0 Q 37.0,314.0 41.0,314.0 L 74.0,314.0" fill="none" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="458.7" y="618.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#b45309" class="lbl">gate verdicts</text>
+<path d="M 1292.1,504.5 L 1309.1,504.5 Q 1313.1,504.5 1313.1,508.5 L 1313.1,630.0 Q 1313.1,634.0 1309.1,634.0 L 65.0,634.0 Q 61.0,634.0 61.0,630.0 L 61.0,333.0 Q 61.0,329.0 65.0,329.0 L 74.0,329.0" fill="none" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="687.0" y="630.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#b45309" class="lbl">accept / partial / reject</text>
+<path d="M 323.8,344.0 L 340.8,344.0 Q 344.8,344.0 344.8,348.0 L 344.8,462.0 Q 344.8,466.0 340.8,466.0 L 65.0,466.0 Q 61.0,466.0 61.0,470.0 L 61.0,679.0 Q 61.0,683.0 65.0,683.0 L 74.0,683.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="202.9" y="462.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">accepted .step</text>
+<path d="M 323.8,683.0 L 371.8,683.0 Q 375.8,683.0 379.8,683.0 L 427.8,683.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 662.9,683.0 L 710.9,683.0 Q 714.9,683.0 714.9,679.0 L 714.9,676.5 Q 714.9,672.5 718.9,672.5 L 766.9,672.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 967.7,702.5 L 1015.7,702.5 Q 1019.7,702.5 1019.7,698.5 L 1019.7,687.0 Q 1019.7,683.0 1023.7,683.0 L 1071.7,683.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 323.8,126.5 L 348.8,126.5 Q 352.8,126.5 352.8,130.5 L 352.8,249.0 Q 352.8,253.0 356.8,253.0 L 741.9,253.0 Q 745.9,253.0 745.9,257.0 L 745.9,683.5 Q 745.9,687.5 749.9,687.5 L 766.9,687.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="612.3" y="249.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">ground-truth .stl</text>
+<rect x="74.0" y="769.0" width="13" height="11" rx="2" fill="#e8edf4" stroke="#5b6b83" stroke-width="1.1"/>
+<text x="94.0" y="778.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">dataset / files on disk</text>
+<rect x="208.5" y="769.0" width="13" height="11" rx="2" fill="#e9e3fb" stroke="#6d3fc4" stroke-width="1.1"/>
+<text x="228.5" y="778.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">router — the state machine</text>
+<rect x="357.0" y="769.0" width="13" height="11" rx="2" fill="#d9f4e2" stroke="#1c7a45" stroke-width="1.1"/>
+<text x="377.0" y="778.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">LLM agent (one JSON call via adk/llm.py)</text>
+<rect x="570.3" y="769.0" width="13" height="11" rx="2" fill="#fdeec8" stroke="#a2691a" stroke-width="1.1"/>
+<text x="590.3" y="778.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">deterministic tool</text>
+<rect x="681.7" y="769.0" width="13" height="11" rx="2" fill="#fde4dc" stroke="#b4441f" stroke-width="1.1"/>
+<text x="701.7" y="778.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">runs CadQuery in a child process</text>
+<rect x="857.9" y="769.0" width="13" height="11" rx="2" fill="#d7e6fb" stroke="#1f4fa8" stroke-width="1.1"/>
+<text x="877.9" y="778.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">what gets shipped and scored</text>
+<line x1="1015.6" y1="774.0" x2="1030.6" y2="774.0" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="1035.6" y="778.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">feedback — the attempt is retried</text>
+</svg>

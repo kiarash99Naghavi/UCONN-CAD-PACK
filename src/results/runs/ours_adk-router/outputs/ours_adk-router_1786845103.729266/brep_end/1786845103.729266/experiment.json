@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-15T21:58:03-04:00",
+  "task_number": 28,
+  "task_total": 48,
+  "task_name": "B7A2N74ZJBF9MZHU_1770174133.012106",
+  "difficulty": "easy",
+  "instruction": "Prolong black lever sticking out to the front by 5cm for better manipulation.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.2-2025-12-11",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 35383,
+    "output_tokens": 16079,
+    "reasoning_tokens": 14156,
+    "total_tokens": 51462,
+    "llm_calls": 3,
+    "cost_estimate": 0.28703
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266"
+}

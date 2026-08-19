@@ -1,0 +1,223 @@
+{
+  "request_id": "B7A2N74ZJBF9MZHU_1770174133.012106",
+  "instruction": "Prolong black lever sticking out to the front by 5cm for better manipulation.",
+  "input_step": "/Users/kiarash/Downloads/2026ASMEHackathon/sourcecode/IDETC26-Hackathon-Autodesk-neuralCAD-Edit/data/edit_192_external/breps/B7A2N74ZJBF9MZHU_1770174182.8249135.step",
+  "work_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/_work/B7A2N74ZJBF9MZHU_1770174133.012106_1786845103",
+  "geometry_text": "SOLID B7A2N74ZJBF9MZHU_1770174182.8249135.step  valid=True  solids=56\n  532 faces, 883 edges, 575 vertices\n  surfaces: PLANEx202, BSPLINEx182, CYLINDERx145, TORUSx2, CONEx1\n  volume 31054626.553 mm^3, area 1825035.49 mm^2\n  bbox size [311.801, 449.936, 434.056]  min [-300.0, -9.936, -2.056]  max [11.801, 440.0, 432.0]\n  the index below covers the WHOLE solid: no family is withheld for being too small or too large.\n  Any list cut for length says '(showing N of M)' \u2014 a list without that marker is complete.\n\nCIRCULAR EDGE FAMILIES (candidate holes / round features; edge_idx = unique edge tags; centers are TRUE circle centers, which for a partial arc is NOT where Edge.Center() puts its centroid):\n  r=27.5     d=55.0     count=18   [feature] partial_arcs=18/18 centers=[[-31.5, -1.0, 319.5], [-31.5, 9.0, 319.5], [-268.5, -1.0, 319.5], [-268.5, -1.0, 30.5], [-31.5, -1.0, 30.5], [-268.5, 9.0, 319.5]] (showing 6 of 18) edge_idx=[26, 28, 34, 36, 38, 40, 44, 46, 149, 151, 157, 159, 161, 163, 167, 169] (showing 16 of 18)\n  r=11.0     d=22.0     count=4    [feature] partial_arcs=4/4 centers=[[0.804, 138.235, 271.083], [0.804, 138.235, 271.083], [-2.138, 166.508, 269.024], [-2.138, 166.508, 269.024]] edge_idx=[778, 781, 783, 784]\n  r=28.0     d=56.0     count=2    [feature] partial_arcs=2/2 centers=[[-42.0, 54.0, 307.0], [-42.0, 59.0, 307.0]] edge_idx=[618, 620]\n  r=14.62    d=29.24    count=2    [feature] centers=[[-149.0, 202.0, 329.0], [-149.0, 202.0, 432.0]] edge_idx=[875, 879]\n  r=7.07     d=14.14    count=2    [feature] centers=[[-149.0, 202.0, 322.0], [-149.0, 202.0, 292.0]] edge_idx=[878, 882]\n  r=10.5     d=21.0     count=1    [feature] partial_arcs=1/1 centers=[[0.804, 138.272, 271.582]] edge_idx=[779]\n  r=10.0     d=20.0     count=1    [feature] centers=[[-2.241, 167.5, 268.951]] edge_idx=[785]\n  r=7.62     d=15.24    count=1    [feature] centers=[[-149.0, 202.0, 322.0]] edge_idx=[877]\n  r=3.45     d=6.9      count=216  [small] centers=[[-220.5, 59.0, 260.0], [-220.5, 55.0, 260.0], [-220.5, 59.0, 300.0], [-220.5, 55.0, 300.0], [-220.5, 59.0, 240.0], [-220.5, 55.0, 240.0]] (showing 6 of 216) edge_idx=[295, 296, 298, 299, 301, 302, 304, 305, 307, 308, 310, 311, 313, 314, 316, 317] (showing 16 of 216)\n  r=2.235    d=4.47     count=40   [small] centers=[[-260.0, 408.623, 264.519], [-42.0, 408.623, 264.519], [-260.0, 408.623, 254.519], [-42.0, 408.623, 254.519], [-260.0, 408.623, 235.519], [-42.0, 408.623, 235.519]] (showing 6 of 40) edge_idx=[199, 201, 202, 204, 205, 207, 208, 210, 211, 213, 214, 216, 217, 219, 220, 222] (showing 16 of 40)\n  r=2.5      d=5.0      count=8    [small] partial_arcs=4/8 centers=[[-221.0, 422.0, 295.0], [-221.0, 422.0, 295.0], [-76.0, 422.0, 295.0], [-76.0, 422.0, 295.0], [-26.0, 422.0, 95.0], [-26.0, 422.0, 240.0]] (showing 6 of 8) edge_idx=[265, 266, 267, 269, 282, 284, 285, 287]\n  r=6.265    d=12.53    count=3    [small] partial_arcs=2/3 centers=[[-5.053, 194.533, 266.982], [-5.053, 194.533, 266.982], [-2.241, 167.5, 268.951]] edge_idx=[773, 774, 776]\n  r=3.515    d=7.03     count=1    [small] centers=[[-5.337, 197.261, 266.783]] edge_idx=[771]\n  r=2.75     d=5.5      count=1    [small] partial_arcs=1/1 centers=[[-5.053, 194.278, 263.476]] edge_idx=[772]\n  r=1.0      d=2.0      count=1    [blend] partial_arcs=1/1 centers=[[-2.138, 165.782, 259.05]] edge_idx=[786]\n  r=0.5      d=1.0      count=1    [blend] centers=[[1.887, 127.819, 271.842]] edge_idx=[780]\n  (all 16 circular-edge radius families listed \u2014 no family is filtered out by size. [scale] orders and labels only, it does not filter: 'feature' at or above 1% of the part diagonal \u2014 reads as a real feature; 'small' below feature scale but above the absolute noise floor \u2014 usually a blend, but on a large part real fastener holes land here; 'blend' below the noise floor \u2014 usually a fillet/chamfer intersection artifact, and also exactly where a small chamfer ring lives (feature scale = 6.986 mm, noise floor = 1.397 mm on this 698.6 mm diagonal))\n\nCYLINDRICAL FACE FAMILIES (hole walls / bosses; face_idx = unique face tags):\n  r=27.5     d=55.0     count=9    [feature] centers=[[-13.993, 4.0, 337.007], [-286.007, 4.0, 337.007], [-286.007, 4.0, 12.993], [-13.993, 4.0, 12.993], [-13.993, 4.0, 337.007], [-286.007, 4.0, 337.007]] (showing 6 of 9) face_idx=[12, 15, 18, 20, 69, 72, 75, 77, 397]\n  r=7.07     d=14.14    count=1    [feature] centers=[[-149.0, 202.0, 307.0]] face_idx=[530]\n  r=11.0     d=22.0     count=1    [feature] centers=[[-0.667, 152.372, 270.053]] face_idx=[474]\n  r=14.62    d=29.24    count=1    [feature] centers=[[-149.0, 202.0, 380.5]] face_idx=[528]\n  r=28.0     d=56.0     count=1    [feature] centers=[[-24.175, 56.5, 324.825]] face_idx=[394]\n  r=3.45     d=6.9      count=108  [small] centers=[[-220.5, 57.0, 260.0], [-220.5, 57.0, 300.0], [-220.5, 57.0, 240.0], [-220.5, 57.0, 200.0], [-180.5, 57.0, 300.0], [-220.5, 57.0, 280.0]] (showing 6 of 108) face_idx=[178, 180, 182, 184, 186, 188, 190, 192, 194, 196, 198, 200, 202, 204, 206, 208] (showing 16 of 108)\n  r=2.235    d=4.47     count=20   [small] centers=[[-151.0, 408.623, 264.519], [-151.0, 408.623, 254.519], [-151.0, 408.623, 235.519], [-151.0, 408.623, 245.519], [-151.0, 408.623, 206.519], [-151.0, 408.623, 215.519]] (showing 6 of 20) face_idx=[91, 94, 97, 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136] (showing 16 of 20)\n  r=2.5      d=5.0      count=3    [small] centers=[[-148.5, 421.999, 295.0], [-26.0, 422.0, 167.5], [-277.0, 422.0, 167.5]] face_idx=[155, 166, 169]\n  r=6.265    d=12.53    count=1    [small] centers=[[-3.647, 181.017, 267.967]] face_idx=[472]\n\nPLANAR FACES, largest first (idx, area, center, normal, vertical):\n  #14   area=99798.829 c=[-150.0, -1.0, 175.0] n=[-0.0, -1.0, -0.0] vertical=True\n  #17   area=99798.829 c=[-150.0, 9.0, 175.0] n=[0.0, 1.0, 0.0] vertical=True\n  #71   area=99798.829 c=[-150.0, -1.0, 175.0] n=[-0.0, -1.0, -0.0] vertical=True\n  #74   area=99798.829 c=[-150.0, 9.0, 175.0] n=[0.0, 1.0, 0.0] vertical=True\n  #395  area=63589.46  c=[-150.012, 54.0, 216.921] n=[-0.0, -1.0, -0.0] vertical=True\n  #398  area=59551.036 c=[-149.979, 59.0, 216.713] n=[0.0, 1.0, 0.0] vertical=True\n  #13   area=2890.0    c=[-4.0, 4.0, 175.0] n=[1.0, -0.0, -0.0] vertical=True\n  #16   area=2890.0    c=[-296.0, 4.0, 175.0] n=[-1.0, 0.0, -0.0] vertical=True\n  #70   area=2890.0    c=[-4.0, 4.0, 175.0] n=[1.0, -0.0, -0.0] vertical=True\n  #73   area=2890.0    c=[-296.0, 4.0, 175.0] n=[-1.0, 0.0, -0.0] vertical=True\n  #19   area=2370.0    c=[-150.0, 4.0, 3.0] n=[-0.0, -0.0, -1.0] vertical=False\n  #21   area=2370.0    c=[-150.0, 4.0, 347.0] n=[-0.0, -0.0, 1.0] vertical=False\n  #76   area=2370.0    c=[-150.0, 4.0, 3.0] n=[-0.0, -0.0, -1.0] vertical=False\n  #78   area=2370.0    c=[-150.0, 4.0, 347.0] n=[-0.0, -0.0, 1.0] vertical=False\n  #401  area=1360.0    c=[-150.0, 56.5, 100.0] n=[-0.0, 0.0, -1.0] vertical=False\n  #396  area=1082.5    c=[-150.25, 56.5, 335.0] n=[-0.0, -0.0, 1.0] vertical=False\n  #400  area=1037.5    c=[-286.0, 56.5, 203.75] n=[-1.0, -0.0, -0.0] vertical=True\n  #399  area=1035.0    c=[-14.0, 56.5, 203.5] n=[1.0, -0.0, -0.0] vertical=True\n  #529  area=671.498   c=[-149.0, 202.0, 432.0] n=[0.0, 0.0, 1.0] vertical=False\n  #477  area=190.851   c=[-2.241, 167.5, 268.951] n=[-0.103, 0.992, -0.072] vertical=False\n  #531  area=157.032   c=[-149.0, 202.0, 292.0] n=[0.0, 0.0, -1.0] vertical=False\n  #479  area=38.465    c=[-42.179, 261.504, 240.987] n=[0.097, 0.993, 0.068] vertical=False\n  #179  area=37.393    c=[-220.5, 55.0, 260.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #181  area=37.393    c=[-220.5, 55.0, 300.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #183  area=37.393    c=[-220.5, 55.0, 240.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #185  area=37.393    c=[-220.5, 55.0, 200.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #187  area=37.393    c=[-180.5, 55.0, 300.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #189  area=37.393    c=[-220.5, 55.0, 280.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #191  area=37.393    c=[-80.5, 55.0, 180.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #193  area=37.393    c=[-80.5, 55.0, 140.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #195  area=37.393    c=[-80.5, 55.0, 160.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #197  area=37.393    c=[-260.5, 55.0, 140.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #199  area=37.393    c=[-260.5, 55.0, 180.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #201  area=37.393    c=[-260.5, 55.0, 160.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #203  area=37.393    c=[-240.5, 55.0, 140.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #205  area=37.393    c=[-240.5, 55.0, 220.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #207  area=37.393    c=[-260.5, 55.0, 300.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #209  area=37.393    c=[-260.5, 55.0, 200.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #211  area=37.393    c=[-240.5, 55.0, 240.0] n=[-0.0, 1.0, 0.0] vertical=True\n  #213  area=37.393    c=[-240.5, 55.0, 260.0] n=[-0.0, 1.0, 0.0] vertical=True\n  ... showing 40 of 202 planar faces (largest first)\n\nSOLIDS IN THIS FILE (solid #N = shape.Solids()[N], the same enumeration your script gets):\n  #0   vol=5270122.197  center=[-150.0, 27.166, 169.922] bbox [-300.0, -0.0, -0.0]..[0.0, 60.0, 350.0]\n  #1   vol=997988.294   center=[-150.0, 4.0, 175.0] bbox [-296.0, -1.0, 3.0]..[-4.0, 9.0, 347.0]\n  #2   vol=3812.913     center=[-29.103, -4.936, 26.193] bbox [-39.902, -9.936, 14.978]..[-18.304, 0.064, 37.407]\n  #3   vol=3812.913     center=[-269.103, -4.936, 26.193] bbox [-279.902, -9.936, 14.978]..[-258.304, 0.064, 37.407]\n  #4   vol=3812.913     center=[-269.103, -4.936, 326.193] bbox [-279.902, -9.936, 314.978]..[-258.304, 0.064, 337.407]\n  #5   vol=3812.913     center=[-29.103, -4.936, 326.193] bbox [-39.902, -9.936, 314.978]..[-18.304, 0.064, 337.407]\n  #6   vol=20460695.535 center=[-150.0, 266.435, 124.376] bbox [-297.902, 9.0, -0.0]..[-2.098, 409.0, 320.0]\n  #7   vol=997988.294   center=[-150.0, 4.0, 175.0] bbox [-296.0, -1.0, 3.0]..[-4.0, 9.0, 347.0]\n  #8   vol=2205837.012  center=[-150.716, 404.151, 132.852] bbox [-297.433, 390.0, -2.056]..[-4.0, 440.0, 320.0]\n  #9   vol=3421.066     center=[-151.0, 408.623, 264.519] bbox [-260.0, 406.388, 262.284]..[-42.0, 410.858, 266.754]\n  #10  vol=3421.066     center=[-151.0, 408.623, 254.519] bbox [-260.0, 406.388, 252.284]..[-42.0, 410.858, 256.754]\n  #11  vol=3421.066     center=[-151.0, 408.623, 235.519] bbox [-260.0, 406.388, 233.284]..[-42.0, 410.858, 237.754]\n  #12  vol=3421.066     center=[-151.0, 408.623, 245.519] bbox [-260.0, 406.388, 243.284]..[-42.0, 410.858, 247.754]\n  #13  vol=3421.066     center=[-151.0, 408.623, 206.519] bbox [-260.0, 406.388, 204.284]..[-42.0, 410.858, 208.754]\n  #14  vol=3421.066     center=[-151.0, 408.623, 215.519] bbox [-260.0, 406.388, 213.284]..[-42.0, 410.858, 217.754]\n  #15  vol=3421.066     center=[-151.0, 408.623, 225.519] bbox [-260.0, 406.388, 223.284]..[-42.0, 410.858, 227.754]\n  #16  vol=3421.066     center=[-151.0, 408.623, 196.519] bbox [-260.0, 406.388, 194.284]..[-42.0, 410.858, 198.754]\n  #17  vol=3421.066     center=[-151.0, 408.623, 117.519] bbox [-260.0, 406.388, 115.284]..[-42.0, 410.858, 119.754]\n  #18  vol=3421.066     center=[-151.0, 408.623, 175.519] bbox [-260.0, 406.388, 173.284]..[-42.0, 410.858, 177.754]\n  #19  vol=3421.066     center=[-151.0, 408.623, 166.519] bbox [-260.0, 406.388, 164.284]..[-42.0, 410.858, 168.754]\n  #20  vol=3421.066     center=[-151.0, 408.623, 185.519] bbox [-260.0, 406.388, 183.284]..[-42.0, 410.858, 187.754]\n  #21  vol=3421.066     center=[-151.0, 408.623, 127.519] bbox [-260.0, 406.388, 125.284]..[-42.0, 410.858, 129.754]\n  #22  vol=3421.066     center=[-151.0, 408.623, 146.519] bbox [-260.0, 406.388, 144.284]..[-42.0, 410.858, 148.754]\n  #23  vol=3421.066     center=[-151.0, 408.623, 136.519] bbox [-260.0, 406.388, 134.284]..[-42.0, 410.858, 138.754]\n  ... showing 24 of 56 solids\n  MEASURED OVERLAPPING PAIRS (boolean-common volume and its centroid \u2014 assemblies interpenetrate at joints BY DESIGN, so an instruction about a collision means the pair whose location matches the parts it names, not necessarily the biggest):\n    solids #0 \u2229 #6  vol=1663010.241 mm^3  at [-149.993, 33.828, 62.291]\n    solids #6 \u2229 #8  vol=1568514.495 mm^3  at [-150.405, 399.089, 153.718]\n    solids #1 \u2229 #7  vol=997988.294 mm^3  at [-150.0, 4.0, 175.0]\n    solids #0 \u2229 #1  vol=793710.065 mm^3  at [-149.999, 4.761, 175.551]\n    solids #0 \u2229 #7  vol=793710.065 mm^3  at [-149.999, 4.761, 175.551]\n    solids #6 \u2229 #47  vol=76255.921 mm^3  at [-149.877, 252.78, 270.645]\n    solids #6 \u2229 #37  vol=49163.202 mm^3  at [-149.9, 324.98, 314.217]\n    solids #0 \u2229 #36  vol=36527.615 mm^3  at [-136.795, 49.082, 260.794]\n    solids #6 \u2229 #36  vol=4192.218 mm^3  at [-149.981, 55.576, 102.174]\n    solids #6 \u2229 #27  vol=2074.189 mm^3  at [-150.97, 407.874, 96.519]\n    solids #6 \u2229 #26  vol=2074.145 mm^3  at [-150.97, 407.874, 86.519]\n    solids #6 \u2229 #28  vol=2074.107 mm^3  at [-150.969, 407.874, 77.519]\n    ... showing 12 of 47 overlapping pairs (largest first)\n    To remove a collision keeping body A intact: cut B with A \u2014 `sols = base.Solids(); out = cq.Compound.makeCompound([s for k, s in enumerate(sols) if k != B] + [sols[B].cut(sols[A])])` \u2014 and print the pair's common volume before and after.",
+  "plan_summary": "Extend the black front-facing lever/handle so it protrudes 50 mm further toward the customer-defined front direction.",
+  "subtasks": [
+    {
+      "idx": 0,
+      "goal": "Prolong the lever by extending its geometry 50.0 mm further in the +Z (front) direction: move the front end-cap plane (face #529 at z=432, n=+Z) to z=482 and extend the adjacent lever cylindrical surfaces (faces #528 r=14.62 and #530 r=7.07) to meet the new end cap, preserving their diameters and coaxial alignment about the lever axis through x=-149, y=202.",
+      "rationale": "This is the only requested change and it is a direct, measurable length increase of the existing front-facing lever.",
+      "focus": [
+        "lever",
+        "front +Z",
+        "planar end face #529 (z=432)",
+        "cylinders r=14.62 face #528",
+        "cylinders r=7.07 face #530"
+      ],
+      "tags": [
+        "resize-feature"
+      ],
+      "envelope": [
+        "+Z"
+      ],
+      "status": "done",
+      "attempts": 1,
+      "qa_notes": [
+        {
+          "attempt": 1,
+          "verdict": "ACCEPTED",
+          "observation": "The model\u2019s outer envelope extends exactly 50.0 mm further in +Z: bbox max Z increased from 432.0 to 482.0 mm, with X/Y bbox limits unchanged (no frame drift). This is consistent with moving the lever\u2019s front end-cap plane from z=432 to z=482 and extending the adjacent coaxial cylindrical lever surfaces to meet it. Solids count stayed the same (56 -> 56) and the volume increased modestly by 33,568",
+          "issues": []
+        }
+      ],
+      "goal_original": "",
+      "replans": 0
+    }
+  ],
+  "cursor": 1,
+  "script": "def my_cad_function(args):\n    import cadquery as cq\n    from OCP.gp import gp_Vec\n    from OCP.BRepPrimAPI import BRepPrimAPI_MakePrism\n\n    shape = cq.importers.importStep(args[\"input_file\"])   # ALWAYS load the input\n    base = shape.val() if hasattr(shape, \"val\") else shape\n\n    # --- Named targets (from prompt) ---\n    z_old = 432.0\n    z_new = 482.0\n    dz = z_new - z_old  # 50.0\n    axis_x, axis_y = -149.0, 202.0\n    face_end_idx = 529\n    face_outer_cyl_idx = 528\n    face_inner_cyl_idx = 530\n\n    print(\"TARGETS:\")\n    print(f\"  lever axis through x={axis_x}, y={axis_y}\")\n    print(f\"  move end cap from z={z_old} to z={z_new} (dz={dz})\")\n    print(f\"  face indices: endcap#{face_end_idx}, cyl_outer#{face_outer_cyl_idx} (r=14.62), cyl_other#{face_inner_cyl_idx} (r=7.07)\")\n\n    faces = base.Faces()\n    f_end = faces[face_end_idx]\n    f_outer = faces[face_outer_cyl_idx]\n    f_inner = faces[face_inner_cyl_idx]\n\n    def _pnt(v):\n        return [round(v.x, 3), round(v.y, 3), round(v.z, 3)]\n\n    print(\"RESOLVED FACE CHECKS (should match geometry index):\")\n    print(f\"  face#{face_end_idx} center={_pnt(f_end.Center())} area={round(f_end.Area(), 3)}\")\n    print(f\"  face#{face_outer_cyl_idx} center={_pnt(f_outer.Center())} area={round(f_outer.Area(), 3)}\")\n    print(f\"  face#{face_inner_cyl_idx} center={_pnt(f_inner.Center())} area={round(f_inner.Area(), 3)}\")\n\n    # Find which solid owns the end cap face\n    solids = list(base.Solids())\n    owner_idx = None\n    for si, s in enumerate(solids):\n        for ff in s.Faces():\n            if ff.wrapped.IsSame(f_end.wrapped):\n                owner_idx = si\n                break\n        if owner_idx is not None:\n            break\n    print(f\"Owning solid for face#{face_end_idx}: {owner_idx} (of {len(solids)} solids)\")\n    if owner_idx is None:\n        print(\"ERROR: could not find a solid containing the target end-cap face; returning original shape\")\n        return shape\n\n    lever_solid = solids[owner_idx]\n\n    # Optional adjacency sanity: check if f_end shares an edge with the referenced cylinders\n    def _shares_edge(fa, fb):\n        ea = fa.Edges()\n        eb = fb.Edges()\n        for e1 in ea:\n            for e2 in eb:\n                if e1.wrapped.IsSame(e2.wrapped):\n                    return True\n        return False\n\n    print(\"Adjacency (shared-edge) checks:\")\n    print(f\"  endcap#{face_end_idx} shares edge with outer_cyl#{face_outer_cyl_idx}: {_shares_edge(f_end, f_outer)}\")\n    print(f\"  endcap#{face_end_idx} shares edge with other_cyl#{face_inner_cyl_idx}: {_shares_edge(f_end, f_inner)}\")\n\n    # Build the extension by extruding the existing end-cap face +Z by 50mm.\n    # This preserves coaxial alignment and any inner loops in the face (if present).\n    prism_shape = BRepPrimAPI_MakePrism(f_end.wrapped, gp_Vec(0.0, 0.0, float(dz))).Shape()\n    ext = cq.Shape(prism_shape)\n\n    # Fuse extension into the lever solid only\n    new_lever = lever_solid.fuse(ext)\n\n    # Rebuild overall compound with the modified solid in place\n    new_solids = []\n    for i, s in enumerate(solids):\n        new_solids.append(new_lever if i == owner_idx else s)\n    out = cq.Compound.makeCompound(new_solids)\n\n    # --- Placement / added-material self-check ---\n    try:\n        added = out.cut(base)\n        bb = added.BoundingBox()\n        c = added.Center()\n        print(\"ADDED MATERIAL CHECK:\")\n        print(f\"  added center = {_pnt(c)}\")\n        print(f\"  added bbox zmin={round(bb.zmin, 3)} zmax={round(bb.zmax, 3)} (target zmax={z_new})\")\n        print(f\"  zmax delta = {round(bb.zmax - z_new, 3)}\")\n    except Exception as e:\n        print(\"ADDED MATERIAL CHECK failed:\", e)\n\n    # Also print new overall bbox max Z to confirm the front moved to ~482\n    bb_out = out.BoundingBox()\n    print(f\"OUT bbox zmax={round(bb_out.zmax, 3)} (expected ~{z_new})\")\n\n    return out",
+  "accepted_step": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/_work/B7A2N74ZJBF9MZHU_1770174133.012106_1786845103/sub0_try1/tmp.step",
+  "checkpoints": [
+    {
+      "sub": 0,
+      "attempt": 1,
+      "step": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_accepted.step",
+      "verdict": "accepted",
+      "confidence": 0.86,
+      "faces": 533,
+      "volume": 31088201.1778,
+      "script_file": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_accepted.py"
+    }
+  ],
+  "last_step": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/_work/B7A2N74ZJBF9MZHU_1770174133.012106_1786845103/sub0_try1/tmp.step",
+  "last_error": "",
+  "last_qa": {
+    "observation": "The model\u2019s outer envelope extends exactly 50.0 mm further in +Z: bbox max Z increased from 432.0 to 482.0 mm, with X/Y bbox limits unchanged (no frame drift). This is consistent with moving the lever\u2019s front end-cap plane from z=432 to z=482 and extending the adjacent coaxial cylindrical lever surfaces to meet it. Solids count stayed the same (56 -> 56) and the volume increased modestly by 33,568.964 mm^3, consistent with a single lever-length extension rather than broader remodeling.",
+    "achieved": true,
+    "partial": false,
+    "confidence": 0.86,
+    "issues": [],
+    "guidance": ""
+  },
+  "partial_accepts": 0,
+  "steps": [
+    {
+      "sub": 0,
+      "goal": "Prolong the lever by extending its geometry 50.0 mm further in the +Z (front) direction: move the front end-cap plane (face #529 at z=432, n=+Z) to z=482 and extend the adjacent lever cylindrical surfaces (faces #528 r=14.62 and #530 r=7.07) to meet the new end cap, preserving their diameters and coaxial alignment about the lever axis through x=-149, y=202.",
+      "attempt": 1,
+      "ok": true,
+      "views": {
+        "toprightiso": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_toprightiso.jpg",
+        "front": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_front.jpg",
+        "back": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_back.jpg",
+        "left": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_left.jpg",
+        "right": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_right.jpg",
+        "top": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_top.jpg",
+        "bottom": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_bottom.jpg"
+      },
+      "views_changed": {
+        "toprightiso": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_toprightiso_chg.jpg",
+        "front": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_front_chg.jpg",
+        "back": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_back_chg.jpg",
+        "left": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_left_chg.jpg",
+        "right": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_right_chg.jpg",
+        "top": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_top_chg.jpg",
+        "bottom": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_bottom_chg.jpg"
+      },
+      "faces": 533,
+      "volume": 31088201.1778,
+      "volume_change_pct": 0.108,
+      "new_surface_types": [],
+      "verdict": "accepted",
+      "issues": [],
+      "script": "def my_cad_function(args):\n    import cadquery as cq\n    from OCP.gp import gp_Vec\n    from OCP.BRepPrimAPI import BRepPrimAPI_MakePrism\n\n    shape = cq.importers.importStep(args[\"input_file\"])   # ALWAYS load the input\n    base = shape.val() if hasattr(shape, \"val\") else shape\n\n    # --- Named targets (from prompt) ---\n    z_old = 432.0\n    z_new = 482.0\n    dz = z_new - z_old  # 50.0\n    axis_x, axis_y = -149.0, 202.0\n    face_end_idx = 529\n    face_outer_cyl_idx = 528\n    face_inner_cyl_idx = 530\n\n    print(\"TARGETS:\")\n    print(f\"  lever axis through x={axis_x}, y={axis_y}\")\n    print(f\"  move end cap from z={z_old} to z={z_new} (dz={dz})\")\n    print(f\"  face indices: endcap#{face_end_idx}, cyl_outer#{face_outer_cyl_idx} (r=14.62), cyl_other#{face_inner_cyl_idx} (r=7.07)\")\n\n    faces = base.Faces()\n    f_end = faces[face_end_idx]\n    f_outer = faces[face_outer_cyl_idx]\n    f_inner = faces[face_inner_cyl_idx]\n\n    def _pnt(v):\n        return [round(v.x, 3), round(v.y, 3), round(v.z, 3)]\n\n    print(\"RESOLVED FACE CHECKS (should match geometry index):\")\n    print(f\"  face#{face_end_idx} center={_pnt(f_end.Center())} area={round(f_end.Area(), 3)}\")\n    print(f\"  face#{face_outer_cyl_idx} center={_pnt(f_outer.Center())} area={round(f_outer.Area(), 3)}\")\n    print(f\"  face#{face_inner_cyl_idx} center={_pnt(f_inner.Center())} area={round(f_inner.Area(), 3)}\")\n\n    # Find which solid owns the end cap face\n    solids = list(base.Solids())\n    owner_idx = None\n    for si, s in enumerate(solids):\n        for ff in s.Faces():\n            if ff.wrapped.IsSame(f_end.wrapped):\n                owner_idx = si\n                break\n        if owner_idx is not None:\n            break\n    print(f\"Owning solid for face#{face_end_idx}: {owner_idx} (of {len(solids)} solids)\")\n    if owner_idx is None:\n        print(\"ERROR: could not find a solid containing the target end-cap face; returning original shape\")\n        return shape\n\n    lever_solid = solids[owner_idx]\n\n    # Optional adjacency sanity: check if f_end shares an edge with the referenced cylinders\n    def _shares_edge(fa, fb):\n        ea = fa.Edges()\n        eb = fb.Edges()\n        for e1 in ea:\n            for e2 in eb:\n                if e1.wrapped.IsSame(e2.wrapped):\n                    return True\n        return False\n\n    print(\"Adjacency (shared-edge) checks:\")\n    print(f\"  endcap#{face_end_idx} shares edge with outer_cyl#{face_outer_cyl_idx}: {_shares_edge(f_end, f_outer)}\")\n    print(f\"  endcap#{face_end_idx} shares edge with other_cyl#{face_inner_cyl_idx}: {_shares_edge(f_end, f_inner)}\")\n\n    # Build the extension by extruding the existing end-cap face +Z by 50mm.\n    # This preserves coaxial alignment and any inner loops in the face (if present).\n    prism_shape = BRepPrimAPI_MakePrism(f_end.wrapped, gp_Vec(0.0, 0.0, float(dz))).Shape()\n    ext = cq.Shape(prism_shape)\n\n    # Fuse extension into the lever solid only\n    new_lever = lever_solid.fuse(ext)\n\n    # Rebuild overall compound with the modified solid in place\n    new_solids = []\n    for i, s in enumerate(solids):\n        new_solids.append(new_lever if i == owner_idx else s)\n    out = cq.Compound.makeCompound(new_solids)\n\n    # --- Placement / added-material self-check ---\n    try:\n        added = out.cut(base)\n        bb = added.BoundingBox()\n        c = added.Center()\n        print(\"ADDED MATERIAL CHECK:\")\n        print(f\"  added center = {_pnt(c)}\")\n        print(f\"  added bbox zmin={round(bb.zmin, 3)} zmax={round(bb.zmax, 3)} (target zmax={z_new})\")\n        print(f\"  zmax delta = {round(bb.zmax - z_new, 3)}\")\n    except Exception as e:\n        print(\"ADDED MATERIAL CHECK failed:\", e)\n\n    # Also print new overall bbox max Z to confirm the front moved to ~482\n    bb_out = out.BoundingBox()\n    print(f\"OUT bbox zmax={round(bb_out.zmax, 3)} (expected ~{z_new})\")\n\n    return out",
+      "step": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_accepted.step",
+      "prompt_file": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_accepted_executor_io.txt",
+      "approach": "Resolve planar end-cap face #529 directly from the imported B-rep, find which solid owns it, then extend that face 50 mm in +Z by making a prism (BRepPrimAPI_MakePrism) from the face and fusing it into that one solid; finally rebuild the overall compound with the modified solid and print an added-material self-check against z=482.",
+      "prompt_tokens": 5038,
+      "recipes": [],
+      "tags": [
+        "resize-feature"
+      ],
+      "observation": "The model\u2019s outer envelope extends exactly 50.0 mm further in +Z: bbox max Z increased from 432.0 to 482.0 mm, with X/Y bbox limits unchanged (no frame drift). This is consistent with moving the lever\u2019s front end-cap plane from z=432 to z=482 and extending the adjacent coaxial cylindrical lever surf",
+      "confidence": 0.86,
+      "script_file": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786845103.729266/brep_end/1786845103.729266/steps/sub0_try1_accepted.py"
+    }
+  ],
+  "events": [
+    {
+      "t": 0.0,
+      "kind": "start",
+      "msg": "[task 28/48] [easy] Prolong black lever sticking out to the front by 5cm for better manipulation."
+    },
+    {
+      "t": 0.0,
+      "kind": "router",
+      "msg": "  instruction says 'black' \u2014 attaching 7 dataset render(s) with original colors for the strategist"
+    },
+    {
+      "t": 0.0,
+      "kind": "router",
+      "msg": "indexing input geometry"
+    },
+    {
+      "t": 71.71,
+      "kind": "router",
+      "msg": "rendered 7 views of the input"
+    },
+    {
+      "t": 75.94,
+      "kind": "router",
+      "msg": "  colour-coded 12 feature families for the planning renders"
+    },
+    {
+      "t": 75.94,
+      "kind": "router",
+      "msg": "strategist: decomposing the instruction"
+    },
+    {
+      "t": 150.41,
+      "kind": "plan",
+      "msg": "1 sub-goals",
+      "understanding": "Extend the black front-facing lever/handle so it protrudes 50 mm further toward the customer-defined front direction.",
+      "target_regions": "The front-protruding lever aligned with +Z, identified by the concentric cylindrical faces r=14.62 (face #528, center [-149.0, 202.0, 380.5]) and r=7.07 (face #530, center [-149.0, 202.0, 307.0]), bounded at its current front end by the planar end face at z=432 (face #529, c=[-149.0, 202.0, 432.0], n=[0,0,1]) and corresponding circular edges r=14.62 (edge_idx [875, 879]) and r=7.07 (edge_idx [878, 882]).",
+      "goals": [
+        "Prolong the lever by extending its geometry 50.0 mm further in the +Z (front) direction: move the front end-cap plane (face #529 at z=432, n=+Z) to z=482 and extend the adjacent lever cylindrical surfaces (faces #528 r=14.62 and #530 r=7.07) to meet the new end cap, preserving their diameters and coaxial alignment about the lever axis through x=-149, y=202."
+      ],
+      "tags": [
+        [
+          "resize-feature"
+        ]
+      ],
+      "envelopes": [
+        [
+          "+Z"
+        ]
+      ]
+    },
+    {
+      "t": 150.41,
+      "kind": "router",
+      "msg": "  sub-goal 0 [resize-feature]: Prolong the lever by extending its geometry 50.0 mm further in the +Z (front) direction: move the front end-cap plane (face #529 at z=432, n=+Z) to z=482 and extend the adjacent lever cylindrical surfaces (faces #528 r=14.62 and #530 r=7.07) to meet the new end cap, preserving their diameters and coaxial alignment about the lever axis through x=-149, y=202."
+    },
+    {
+      "t": 150.41,
+      "kind": "router",
+      "msg": "sub-goal 0, attempt 1/3 (proposal 1 of 3)"
+    },
+    {
+      "t": 249.63,
+      "kind": "execute",
+      "msg": "sub-goal 0: Resolve planar end-cap face #529 directly from the imported B-rep, find which solid owns it, then extend that face 50 mm in +Z by making a prism (BRepPrimAPI_Ma",
+      "subtask": 0,
+      "attempt": 1,
+      "recipes": [],
+      "tags": [
+        "resize-feature"
+      ],
+      "last_resort": false,
+      "images": 7
+    },
+    {
+      "t": 249.63,
+      "kind": "router",
+      "msg": "  executor in/out: ~5038 tokens (geometry index 3310t, contract + tool doc 1489t, prior script 16t, feedback 9t) \u00b7 7 image(s) \u00b7 prior: none \u00b7 tags resize-feature"
+    },
+    {
+      "t": 277.07,
+      "kind": "router",
+      "msg": "  ran ok \u2014 533 faces, vol 31088201.1778"
+    },
+    {
+      "t": 327.18,
+      "kind": "router",
+      "msg": "  change-coloured the after views for QA"
+    },
+    {
+      "t": 372.73,
+      "kind": "qa",
+      "msg": "sub-goal 0: ACCEPTED",
+      "subtask": 0,
+      "achieved": true,
+      "partial": false,
+      "confidence": 0.86,
+      "issues": []
+    },
+    {
+      "t": 372.73,
+      "kind": "router",
+      "msg": "  QA accepted sub-goal 0"
+    },
+    {
+      "t": 380.24,
+      "kind": "router",
+      "msg": "kept 14 step renders and 3 attempt files (.step/.py) in steps/"
+    }
+  ],
+  "status": "done",
+  "started": 1786845103.729266,
+  "finished": 1786845476.456913
+}

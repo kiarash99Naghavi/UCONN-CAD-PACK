@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-16T00:40:10-04:00",
+  "task_number": 36,
+  "task_total": 48,
+  "task_name": "F332D3FXML85WLR2_1770206307.074256",
+  "difficulty": "hard",
+  "instruction": "Scale the part 10x. Add drafts of 2 degrees to all vertical surfaces, with flat bottom surface as a hinge. Add rounds R=1mm to all inner edges and R=3mm to all outer edges. Exclude edges, inner or outer, on the flat bottom surface. Add two cylinder features with D=6mm and inner hole D=3mm. Cylinders should be spaced 30mm apart and shall be placed centered with respect to the main part. They should start on the flat bottom surface level and reach all the way to the part wall on the top side",
+  "status": "stopped",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.2-2025-12-11",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 46852,
+    "output_tokens": 38590,
+    "reasoning_tokens": 28861,
+    "total_tokens": 85442,
+    "llm_calls": 8,
+    "cost_estimate": 0.62225
+  },
+  "geometry_source": "input-unedited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786854699.9023721/brep_end/1786854699.9023721"
+}

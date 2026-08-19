@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-16T23:01:14-04:00",
+  "task_number": 11,
+  "task_total": 48,
+  "task_name": "3YH2WFSRM22W7DKT_1769782403.586036",
+  "difficulty": "hard",
+  "instruction": "Change the current plug for Europlug with two round pins and try to copy the real shape.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 119117,
+    "output_tokens": 37779,
+    "reasoning_tokens": 26852,
+    "cached_input_tokens": 13824,
+    "total_tokens": 156896,
+    "llm_calls": 7,
+    "cost_estimate": 0.73736,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 21252,
+        "output_tokens": 2941
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 97865,
+        "output_tokens": 34838
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 21252,
+        "output_tokens": 2941,
+        "reasoning_tokens": 2351,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.07837
+      },
+      "executor": {
+        "input_tokens": 61450,
+        "output_tokens": 24582,
+        "reasoning_tokens": 15690,
+        "cached_input_tokens": 13824,
+        "llm_calls": 3,
+        "cost_estimate": 0.45169
+      },
+      "qa": {
+        "input_tokens": 36415,
+        "output_tokens": 10256,
+        "reasoning_tokens": 8811,
+        "cached_input_tokens": 0,
+        "llm_calls": 3,
+        "cost_estimate": 0.20731
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786934912.8248692/brep_end/1786934912.8248692"
+}

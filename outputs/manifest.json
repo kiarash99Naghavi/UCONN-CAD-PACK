@@ -1,0 +1,722 @@
+{
+ "ZK22J6VYRKQ2RTFD_1758875163.609787": {
+  "instruction": "Add 0.2 mm chamfer to the hole edges to improve fitting.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9893297646427204,
+   "volume_f1": 0.9983372211256654,
+   "diff_f1": 0.6463104325699746
+  },
+  "cost_estimate_usd": 0.26577
+ },
+ "F332D3FXML85WLR2_1769607142.566352": {
+  "instruction": "Add third rotor blade to the assembly. It should have the same design as the other two. Radii should applied on all four long edges of the blade. Adjust central portion of all three blades so that there is a space for a new blade - reduce thickness of the central portion to cca 0,42mm. New blade should go through the center of the stack.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9924053194209471,
+   "volume_f1": 0.9355543078170815,
+   "diff_f1": 0.7826543101940899
+  },
+  "cost_estimate_usd": 2.48496
+ },
+ "F332D3FXML85WLR2_1770205912.1187751": {
+  "instruction": "Add flange with thickness of 0,5mm and width of 2mm that starts on the flat bottom surface. Do not fill the central part. Add four mounting holes with D=0,5mm which are spaced 0,6mm from outer edges of the flange",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9868347375261275,
+   "volume_f1": 0.9091170283720692,
+   "diff_f1": 0.875595929887811
+  },
+  "cost_estimate_usd": 0.36367
+ },
+ "SUJ2G2UMJQR7PMBX_1759203600.26663": {
+  "instruction": "Hi , Please create an outlet port on the top right and an inlet port on the bottom left . ",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9872443350450849,
+   "volume_f1": 0.9873150781225037,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 1.00243
+ },
+ "4S7JQK6ZQMAD25GL_1758863141.735564": {
+  "instruction": "Add a 2 millimetre fillet to the edges of the scrolling wheel slot to ensure a smooth surface.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9896293776510833,
+   "volume_f1": 0.997818929469458,
+   "diff_f1": 0.5779569892473119
+  },
+  "cost_estimate_usd": 0.6568
+ },
+ "3YH2WFSRM22W7DKT_1769174947.8063738": {
+  "instruction": "Mirror the part according to the plane lying on the not rounded end of the part. Merge the mirrored part together with the existing one so they create one body.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.995731733738658,
+   "volume_f1": 1.0,
+   "diff_f1": 0.998266130519792
+  },
+  "cost_estimate_usd": 0.16637
+ },
+ "3YH2WFSRM22W7DKT_1769175216.745646": {
+  "instruction": "Design cylindrical bearing on the flat end of the part (the one without fillet). Create another 7 instances of this design and rotate them around the bearing axis.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9846360277358918,
+   "volume_f1": 0.46773207580124004,
+   "diff_f1": 0.34881802348675434
+  },
+  "cost_estimate_usd": 0.32994
+ },
+ "3YH2WFSRM22W7DKT_1769773134.1453462": {
+  "instruction": "Add bigger amount of cylindrical holes into the red platforms to decrease their weights. Amount of patterns can be chosen by editor.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9806151995741811,
+   "volume_f1": 0.8027347082712412,
+   "diff_f1": 0.03149958112259146
+  },
+  "cost_estimate_usd": 0.66543
+ },
+ "4E22SJE7QVTSP2E3_1758737118.288898": {
+  "instruction": "Insert screws to both holes to be able to fix tool on the table",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9882340932163978,
+   "volume_f1": 0.9507940902569781,
+   "diff_f1": 0.2748004561003421
+  },
+  "cost_estimate_usd": 0.58395
+ },
+ "4E22SJE7QVTSP2E3_1758737060.465216": {
+  "instruction": "Change that vertical slot to cut through complete body to decrease weight",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9885407268976574,
+   "volume_f1": 0.9882614644763269,
+   "diff_f1": 0.4346820809248555
+  },
+  "cost_estimate_usd": 0.28992
+ },
+ "3YH2WFSRM22W7DKT_1769773335.525203": {
+  "instruction": "Add cylindrical heads on the long pins to prevent link arms against slipping off.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9849485902781245,
+   "volume_f1": 0.993924557976713,
+   "diff_f1": 0.5789690721649484
+  },
+  "cost_estimate_usd": 0.86081
+ },
+ "F332D3FXML85WLR2_1770204558.429523": {
+  "instruction": "One of the long edges of the blade does not have a radius. Add radius to that long edge R=0,635cm",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.994439147405871,
+   "volume_f1": 0.9940018347329053,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 0.33964
+ },
+ "B7A2N74ZJBF9MZHU_1770166308.11235": {
+  "instruction": "If this is a spanner, the main cutout is too deep which is weakening the tool. Make the cutout shallower by 10mm, but keep the \"size\" of the spanner the same - meaning the parallel surfaces remain 20mm apart.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9924157918548377,
+   "volume_f1": 0.9917719219508025,
+   "diff_f1": 0.8275862068965517
+  },
+  "cost_estimate_usd": 0.66472
+ },
+ "4S7JQK6ZQMAD25GL_1758863286.214549": {
+  "instruction": "Add two click buttons with the height of 2 millimetre to provide a comfortable and responsive feel for the user",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9878609560631099,
+   "volume_f1": 0.9872507063890489,
+   "diff_f1": 0.25699440447641886
+  },
+  "cost_estimate_usd": 0.43238
+ },
+ "B7A2N74ZJBF9MZHU_1770166901.871316": {
+  "instruction": "Use geometry of cylindrical hole defined in Sketch4 for creating inscribed hexagonal polygonal to the original hole and make it through all cutout instead.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9930687042699178,
+   "volume_f1": 0.9997557238346917,
+   "diff_f1": 0.9767441860465116
+  },
+  "cost_estimate_usd": 0.61507
+ },
+ "3YH2WFSRM22W7DKT_1769176912.388391": {
+  "instruction": "Add cylindrical pin into the bearing area of the part, so it is able to rotate around it.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.994479711075418,
+   "volume_f1": 0.9860887512899896,
+   "diff_f1": 0.9858490566037735
+  },
+  "cost_estimate_usd": 0.11339
+ },
+ "B7A2N74ZJBF9MZHU_1770171470.1448698": {
+  "instruction": "Make the whole frame structure taller by 0,5cm. The area profile remains the same.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9936758423926653,
+   "volume_f1": 0.8673513669897295,
+   "diff_f1": 0.009111617312072893
+  },
+  "cost_estimate_usd": 0.2665
+ },
+ "3YH2WFSRM22W7DKT_1769783385.069543": {
+  "instruction": "Remove the collision between handle and cofeepot.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9845225498142508,
+   "volume_f1": 0.999668582421935,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 0.21672
+ },
+ "B7A2N74ZJBF9MZHU_1770174133.012106": {
+  "instruction": "Prolong black lever sticking out to the front by 5cm for better manipulation.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9854745598995632,
+   "volume_f1": 0.9997560145620782,
+   "diff_f1": 0.796875
+  },
+  "cost_estimate_usd": 0.28703
+ },
+ "4E22SJE7QVTSP2E3_1758737238.499021": {
+  "instruction": "Design a fixation rod mounted from the top with arm length 200mm to have ability to fix cutting product",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9485403861654056,
+   "volume_f1": 0.9128899059748271,
+   "diff_f1": 0.13729465221950368
+  },
+  "cost_estimate_usd": 0.22444
+ },
+ "F332D3FXML85WLR2_1770206307.074256": {
+  "instruction": "Scale the part 10x. Add drafts of 2 degrees to all vertical surfaces, with flat bottom surface as a hinge. Add rounds R=1mm to all inner edges and R=3mm to all outer edges. Exclude edges, inner or outer, on the flat bottom surface. Add two cylinder features with D=6mm and inner hole D=3mm. Cylinders should be spaced 30mm apart and shall be placed centered with respect to the main part. They should start on the flat bottom surface level and reach all the way to the part wall on the top side",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.5731799614874816,
+   "volume_f1": 0.0017746944702133668,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 0.62225
+ },
+ "SUJ2G2UMJQR7PMBX_1759209917.917027": {
+  "instruction": "Hi , Please remove the fillet at the front center and add a 1 millimeter chamfer instead",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9917225829979035,
+   "volume_f1": 1.0,
+   "diff_f1": 1.0
+  },
+  "cost_estimate_usd": 1.71583
+ },
+ "F332D3FXML85WLR2_1769424096.996583": {
+  "instruction": "Add rounds to all edges of the part. R=0,2mm",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9880888185870953,
+   "volume_f1": 0.9822383101105767,
+   "diff_f1": 0.5816398037841626
+  },
+  "cost_estimate_usd": 0.27847
+ },
+ "B7A2N74ZJBF9MZHU_1770171700.697783": {
+  "instruction": "Remove the largest radius that is all around the part and replace it by the same size radius as others. That means in cross section all radiuses will be the same for the profile.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9956415195443084,
+   "volume_f1": 0.9606986899563319,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 2.72882
+ },
+ "ZK22J6VYRKQ2RTFD_1758874422.1403751": {
+  "instruction": "Add a connecting hole of 1.7 millimetre diameter and apply 0.1 millimetre grooves to increase grip and prevent slipping.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9873102017697609,
+   "volume_f1": 0.9862219856897877,
+   "diff_f1": 0.07319013524264122
+  },
+  "cost_estimate_usd": 0.38103
+ },
+ "ZK22J6VYRKQ2RTFD_1758873912.731081": {
+  "instruction": "Add a 1.5 millimetre rib to increase support and make the structure strong.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.981842258847156,
+   "volume_f1": 0.8850289495450786,
+   "diff_f1": 0.0005676442762535478
+  },
+  "cost_estimate_usd": 0.72764
+ },
+ "SUJ2G2UMJQR7PMBX_1759210049.432666": {
+  "instruction": "Hi , Please change the center flower type profile into a hexagonal profile for better torque transfer",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9527790462123621,
+   "volume_f1": 0.9023961692185901,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 2.94386
+ },
+ "SUJ2G2UMJQR7PMBX_1759209987.785593": {
+  "instruction": "Hi , Please convert the round edges of the gear into straight spur gear teeth. ",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.990786191715519,
+   "volume_f1": 0.9718655506376266,
+   "diff_f1": 0.13146853146853146
+  },
+  "cost_estimate_usd": 2.50108
+ },
+ "SUJ2G2UMJQR7PMBX_1759203739.2515829": {
+  "instruction": "Hi , Please create a filling system on the radiator , including a pouring section and a cap.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9844330669426823,
+   "volume_f1": 0.9788502617309452,
+   "diff_f1": 0.0028178936245156746
+  },
+  "cost_estimate_usd": 1.60812
+ },
+ "SUJ2G2UMJQR7PMBX_1759203664.9815512": {
+  "instruction": "Hi , Create a slot pattern  across the plastic part surface on both the top and bottom sides.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.987327850047986,
+   "volume_f1": 0.9977281642259415,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 1.50049
+ },
+ "4S7JQK6ZQMAD25GL_1758863403.376244": {
+  "instruction": "Add a sliding switch on the bottom to provide a convenient on and off function",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9888310705916943,
+   "volume_f1": 0.9974250422481228,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 1.57667
+ },
+ "B7A2N74ZJBF9MZHU_1770172545.5244548": {
+  "instruction": "If edge with bigger radius is considered as top, add supporting structure to the bottom of the frame by offseting inner wall by 2cm with thickness of 0,5cm of the supporting structure all around. This will create step at the bottom of the frame, enlarging bottom surface area. Leave out radii at the bottom edges. Add radii from top, 0,2cm which will create smoothe transition from above. Bottom remains flat.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9948876038580899,
+   "volume_f1": 0.9805719275267409,
+   "diff_f1": 0.9504678040726472
+  },
+  "cost_estimate_usd": 1.96996
+ },
+ "3YH2WFSRM22W7DKT_1769177116.6129558": {
+  "instruction": "Design simple locking mechanism in the area of the hook to secure carried load.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9941786504877379,
+   "volume_f1": 0.9914522923397816,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 0.7536
+ },
+ "3YH2WFSRM22W7DKT_1769177020.525719": {
+  "instruction": "Add several cutouts into the part to decrease its weight.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9892363805242911,
+   "volume_f1": 0.7556764675107251,
+   "diff_f1": 0.08931357254290172
+  },
+  "cost_estimate_usd": 0.84722
+ },
+ "F332D3FXML85WLR2_1770204696.542443": {
+  "instruction": "Create two cover parts, that have matching outer shape to the outer contour of the central part, sit flush on its outer surface and its counterpart on the other side and have thickness of 0,254cm",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9942586902320161,
+   "volume_f1": 0.9998571836618109,
+   "diff_f1": 0.9987389659520807
+  },
+  "cost_estimate_usd": 0.234
+ },
+ "B7A2N74ZJBF9MZHU_1770174519.556716": {
+  "instruction": "Add rectangular openining to the lower back of the coffee machine, which might serve as draft location for plug and main ON/OFF switch. Opening should be 20cm x 10cm and 3cm deep rectangle with roundend corners (radius 1cm). Position should be more or less equally distanced from bottom and sides of the device.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9844309929256908,
+   "volume_f1": 0.9970168489064176,
+   "diff_f1": 0.8345300781873305
+  },
+  "cost_estimate_usd": 0.37192
+ },
+ "B7A2N74ZJBF9MZHU_1770174308.67968": {
+  "instruction": "Add two horizontal buttons to the front panel. One above existing one, the other below - all approximately equally distanced. Buttons should be copies of existing one.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9847058101886749,
+   "volume_f1": 0.9995646569270433,
+   "diff_f1": 0.0375
+  },
+  "cost_estimate_usd": 0.16683
+ },
+ "3YH2WFSRM22W7DKT_1769779150.98797": {
+  "instruction": "Imagine the black handle is a stand. Add another one on the other side of device in approximately same distane from side wall as the existing one. Remove the Cordholder. Cut the bottom of the handles so it allows the device to be stable on a flat surface.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9840767210184707,
+   "volume_f1": 0.9932909970279595,
+   "diff_f1": 0.7355527638190955
+  },
+  "cost_estimate_usd": 1.6378
+ },
+ "3YH2WFSRM22W7DKT_1769782403.586036": {
+  "instruction": "Change the current plug for Europlug with two round pins and try to copy the real shape.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9848912557043792,
+   "volume_f1": 0.9987875953686143,
+   "diff_f1": 0.1396508728179551
+  },
+  "cost_estimate_usd": 0.73736
+ },
+ "F332D3FXML85WLR2_1770208282.204381": {
+  "instruction": "Left side of the whistle is missing radii. Add radii to the edges of the bigger part of the whistle. Radii must be same as the ones on the other side",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9879544286955528,
+   "volume_f1": 0.9509457447044964,
+   "diff_f1": 0.0604512558535547
+  },
+  "cost_estimate_usd": 0.45492
+ },
+ "F332D3FXML85WLR2_1770208398.300075": {
+  "instruction": "Let's make this part symmetric. There is a step on one of the sides of the whistle. Move the protruding surface so that it is level with the surface next to it. Delete all chamfers and radii and new ones following rules: Horizontal edges in the area where the narrow and bigger part of the whistle meet have a radius R=20mm. Other edges have R=5mm applied to them",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9855197729381937,
+   "volume_f1": 0.797447498496221,
+   "diff_f1": 0.2909789538031613
+  },
+  "cost_estimate_usd": 2.4382
+ },
+ "F332D3FXML85WLR2_1770208371.265217": {
+  "instruction": "Add circular feature that will act as a attachment for hanging rope. Outer D=4cm and feature has a concentric hole D=2cm. Thickness is 3cm. Feature is touching tangentially vertical surface of the bigger feature of the whistle with its hole and axis is parallel to this surface. Try to centre the feature to the aforementioned surface",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9882193234060858,
+   "volume_f1": 0.9513492316364796,
+   "diff_f1": 0.2524154589371981
+  },
+  "cost_estimate_usd": 0.19248
+ },
+ "B7A2N74ZJBF9MZHU_1770167800.9857888": {
+  "instruction": "Make the part symmetrical with respect to ZX plane by adding lowered plateau to the bottom. Then add embossed text to the top to distinguish the top (text should be \"TOP\", Arial, 10mm height, 1mm raised above lowered plateau, not sticking out of the plateau, approximately centered to the middle).",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9619727949827351,
+   "volume_f1": 0.39801968457251274,
+   "diff_f1": 0.05562273276904474
+  },
+  "cost_estimate_usd": 0.40405
+ },
+ "3YH2WFSRM22W7DKT_1769175629.871246": {
+  "instruction": "Multiply amount of cylindrical feature to 4. Imagine this is a system of plant pots, so you need to add stability to that afterwards by adding another legs or ribs on the sides. ",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9693508994016105,
+   "volume_f1": 0.4485005429788656,
+   "diff_f1": 0.32971690116968977
+  },
+  "cost_estimate_usd": 0.62762
+ },
+ "B7A2N74ZJBF9MZHU_1770169445.8914912": {
+  "instruction": "Add chamfer to main/biggest cylindrical section of Heatbreak body/component. The chamfer should be same size as present on top of the part, but should be added to the lower edge of the cylinder. This should allow easier insertion of the part during assembly.",
+  "difficulty": "easy",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9889984114849707,
+   "volume_f1": 0.9998691030944028,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 0.28446
+ },
+ "B7A2N74ZJBF9MZHU_1770169975.851399": {
+  "instruction": "Change mounting system at the back of Cyclops Plus Heatsink from 3-point mounting version to 4-points, similar to that which is found at the back of Cyclops Aqua Block.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9887657656553711,
+   "volume_f1": 0.9997643670637518,
+   "diff_f1": 0.64
+  },
+  "cost_estimate_usd": 0.35027
+ },
+ "B7A2N74ZJBF9MZHU_1770169718.2982779": {
+  "instruction": "Reduce overall height of Nozzle Volcano part by 1mm, reduction should be made in threaded area.",
+  "difficulty": "medium",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9889012968737046,
+   "volume_f1": 0.9986112930695663,
+   "diff_f1": 0.0
+  },
+  "cost_estimate_usd": 0.2594
+ },
+ "3YH2WFSRM22W7DKT_1769773481.491738": {
+  "instruction": "Change the shape of the profile of link arms to the shape of long hole to increase its stifness. Then change the diameter of the holes by 1mm and adjust the shape accordingly.",
+  "difficulty": "hard",
+  "files": [
+   "ours.step",
+   "ours.stl",
+   "gt.stl"
+  ],
+  "scores": {
+   "chamfer_similarity_norm": 0.9842459373197602,
+   "volume_f1": 0.9979288055353241,
+   "diff_f1": 0.9826236394882566
+  },
+  "cost_estimate_usd": 1.91586
+ }
+}

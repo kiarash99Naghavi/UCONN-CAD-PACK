@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1078" height="920" viewBox="0 0 1078 920" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="150%" height="160%">
+    <feDropShadow dx="1.4" dy="1.8" stdDeviation="1.3" flood-color="#0f172a" flood-opacity="0.18"/>
+  </filter>
+  <marker id="af" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <path d="M 0 1 L 9 5 L 0 9 z" fill="#334155"/></marker>
+  <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <path d="M 0 1 L 9 5 L 0 9 z" fill="#b45309"/></marker>
+  <marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 1 L 9 5 L 0 9 z" fill="#1f4fa8"/></marker>
+  <style>.lbl{paint-order:stroke;stroke:#ffffff;stroke-width:2.6px;stroke-linejoin:round}</style>
+</defs>
+<rect width="1078" height="920" fill="#ffffff"/>
+<text x="539.0" y="30.0" font-size="16" font-weight="700" text-anchor="middle" fill="#0f172a">Inside the three agents</text>
+<text x="539.0" y="48.0" font-size="9.5" font-weight="normal" text-anchor="middle" fill="#64748b">what goes into each prompt, what is parsed back out, and where the output comes round again as the next attempt's input</text>
+<rect x="74.0" y="89.0" width="250.0" height="86.0" rx="3" fill="#e8edf4" stroke="#5b6b83" stroke-width="1.2" filter="url(#sh)"/>
+<text x="316.0" y="114.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">instruction</text>
+<text x="316.0" y="129.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">geometry index</text>
+<text x="316.0" y="144.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">3 views of the part</text>
+<text x="316.0" y="159.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">tag vocabulary (13)</text>
+<text x="199.0" y="189.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">What the planner sees</text>
+<text x="199.0" y="200.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">instruction + the measured part</text>
+<rect x="428.0" y="74.0" width="250.0" height="116.0" rx="3" fill="#d9f4e2" stroke="#1c7a45" stroke-width="1.2" filter="url(#sh)"/>
+<text x="436.0" y="99.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">instruction</text>
+<text x="436.0" y="114.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">geometry index</text>
+<text x="436.0" y="129.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">3 views of the part</text>
+<text x="436.0" y="144.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">tag vocabulary (13)</text>
+<text x="670.0" y="159.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">sub-goals + tags + envelope</text>
+<text x="670.0" y="174.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">prompt ⇄ validated JSON</text>
+<text x="553.0" y="204.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Strategist</text>
+<text x="553.0" y="215.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/agents/strategist.py</text>
+<rect x="782.0" y="96.5" width="250.0" height="71.0" rx="3" fill="#e9e3fb" stroke="#6d3fc4" stroke-width="1.2" filter="url(#sh)"/>
+<text x="790.0" y="122.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">sub-goals + tags + envelope</text>
+<text x="790.0" y="137.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">sub-goal settled — advance the cursor</text>
+<text x="1024.0" y="152.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">current sub-goal</text>
+<text x="907.0" y="181.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Sub-goal queue</text>
+<text x="907.0" y="192.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/adk/router.py · 1-5 sub-goals, in order</text>
+<rect x="74.0" y="303.5" width="250.0" height="86.0" rx="3" fill="#e8edf4" stroke="#5b6b83" stroke-width="1.2" filter="url(#sh)"/>
+<text x="316.0" y="329.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">geometry index</text>
+<text x="316.0" y="344.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">verified recipes</text>
+<text x="316.0" y="359.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">the accepted script</text>
+<text x="316.0" y="374.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">current + last views</text>
+<text x="199.0" y="403.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">What the coder sees</text>
+<text x="199.0" y="414.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">index · recipes · the last script</text>
+<rect x="428.0" y="266.0" width="250.0" height="161.0" rx="3" fill="#d9f4e2" stroke="#1c7a45" stroke-width="1.2" filter="url(#sh)"/>
+<text x="436.0" y="291.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">current sub-goal</text>
+<text x="436.0" y="306.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">geometry index</text>
+<text x="436.0" y="321.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">verified recipes</text>
+<text x="436.0" y="336.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">the accepted script</text>
+<text x="436.0" y="351.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">current + last views</text>
+<text x="436.0" y="366.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">what to do differently</text>
+<text x="436.0" y="381.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">repair in place, no attempt spent</text>
+<text x="670.0" y="396.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">my_cad_function</text>
+<text x="670.0" y="411.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">prompt ⇄ validated JSON</text>
+<text x="553.0" y="441.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Executor</text>
+<text x="553.0" y="452.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/agents/executor.py</text>
+<rect x="782.0" y="303.5" width="250.0" height="86.0" rx="3" fill="#fdeec8" stroke="#a2691a" stroke-width="1.2" filter="url(#sh)"/>
+<text x="790.0" y="329.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">my_cad_function</text>
+<text x="1024.0" y="344.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">repair in place, no attempt spent</text>
+<text x="1024.0" y="359.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">crash · no-op · phantom · direction · drift · envelope</text>
+<text x="1024.0" y="374.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">tmp.step that survived the gates</text>
+<text x="907.0" y="403.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Run it, then gate it</text>
+<text x="907.0" y="414.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/adk/router.py · lint · crash · no-op · phantom · direction · drift · envelope</text>
+<rect x="74.0" y="534.5" width="250.0" height="131.0" rx="3" fill="#e8edf4" stroke="#5b6b83" stroke-width="1.2" filter="url(#sh)"/>
+<text x="82.0" y="560.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">tmp.step that survived the gates</text>
+<text x="316.0" y="575.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">the sub-goal + the instruction</text>
+<text x="316.0" y="590.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">the rest of the plan</text>
+<text x="316.0" y="605.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">6 views before, 6 after</text>
+<text x="316.0" y="620.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">measured diff</text>
+<text x="316.0" y="635.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">total change since the original</text>
+<text x="316.0" y="650.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">your own earlier verdicts</text>
+<text x="199.0" y="679.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">What the inspector sees</text>
+<text x="199.0" y="690.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">pictures + numbers, before and after</text>
+<rect x="428.0" y="527.0" width="250.0" height="146.0" rx="3" fill="#d9f4e2" stroke="#1c7a45" stroke-width="1.2" filter="url(#sh)"/>
+<text x="436.0" y="552.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">the sub-goal + the instruction</text>
+<text x="436.0" y="567.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">the rest of the plan</text>
+<text x="436.0" y="582.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">6 views before, 6 after</text>
+<text x="436.0" y="597.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">measured diff</text>
+<text x="436.0" y="612.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">total change since the original</text>
+<text x="436.0" y="627.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">your own earlier verdicts</text>
+<text x="670.0" y="642.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">achieved · partial · confidence · issues · guidance</text>
+<text x="670.0" y="657.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">prompt ⇄ validated JSON</text>
+<text x="553.0" y="687.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">QA inspector</text>
+<text x="553.0" y="698.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/agents/qa.py</text>
+<rect x="782.0" y="564.5" width="250.0" height="71.0" rx="3" fill="#e9e3fb" stroke="#6d3fc4" stroke-width="1.2" filter="url(#sh)"/>
+<text x="790.0" y="590.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">achieved · partial · confidence · issues · guidance</text>
+<text x="1024.0" y="605.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">rejected: start fresh / partial: fix in place</text>
+<text x="1024.0" y="620.2" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">sub-goal settled — advance the cursor</text>
+<text x="907.0" y="649.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Verdict applied</text>
+<text x="907.0" y="660.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/adk/router.py · 3 proposals per sub-goal</text>
+<rect x="74.0" y="761.0" width="250.0" height="71.0" rx="3" fill="#fdeec8" stroke="#a2691a" stroke-width="1.2" filter="url(#sh)"/>
+<text x="82.0" y="786.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">crash · no-op · phantom · direction · drift · envelope</text>
+<text x="82.0" y="801.7" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">rejected: start fresh / partial: fix in place</text>
+<text x="316.0" y="816.7" font-size="9" font-weight="normal" text-anchor="end" fill="#0f172a">what to do differently</text>
+<text x="199.0" y="846.0" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Feedback builders</text>
+<text x="199.0" y="857.0" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/agents/executor.py · one per failure mode</text>
+<rect x="428.0" y="771.5" width="250.0" height="50.0" rx="3" fill="#fdeec8" stroke="#a2691a" stroke-width="1.2" filter="url(#sh)"/>
+<text x="436.0" y="797.2" font-size="9" font-weight="normal" text-anchor="start" fill="#0f172a">prompt ⇄ validated JSON</text>
+<text x="553.0" y="835.5" font-size="10" font-weight="600" text-anchor="middle" fill="#0f172a">Model gateway</text>
+<text x="553.0" y="846.5" font-size="8" font-weight="normal" text-anchor="middle" fill="#64748b">src/adk/llm.py · one model id per role</text>
+<path d="M 324.0,111.5 L 360.0,111.5 Q 364.0,111.5 364.0,107.5 L 364.0,100.5 Q 364.0,96.5 368.0,96.5 L 428.0,96.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,126.5 L 368.0,126.5 Q 372.0,126.5 372.0,122.5 L 372.0,115.5 Q 372.0,111.5 376.0,111.5 L 428.0,111.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,141.5 L 376.0,141.5 Q 380.0,141.5 380.0,137.5 L 380.0,130.5 Q 380.0,126.5 384.0,126.5 L 428.0,126.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,156.5 L 384.0,156.5 Q 388.0,156.5 388.0,152.5 L 388.0,145.5 Q 388.0,141.5 392.0,141.5 L 428.0,141.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 678.0,156.5 L 726.0,156.5 Q 730.0,156.5 730.0,152.5 L 730.0,123.0 Q 730.0,119.0 734.0,119.0 L 782.0,119.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 678.0,171.5 L 687.0,171.5 Q 691.0,171.5 691.0,175.5 L 691.0,234.0 Q 691.0,238.0 687.0,238.0 L 419.0,238.0 Q 415.0,238.0 415.0,242.0 L 415.0,790.0 Q 415.0,794.0 419.0,794.0 L 428.0,794.0" fill="none" stroke="#1f4fa8" stroke-width="1.25" marker-start="url(#as)" marker-end="url(#as)"/>
+<text x="597.2" y="234.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#1f4fa8" class="lbl">prompt ⇄ validated JSON</text>
+<path d="M 1032.0,149.0 L 1049.0,149.0 Q 1053.0,149.0 1053.0,153.0 L 1053.0,246.0 Q 1053.0,250.0 1049.0,250.0 L 411.0,250.0 Q 407.0,250.0 407.0,254.0 L 407.0,284.5 Q 407.0,288.5 411.0,288.5 L 428.0,288.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="730.0" y="246.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">current sub-goal</text>
+<path d="M 324.0,326.0 L 360.0,326.0 Q 364.0,326.0 364.0,322.0 L 364.0,307.5 Q 364.0,303.5 368.0,303.5 L 428.0,303.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,341.0 L 368.0,341.0 Q 372.0,341.0 372.0,337.0 L 372.0,322.5 Q 372.0,318.5 376.0,318.5 L 428.0,318.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,356.0 L 376.0,356.0 Q 380.0,356.0 380.0,352.0 L 380.0,337.5 Q 380.0,333.5 384.0,333.5 L 428.0,333.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,371.0 L 384.0,371.0 Q 388.0,371.0 388.0,367.0 L 388.0,352.5 Q 388.0,348.5 392.0,348.5 L 428.0,348.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,813.5 L 333.0,813.5 Q 337.0,813.5 337.0,817.5 L 337.0,876.0 Q 337.0,880.0 341.0,880.0 L 411.0,880.0 Q 415.0,880.0 415.0,876.0 L 415.0,367.5 Q 415.0,363.5 419.0,363.5 L 428.0,363.5" fill="none" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="363.5" y="876.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#b45309" class="lbl">what to do differently</text>
+<path d="M 678.0,393.5 L 726.0,393.5 Q 730.0,393.5 730.0,389.5 L 730.0,330.0 Q 730.0,326.0 734.0,326.0 L 782.0,326.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 678.0,408.5 L 687.0,408.5 Q 691.0,408.5 691.0,412.5 L 691.0,471.0 Q 691.0,475.0 687.0,475.0 L 419.0,475.0 Q 415.0,475.0 415.0,479.0 L 415.0,790.0 Q 415.0,794.0 419.0,794.0 L 428.0,794.0" fill="none" stroke="#1f4fa8" stroke-width="1.25" marker-start="url(#as)" marker-end="url(#as)"/>
+<text x="597.2" y="471.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#1f4fa8" class="lbl">prompt ⇄ validated JSON</text>
+<path d="M 1032.0,341.0 L 1049.0,341.0 Q 1053.0,341.0 1053.0,345.0 L 1053.0,483.0 Q 1053.0,487.0 1049.0,487.0 L 411.0,487.0 Q 407.0,487.0 407.0,483.0 L 407.0,382.5 Q 407.0,378.5 411.0,378.5 L 428.0,378.5" fill="none" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="730.0" y="483.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#b45309" class="lbl">repair in place, no attempt spent</text>
+<path d="M 1032.0,356.0 L 1057.0,356.0 Q 1061.0,356.0 1061.0,360.0 L 1061.0,495.0 Q 1061.0,499.0 1057.0,499.0 L 49.0,499.0 Q 45.0,499.0 45.0,503.0 L 45.0,779.5 Q 45.0,783.5 49.0,783.5 L 74.0,783.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="390.4" y="495.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">crash · no-op · phantom · direction · drift · envelope</text>
+<path d="M 1032.0,371.0 L 1041.0,371.0 Q 1045.0,371.0 1045.0,375.0 L 1045.0,507.0 Q 1045.0,511.0 1041.0,511.0 L 41.0,511.0 Q 37.0,511.0 37.0,515.0 L 37.0,553.0 Q 37.0,557.0 41.0,557.0 L 74.0,557.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<text x="702.3" y="507.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#334155" class="lbl">tmp.step that survived the gates</text>
+<path d="M 324.0,572.0 L 352.0,572.0 Q 356.0,572.0 356.0,568.0 L 356.0,553.5 Q 356.0,549.5 360.0,549.5 L 428.0,549.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,587.0 L 360.0,587.0 Q 364.0,587.0 364.0,583.0 L 364.0,568.5 Q 364.0,564.5 368.0,564.5 L 428.0,564.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,602.0 L 368.0,602.0 Q 372.0,602.0 372.0,598.0 L 372.0,583.5 Q 372.0,579.5 376.0,579.5 L 428.0,579.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,617.0 L 376.0,617.0 Q 380.0,617.0 380.0,613.0 L 380.0,598.5 Q 380.0,594.5 384.0,594.5 L 428.0,594.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,632.0 L 384.0,632.0 Q 388.0,632.0 388.0,628.0 L 388.0,613.5 Q 388.0,609.5 392.0,609.5 L 428.0,609.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 324.0,647.0 L 392.0,647.0 Q 396.0,647.0 396.0,643.0 L 396.0,628.5 Q 396.0,624.5 400.0,624.5 L 428.0,624.5" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 678.0,639.5 L 726.0,639.5 Q 730.0,639.5 730.0,635.5 L 730.0,591.0 Q 730.0,587.0 734.0,587.0 L 782.0,587.0" fill="none" stroke="#334155" stroke-width="1.25" marker-end="url(#af)"/>
+<path d="M 678.0,654.5 L 687.0,654.5 Q 691.0,654.5 691.0,658.5 L 691.0,717.0 Q 691.0,721.0 687.0,721.0 L 419.0,721.0 Q 415.0,721.0 415.0,725.0 L 415.0,790.0 Q 415.0,794.0 419.0,794.0 L 428.0,794.0" fill="none" stroke="#1f4fa8" stroke-width="1.25" marker-start="url(#as)" marker-end="url(#as)"/>
+<text x="597.2" y="717.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#1f4fa8" class="lbl">prompt ⇄ validated JSON</text>
+<path d="M 1032.0,602.0 L 1049.0,602.0 Q 1053.0,602.0 1053.0,606.0 L 1053.0,729.0 Q 1053.0,733.0 1049.0,733.0 L 57.0,733.0 Q 53.0,733.0 53.0,737.0 L 53.0,794.5 Q 53.0,798.5 57.0,798.5 L 74.0,798.5" fill="none" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="553.0" y="729.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#b45309" class="lbl">rejected: start fresh / partial: fix in place</text>
+<path d="M 1032.0,617.0 L 1057.0,617.0 Q 1061.0,617.0 1061.0,621.0 L 1061.0,741.0 Q 1061.0,745.0 1057.0,745.0 L 757.0,745.0 Q 753.0,745.0 753.0,741.0 L 753.0,138.0 Q 753.0,134.0 757.0,134.0 L 782.0,134.0" fill="none" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="857.7" y="741.0" font-size="8.5" font-weight="normal" text-anchor="middle" fill="#b45309" class="lbl">sub-goal settled — advance the cursor</text>
+<rect x="74.0" y="880.0" width="13" height="11" rx="2" fill="#e8edf4" stroke="#5b6b83" stroke-width="1.1"/>
+<text x="94.0" y="889.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">dataset / files on disk</text>
+<rect x="208.5" y="880.0" width="13" height="11" rx="2" fill="#e9e3fb" stroke="#6d3fc4" stroke-width="1.1"/>
+<text x="228.5" y="889.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">router — the state machine</text>
+<rect x="357.0" y="880.0" width="13" height="11" rx="2" fill="#d9f4e2" stroke="#1c7a45" stroke-width="1.1"/>
+<text x="377.0" y="889.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">LLM agent (one JSON call via adk/llm.py)</text>
+<rect x="570.3" y="880.0" width="13" height="11" rx="2" fill="#fdeec8" stroke="#a2691a" stroke-width="1.1"/>
+<text x="590.3" y="889.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">deterministic tool</text>
+<line x1="681.7" y1="885.0" x2="696.7" y2="885.0" stroke="#b45309" stroke-width="1.25" marker-end="url(#ab)"/>
+<text x="701.7" y="889.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">feedback — the attempt is retried</text>
+<line x1="862.5" y1="885.0" x2="877.5" y2="885.0" stroke="#1f4fa8" stroke-width="1.25" marker-end="url(#as)"/>
+<text x="882.5" y="889.0" font-size="8.5" font-weight="normal" text-anchor="start" fill="#475569">request ⇄ reply — one LLM call</text>
+</svg>

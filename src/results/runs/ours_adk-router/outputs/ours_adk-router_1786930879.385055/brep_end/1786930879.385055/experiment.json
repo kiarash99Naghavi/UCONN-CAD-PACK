@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-16T22:01:00-04:00",
+  "task_number": 8,
+  "task_total": 48,
+  "task_name": "3YH2WFSRM22W7DKT_1769773335.525203",
+  "difficulty": "medium",
+  "instruction": "Add cylindrical heads on the long pins to prevent link arms against slipping off.",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.6-sol",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 164732,
+    "output_tokens": 40895,
+    "reasoning_tokens": 26341,
+    "cached_input_tokens": 15872,
+    "total_tokens": 205627,
+    "llm_calls": 10,
+    "cost_estimate": 0.86081,
+    "per_model": {
+      "gpt-5.6-sol": {
+        "input_tokens": 23191,
+        "output_tokens": 3467
+      },
+      "gpt-5.2-2025-12-11": {
+        "input_tokens": 141541,
+        "output_tokens": 37428
+      }
+    },
+    "per_role": {
+      "strategist": {
+        "input_tokens": 23191,
+        "output_tokens": 3467,
+        "reasoning_tokens": 1975,
+        "cached_input_tokens": 0,
+        "llm_calls": 1,
+        "cost_estimate": 0.08912
+      },
+      "executor": {
+        "input_tokens": 94437,
+        "output_tokens": 25232,
+        "reasoning_tokens": 13128,
+        "cached_input_tokens": 15872,
+        "llm_calls": 5,
+        "cost_estimate": 0.51851
+      },
+      "qa": {
+        "input_tokens": 47104,
+        "output_tokens": 12196,
+        "reasoning_tokens": 11238,
+        "cached_input_tokens": 0,
+        "llm_calls": 4,
+        "cost_estimate": 0.25318
+      }
+    }
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786930879.385055/brep_end/1786930879.385055"
+}

@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-15T20:32:04-04:00",
+  "task_number": 14,
+  "task_total": 48,
+  "task_name": "4E22SJE7QVTSP2E3_1758737118.288898",
+  "difficulty": "medium",
+  "instruction": "Insert screws to both holes to be able to fix tool on the table",
+  "status": "done",
+  "use_skill_recipes": false,
+  "recipes_max_tokens": 4100,
+  "models": {
+    "strategist": "gpt-5.2-2025-12-11",
+    "executor": "gpt-5.2-2025-12-11",
+    "qa": "gpt-5.2-2025-12-11"
+  },
+  "token_counts": {
+    "input_tokens": 62627,
+    "output_tokens": 33882,
+    "reasoning_tokens": 27528,
+    "total_tokens": 96509,
+    "llm_calls": 7,
+    "cost_estimate": 0.58395
+  },
+  "geometry_source": "edited",
+  "output_dir": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/outputs/ours_adk-router_1786839822.118772/brep_end/1786839822.118772"
+}
