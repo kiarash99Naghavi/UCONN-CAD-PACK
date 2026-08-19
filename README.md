@@ -50,6 +50,17 @@ The five request_ids the organisers named for qualitative evaluation, shown as i
 | **4. [hard]** Add third rotor blade to the assembly, same design as the other two, radii on all four long edges, thinner central portion.<br>`F332D3FXML85WLR2_1769607142.566352` | <img src="figures/test_examples/4_input.png" width="150"> | <img src="figures/test_examples/4_ours.jpg" width="150"> | <img src="figures/test_examples/4_gt.png" width="150"> | 0.992 / 0.936 / 0.783 |
 | **5. [hard]** Add a connecting hole of 1.7 millimetre diameter and apply 0.1 millimetre grooves to increase grip and prevent slipping.<br>`ZK22J6VYRKQ2RTFD_1758874422.1403751` | <img src="figures/test_examples/5_input.png" width="150"> | <img src="figures/test_examples/5_ours.jpg" width="150"> | <img src="figures/test_examples/5_gt.png" width="150"> | 0.987 / 0.986 / 0.073 |
 
+### Scores on the five test examples
+
+| # | Request | Difficulty | Chamfer similarity | Volume F1 | Diff F1 |
+|---|---|---|---|---|---|
+| 1 | Gear teeth (`SUJ2G2UMJQR7PMBX_1759209987.785593`) | medium | 0.991 | 0.972 | 0.131 |
+| 2 | Pin heads (`3YH2WFSRM22W7DKT_1769773335.525203`) | medium | 0.985 | 0.994 | 0.579 |
+| 3 | Lever extension (`B7A2N74ZJBF9MZHU_1770174133.012106`) | easy | 0.985 | 1.000 | 0.797 |
+| 4 | Third rotor blade (`F332D3FXML85WLR2_1769607142.566352`) | hard | 0.992 | 0.936 | 0.783 |
+| 5 | Hole and grooves (`ZK22J6VYRKQ2RTFD_1758874422.1403751`) | hard | 0.987 | 0.986 | 0.073 |
+| | **Mean over the five** | | **0.988** | **0.978** | **0.473** |
+
 ## Fire the dashboard
 
 Everything lands in one Dash app: the method deck, any task's input and ground truth, our result next to the human's, per-task and whole-benchmark scores, saved run replays, and a tab with the five organiser-named test examples on one slide.
