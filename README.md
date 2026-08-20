@@ -42,6 +42,18 @@ The key ideas, in one paragraph each:
 
 - **Measurements decide, renders illustrate.** Every attempt is measured against the geometry it started from: volume delta, new-face regions, bounding box drift. A 5 mm gap on a 984 mm part is 2.5 pixels in a render; no image-based check can catch that, so the numbers gate first.
 
+### Which model runs which agent
+
+All three agents run the same model. One model per role is a deliberate config knob (a cheaper QA model is a legitimate cost lever), but every scored run in this repo used the defaults:
+
+| Agent | Model | Reasoning effort |
+|---|---|---|
+| Strategist | `gpt-5.2-2025-12-11` | medium |
+| Executor | `gpt-5.2-2025-12-11` | medium |
+| QA | `gpt-5.2-2025-12-11` | medium |
+
+The assignments live in `src/config.py` and can be overridden per role with the `MODEL_STRATEGIST`, `MODEL_EXECUTOR` and `MODEL_QA` environment variables (see `src/.env.example`). The gates use no model at all; they are deterministic geometry checks.
+
 A longer write-up is in `docs/method_overview.md`, and the same content is rendered live on tab 1 of the dashboard.
 
 ## The five selected test examples

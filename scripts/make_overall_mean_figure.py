@@ -41,11 +41,11 @@ if not REPO:
 METRICS = ["chamfer_similarity_norm", "volume_f1", "diff_f1"]
 OURS = "UCONN CAD PACK\n(ours)"
 HUMAN = "other human"
-MODELS = [  # config order of src/config/edit_192_external.json
+MODELS = [  # config order of src/config/edit_192_external.json;
+    # gpt-5.6-sol is omitted: the published results carry no scores for it
     ("gemini-3-pro_cadquery-script", "gemini-3-pro"),
     ("gpt-5.2_cadquery-script", "gpt-5.2"),
     ("claude-sonnet-4.5_cadquery-script", "claude-sonnet-4.5"),
-    ("gpt-5.6-sol_openrouter_cadquery-script", "gpt-5.6-sol"),
 ]
 
 INK = "#1c2333"

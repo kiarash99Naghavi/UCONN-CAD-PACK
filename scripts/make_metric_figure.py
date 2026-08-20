@@ -65,8 +65,11 @@ def main():
         n += 1
     print(f"injected {n} scored requests as '{OURS}'")
 
-    cfg["benchmark_eval_users"]["edit"] = (
-        cfg["benchmark_eval_users"]["edit"] + [OURS])
+    # gpt-5.6-sol is dropped: the published results carry no scores for it
+    cfg["benchmark_eval_users"]["edit"] = [
+        u for u in cfg["benchmark_eval_users"]["edit"]
+        if not u.startswith("gpt-5.6-sol")
+    ] + [OURS]
     fig, axes = vr.faceted_bar_plot(cfg, results, request_type="edit", save=False)
 
     out = osp.join(SUB, "figures", "metric_bar_facets.png")
