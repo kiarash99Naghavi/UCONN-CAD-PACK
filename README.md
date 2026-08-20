@@ -14,9 +14,9 @@ Computed with the benchmark's own metric code (`src/utils/evals_diff.py` and `sr
 
 | Metric | Ours | Best published model baseline |
 |---|---|---|
-| Surface Chamfer similarity | **0.978** | 0.97 (gpt-5.2) |
+| Surface Chamfer similarity | **0.977** | 0.97 (gpt-5.2) |
 | Volumetric F1 | **0.910** | 0.85 (gpt-5.2) |
-| Volumetric Difference F1 (most important) | **0.369** | 0.18 (gpt-5.2) |
+| Volumetric Difference F1 (most important) | **0.390** | 0.18 (gpt-5.2) |
 
 Mean cost per edit: $0.86. All 48 tasks produced valid edited geometry.
 
