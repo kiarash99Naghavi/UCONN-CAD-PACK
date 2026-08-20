@@ -200,12 +200,21 @@ tbody tr:hover { background: var(--bg-band); }
 }
 .topbar .wrap { display: flex; align-items: center; gap: 1.4rem; height: 60px; }
 
-.brand { display: flex; align-items: baseline; gap: .55rem; font-weight: 700;
+.brand { display: flex; align-items: center; gap: .6rem; font-weight: 700;
          color: var(--navy); letter-spacing: -.02em; white-space: nowrap; }
 .brand:hover { text-decoration: none; }
 .brand .mark { font-size: 1.02rem; }
-.brand .sub { font-size: .72rem; font-weight: 560; color: var(--ink-faint);
-              letter-spacing: .05em; text-transform: uppercase; }
+.brand .rule { width: 1px; height: 22px; background: var(--line-strong); flex: none; }
+.brand .logo { display: block; width: auto; flex: none; }
+.brand .logo.uconn { height: 26px; }
+.brand .logo.hack { height: 24px; }
+/* The UConn wordmark is navy artwork on transparency, which disappears against
+   a dark page. It is effectively two-tone, so flattening it to white reads
+   correctly rather than as an inverted photograph. */
+:root[data-theme="dark"] .brand .logo.uconn { filter: brightness(0) invert(1); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brand .logo.uconn { filter: brightness(0) invert(1); }
+}
 
 .nav { display: flex; gap: .25rem; margin-left: auto; align-items: center; }
 .nav a {
@@ -224,10 +233,10 @@ tbody tr:hover { background: var(--bg-band); }
 }
 .theme-toggle:hover { border-color: var(--line-strong); color: var(--ink); }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .topbar .wrap { height: auto; flex-wrap: wrap; padding-top: .6rem; padding-bottom: .6rem; }
   .nav { width: 100%; margin-left: 0; overflow-x: auto; padding-bottom: .2rem; }
-  .brand .sub { display: none; }
+  .brand .logo.uconn, .brand .rule { display: none; }
 }
 
 .foot {
@@ -261,7 +270,7 @@ tbody tr:hover { background: var(--bg-band); }
   border: 1px solid color-mix(in srgb, var(--blue) 22%, transparent);
   border-radius: 999px; padding: .38em .85em; margin-bottom: 1.2rem;
 }
-.hero h1 { font-size: clamp(2.1rem, 1.2rem + 3.2vw, 3.5rem); margin-bottom: .5rem; }
+.hero h1 { font-size: clamp(1.95rem, 1.3rem + 2.2vw, 2.9rem); margin-bottom: .6rem; }
 .hero .lede { font-size: clamp(1.02rem, .98rem + .35vw, 1.18rem); color: var(--ink-soft); max-width: 56ch; }
 
 .cta-row { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
@@ -556,3 +565,33 @@ td .loss { color: var(--red); }
   border-radius: var(--radius); padding: 1.2rem; overflow-x: auto;
 }
 .figure.mermaid svg { max-width: 100%; height: auto; }
+
+/* ---------- numbered steps (method page) ---------- */
+
+.steps { display: flex; flex-direction: column; gap: 2.6rem; }
+.step { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1.4rem;
+        align-items: start; }
+.step .num {
+  display: grid; place-items: center;
+  width: 3rem; height: 3rem; border-radius: 12px;
+  background: var(--accent-wash); color: var(--blue);
+  border: 1px solid color-mix(in srgb, var(--blue) 22%, transparent);
+  font-family: var(--mono); font-size: 1rem; font-weight: 700;
+  letter-spacing: -.02em;
+}
+.step h3 { margin: .35rem 0 .6em; font-size: 1.28rem; }
+.step > div > :last-child { margin-bottom: 0; }
+.step p, .step table { max-width: var(--text-col); }
+.step .cols-2, .step .figure { max-width: none; }
+.step table td:first-child { white-space: nowrap; width: 1%; color: var(--ink); }
+
+@media (max-width: 620px) {
+  .step { grid-template-columns: 1fr; gap: .8rem; }
+  .step .num { width: 2.4rem; height: 2.4rem; font-size: .9rem; }
+}
+
+.hero-cap {
+  display: flex; flex-direction: column; align-items: flex-start; gap: .5rem;
+  margin-top: .9rem; font-size: .88rem; line-height: 1.5; color: var(--ink-soft);
+}
+.hero-cap a { font-size: .85rem; font-weight: 540; }

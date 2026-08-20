@@ -47,25 +47,14 @@ NAV = [
     ("gallery.html", "Tasks"),
     ("results.html", "Results"),
     ("method.html", "Method"),
-    ("architecture.html", "Architecture"),
-    ("notes.html", "Engineering notes"),
+    ("dashboard.html", "Dashboard"),
 ]
 
 # Markdown write-ups that become their own page. Each entry is
 # (output name, nav title, source markdown, one-line subtitle, source label).
+# The Method page is built by hand rather than rendered from markdown, so it is
+# not in here — see build_method().
 DOCS = [
-    ("method.html", "Method",
-     "docs/method_overview.md",
-     "How the harness turns one sentence and one B-rep into an edited part.",
-     "docs/method_overview.md"),
-    ("architecture.html", "Architecture",
-     "ARCHITECTURE.md",
-     "The module-by-module contract, generated from the source it describes.",
-     "ARCHITECTURE.md"),
-    ("notes.html", "Engineering notes",
-     "handoff/AGENT_HANDOFF.md",
-     "Failure taxonomy, what was tried and rejected, and what to do next.",
-     "handoff/AGENT_HANDOFF.md"),
     ("results-detail.html", "Results write-up",
      "handoff/RESULTS.md",
      "The headline numbers, and which fixes have causal evidence behind them.",
@@ -144,6 +133,10 @@ def page(title, body, *, active="", description="", scripts=(), depth=0,
     `tasks/` can share one template with the pages at the root.
     """
     up = "../" * depth
+    # An import map value has to be a URL, and a bare `assets/...` is read as a
+    # bare specifier and rejected outright — so the root-level pages need the
+    # explicit `./` that the deeper pages get for free from `../`.
+    mod = up or "./"
     current = ' aria-current="page"'
     nav = "\n".join(
         '          <a href="%s%s"%s>%s</a>'
@@ -173,8 +166,8 @@ def page(title, body, *, active="", description="", scripts=(), depth=0,
 </script>
 <script type="importmap">
 {{"imports": {{
-  "three": "{up}assets/js/vendor/three.module.min.js",
-  "three/addons/": "{up}assets/js/vendor/"
+  "three": "{mod}assets/js/vendor/three.module.min.js",
+  "three/addons/": "{mod}assets/js/vendor/"
 }}}}
 </script>
 </head>
@@ -183,8 +176,13 @@ def page(title, body, *, active="", description="", scripts=(), depth=0,
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="{up}index.html">
+      <img class="logo uconn" src="{up}assets/img/uconn-mam.png"
+           alt="UConn College of Engineering, School of Mechanical, Aerospace
+                and Manufacturing Engineering">
+      <span class="rule" aria-hidden="true"></span>
+      <img class="logo hack" src="{up}assets/img/hackathon-logo.png"
+           alt="ASME IDETC-CIE 2026 Hackathon">
       <span class="mark">UCONN CAD PACK</span>
-      <span class="sub">neuralCAD-Edit</span>
     </a>
     <nav class="nav" aria-label="Main">
 {nav}
@@ -203,15 +201,14 @@ def page(title, body, *, active="", description="", scripts=(), depth=0,
         <ul>
           <li><a href="{REPO_URL}">Source and outputs on GitHub</a></li>
           <li><a href="{REPO_URL}/tree/main/outputs">All 48 edited parts (STEP + STL)</a></li>
-          <li><a href="{up}presentation.html">Presentation and demo</a></li>
+          <li><a href="{up}assets/repo/UCONN-CAD-PACK.pdf">Slide deck (PDF)</a></li>
         </ul>
       </div>
       <div>
         <h4>Write-ups</h4>
         <ul>
           <li><a href="{up}method.html">Method</a></li>
-          <li><a href="{up}architecture.html">Architecture</a></li>
-          <li><a href="{up}notes.html">Engineering notes</a></li>
+          <li><a href="{up}results-detail.html">Results write-up</a></li>
           <li><a href="{up}selector-study.html">Selector study</a></li>
           <li><a href="{up}replay.html">Replay for $0</a></li>
         </ul>
@@ -362,10 +359,12 @@ def build_index(tasks, stats):
           <span class="tris"></span></div>
         <div class="state">loading part…</div>
       </div>
-      <p class="mono" style="margin:.7rem 0 0; font-size:.8rem; line-height:1.5">
-        {html.escape(hero_task['instruction'])}
-        <a href="tasks/{hero_task['id']}.html">Open this task →</a>
-      </p>
+      <figcaption class="hero-cap">
+        <span class="badge {hero_task['difficulty']}">{hero_task['difficulty']}</span>
+        <span>“{html.escape(hero_task['instruction'])}”</span>
+        <a href="tasks/{hero_task['id']}.html">Open this task, and the expert's
+          answer beside it →</a>
+      </figcaption>
     </div>
   </div>
 </section>
@@ -429,7 +428,7 @@ def build_index(tasks, stats):
         accept each attempt, and the router carries accepted state forward.">
       <figcaption>
         Generated from the source by <code>tools/blockdiagram.py</code>.
-        <a href="architecture.html">The module-by-module contract →</a>
+        <a href="method.html">The method in five steps →</a>
       </figcaption>
     </figure>
 
@@ -477,7 +476,8 @@ def build_index(tasks, stats):
     <figure class="figure">
       <img src="assets/repo/CADPACK.gif" alt="Screen recording of the dashboard
         replaying one edit request through the pipeline." loading="lazy">
-      <figcaption>Run it with <code>./run_dashboard.sh</code>.</figcaption>
+      <figcaption>Run it with <code>./run_dashboard.sh</code>.
+        <a href="dashboard.html">What is on each tab →</a></figcaption>
     </figure>
   </div>
 </section>
@@ -801,26 +801,213 @@ def build_results(tasks, stats):
                             "against the gpt-5.2 baseline and a second human.")
 
 
-def build_presentation():
-    body = """
-<section class="section">
+def step(number, title, body):
+    return f"""<section class="step">
+      <div class="num">{number}</div>
+      <div>
+        <h3>{title}</h3>
+        {body}
+      </div>
+    </section>"""
+
+
+def build_method(stats):
+    """The method in five steps.
+
+    Deliberately short. The long version is `docs/method_overview.md`, linked at
+    the bottom — a landing-length page that someone will actually read beats a
+    complete one they will not.
+    """
+    gates = [
+        ("lint", "Asks the installed CadQuery and OCP whether every attribute "
+                 "the code calls exists, and repairs the nearest real name in "
+                 "place. The attempt is not spent."),
+        ("no-op", "Output identical to the input, which scores zero."),
+        ("phantom material", "Summed volume rose but occupied volume did not — "
+                             "a duplicate body buried inside the part, invisible "
+                             "in every render."),
+        ("direction", "A sub-goal tagged <code>cut-hole-slot</code> that added "
+                      "material, or <code>add-body</code> that removed it."),
+        ("frame drift", "The part was translated, rescaled or re-centred. Views "
+                        "auto-frame, so QA cannot see it, and every metric "
+                        "scores it near zero."),
+        ("envelope", "A bounding-box face moved that the sub-goal never declared "
+                     "it could move."),
+    ]
+    gate_rows = "".join(
+        f'<tr><td><strong>{name}</strong></td><td>{why}</td></tr>'
+        for name, why in gates)
+
+    body = f"""
+<section class="section" style="padding-bottom:1.5rem">
   <div class="wrap">
-    <h1>Presentation and demo</h1>
-    <p class="section-lede">The slide deck and the dashboard recording that
-      accompany the submission.</p>
-    <p><a class="btn btn-primary" href="assets/repo/UCONN-CAD-PACK.pdf">
-      Open the slide deck (PDF)</a></p>
-    <figure class="figure" style="margin-top:2rem">
-      <img src="assets/repo/CADPACK.gif" loading="lazy"
-        alt="Screen recording of the dashboard replaying one edit request.">
-      <figcaption>The dashboard replaying one edit request over the pipeline.</figcaption>
+    <h1>Method</h1>
+    <p class="section-lede">
+      One CAD part as a STEP file, one sentence from a customer, and no feature
+      tree — just a solved B-rep with a few hundred faces. Five steps from that
+      to an edited part.
+    </p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="steps">
+    {step("01", "The metric is what makes this hard", f'''
+      <p>Three numbers come back, all against the edit a human expert made from
+      the same sentence. Two of them are dominated by the material nobody
+      touched — we average {fmt(stats['chamfer'], 2)} and
+      {fmt(stats['volume_f1'], 2)} on those while still getting edits wrong.</p>
+      <p><strong>Diff F1 discriminates.</strong> All three parts are voxelised
+      on one shared grid, the voxels each edit changed are taken as an XOR
+      against the start part, and F1 compares the human's change set with ours.
+      So a no-op scores 0, a clean rebuild scores 0, and a correct part sitting
+      5&nbsp;mm off scores 0 — there is no alignment step.</p>''')}
+
+    {step("02", "One model writing one script is not enough", '''
+      <p>The published baselines already iterate: the benchmark's own harness
+      lets a model write a function, run it, look at a render, and try again up
+      to ten times. The gap is not model quality. Three things stall it.</p>
+      <p><strong>Selection.</strong> The customer says "that vertical slot", the
+      STEP file has no names, so a model writing selectors blind picks by
+      position. <strong>Self-grading.</strong> A render cannot show that the
+      part shifted or that a fillet landed on the opposite rim.
+      <strong>The API surface.</strong> One wrong call form crashed 8 attempts
+      across 5 sessions, and each crash burns one of the ten.</p>''')}
+
+    {step("03", "Three agents, each deciding one thing", f'''
+      <div class="cols-2" style="margin:1.2rem 0">
+        <div class="card">
+          <h4>Strategist</h4>
+          <p>Reads the instruction and a <em>measured</em> index of the part:
+          hole families by radius, cylindrical faces with their sweep angle,
+          bores paired into single features, every opening labelled blind or
+          through. Returns 1 to 5 ordered sub-goals, each with tags and an
+          envelope — which bounding-box faces it may move.</p>
+        </div>
+        <div class="card">
+          <h4>Executor</h4>
+          <p>Sees one sub-goal and never the others. Gets the geometry index,
+          the last approved script, seven views of the state it is editing, and
+          feedback from its last failure. Writes one CadQuery function, run in a
+          subprocess under a 180&nbsp;s timeout.</p>
+        </div>
+        <div class="card">
+          <h4>QA</h4>
+          <p>A separate call with no stake in the edit passing. Sees the
+          sub-goal, the rest of the plan labelled done or not-run-yet, seven
+          views before and after, and the measured diff. Three verdicts:
+          accepted, partial — kept and refined in place — and rejected.</p>
+        </div>
+      </div>
+      <figure class="figure">
+        <img src="assets/repo/agents.svg" loading="lazy"
+          alt="What goes into each agent's prompt and what is parsed back out.">
+        <figcaption>What goes into each prompt, what is parsed back out, and
+          where the output comes round again.</figcaption>
+      </figure>''')}
+
+    {step("04", "Six gates reject before any model looks", f'''
+      <p>Every attempt is measured against the geometry it started from before
+      QA is called. Each gate rejects for free and hands back text, not just a
+      retry.</p>
+      <div class="scroll-x">
+        <table><tbody>{gate_rows}</tbody></table>
+      </div>''')}
+
+    {step("05", "The router carries only what survived", '''
+      <p>Accepted geometry is checkpointed and the part is re-indexed before the
+      next sub-goal, so the executor always selects against the shape actually
+      in front of it. When every attempt on a sub-goal dies, the strategist
+      replans — at most twice. What ships is the best checkpoint, not the last
+      one.</p>
+      <figure class="figure">
+        <img src="assets/repo/architecture.svg" loading="lazy"
+          alt="Signal-flow schematic of the harness, from the task library
+               through the strategist, executor and gates to the scored output.">
+        <figcaption>One request, end to end. Amber wires are feedback — they
+          send the attempt back to be retried.</figcaption>
+      </figure>''')}
+  </div>
+
+  <p style="margin:3rem 0 0">
+    <a class="btn btn-ghost" href="{REPO_URL}/blob/main/docs/method_overview.md">
+      The long version, with the numbers behind each claim →</a>
+  </p>
+</div>
+"""
+    return page("Method — UCONN CAD PACK", body, active="method.html",
+                description="How the harness turns one sentence and one B-rep "
+                            "into an edited part: the metric, three agents, and "
+                            "six deterministic gates.")
+
+
+def build_dashboard():
+    shots = [
+        ("assets/repo/dashboard-metrics.png",
+         "All three metrics averaged, and mean diff F1 broken out by difficulty "
+         "band, against every published baseline and the second human."),
+        ("assets/repo/dashboard-distributions.png",
+         "One violin per method on the same scale. Ours carries real mass at the "
+         "top of the range where every published model is pinned near zero. Below, "
+         "where a task lands against what it cost."),
+        ("assets/repo/dashboard-agents.png",
+         "The method deck: what goes into each agent's prompt, what is parsed "
+         "back out, and where the output comes round again."),
+    ]
+    figures = "".join(f"""
+    <figure class="figure">
+      <img src="{src}" loading="lazy" alt="{html.escape(caption)}">
+      <figcaption>{caption}</figcaption>
+    </figure>""" for src, caption in shots)
+
+    body = f"""
+<section class="section" style="padding-bottom:1.5rem">
+  <div class="wrap">
+    <h1>The dashboard</h1>
+    <p class="section-lede">
+      Everything lands in one Dash app: the method deck, any task's input and
+      ground truth, our result next to the human's, per-task and whole-benchmark
+      scores, saved run replays, and the five organiser-named test examples on
+      one slide. No API key is needed to browse it.
+    </p>
+    <figure class="figure">
+      <img src="assets/repo/CADPACK.gif" alt="Screen recording of the dashboard
+        replaying one edit request over the pipeline.">
+      <figcaption>Replaying one edit request over the pipeline.</figcaption>
     </figure>
   </div>
 </section>
+
+<section class="section band">
+  <div class="wrap">
+    <h2>Run it</h2>
+    <p class="section-lede">From the repo root, after the standard benchmark
+      setup — <code>uv sync</code>, dataset extracted to
+      <code>data/edit_192_external/</code>.</p>
+    <pre><code>./submissions/UCONN-CAD-PACK/run_dashboard.sh
+# then open http://127.0.0.1:8050</code></pre>
+    <p>The launcher finds the repo root on its own, so it works from any working
+    directory. If you cloned this folder as a standalone repository, point it at
+    your benchmark checkout:</p>
+    <pre><code>NEURALCAD_REPO=/path/to/IDETC26-Hackathon-Autodesk-neuralCAD-Edit \\
+    ./run_dashboard.sh</code></pre>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>What is on it</h2>
+    {figures}
+    <p style="margin-top:2rem">
+      <a class="btn btn-ghost" href="assets/repo/UCONN-CAD-PACK.pdf">
+        Open the slide deck (PDF) →</a>
+    </p>
+  </div>
+</section>
 """
-    return page("Presentation — UCONN CAD PACK", body,
-                description="Slide deck and dashboard demo for the UCONN CAD "
-                            "PACK submission.")
+    return page("Dashboard — UCONN CAD PACK", body, active="dashboard.html",
+                description="The Dash app that carries the method deck, the "
+                            "geometry viewers, the scores and the run replays.")
 
 
 def build_doc(name, title, source, subtitle, label, renderer):
@@ -866,6 +1053,9 @@ REPO_ASSETS = [
     "docs/agents.svg",
     "figures/metric_bar_facets.png",
     "figures/metric_mean_overall.png",
+    ("figures/dashboard/metrics.png", "dashboard-metrics.png"),
+    ("figures/dashboard/distributions.png", "dashboard-distributions.png"),
+    ("figures/dashboard/agents.png", "dashboard-agents.png"),
     "Demo/CADPACK.gif",
     "presentation/UCONN-CAD-PACK.pdf",
 ]
@@ -900,10 +1090,13 @@ def main():
         shutil.rmtree(OUT)
     shutil.copytree(osp.join(SITE, "assets"), osp.join(OUT, "assets"))
 
-    for rel in REPO_ASSETS:
+    for entry in REPO_ASSETS:
+        # a plain path keeps its basename; a pair renames it, which the three
+        # dashboard screenshots need since they are all called <n>.png upstream
+        rel, name = entry if isinstance(entry, tuple) else (entry, osp.basename(entry))
         src = osp.join(REPO, rel)
         if osp.exists(src):
-            dst = osp.join(OUT, "assets", "repo", osp.basename(rel))
+            dst = osp.join(OUT, "assets", "repo", name)
             os.makedirs(osp.dirname(dst), exist_ok=True)
             shutil.copy2(src, dst)
         else:
@@ -918,7 +1111,8 @@ def main():
     write(osp.join(OUT, "index.html"), build_index(tasks, stats)); pages += 1
     write(osp.join(OUT, "gallery.html"), build_gallery(tasks, stats)); pages += 1
     write(osp.join(OUT, "results.html"), build_results(tasks, stats)); pages += 1
-    write(osp.join(OUT, "presentation.html"), build_presentation()); pages += 1
+    write(osp.join(OUT, "method.html"), build_method(stats)); pages += 1
+    write(osp.join(OUT, "dashboard.html"), build_dashboard()); pages += 1
 
     order = sorted(tasks, key=lambda t: -(t["scores"].get("diff_f1") or 0))
     for i, task in enumerate(order):
