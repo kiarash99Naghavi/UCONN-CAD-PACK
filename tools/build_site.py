@@ -193,7 +193,7 @@ def page(title, body, *, active="", description="", scripts=(), depth=0,
         <ul>
           <li><a href="{REPO_URL}">Source and outputs on GitHub</a></li>
           <li><a href="{REPO_URL}/tree/main/outputs">All 48 edited parts (STEP + STL)</a></li>
-          <li><a href="{up}assets/repo/UCONN-CAD-PACK.pdf">Slide deck (PDF)</a></li>
+          <li><a href="{up}assets/repo/UCONN_CAD_Pack.pdf">Slide deck (PDF)</a></li>
         </ul>
       </div>
       <div>
@@ -927,7 +927,7 @@ def build_dashboard():
     <h2>What is on it</h2>
     {figures}
     <p style="margin-top:2rem">
-      <a class="btn btn-ghost" href="assets/repo/UCONN-CAD-PACK.pdf">
+      <a class="btn btn-ghost" href="assets/repo/UCONN_CAD_Pack.pdf">
         Open the slide deck (PDF) →</a>
     </p>
   </div>
@@ -985,7 +985,7 @@ REPO_ASSETS = [
     ("figures/dashboard/distributions.png", "dashboard-distributions.png"),
     ("figures/dashboard/agents.png", "dashboard-agents.png"),
     "Demo/CADPACK.gif",
-    "presentation/UCONN-CAD-PACK.pdf",
+    "presentation/UCONN_CAD_Pack.pdf",
 ]
 
 FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
