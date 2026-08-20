@@ -24,7 +24,9 @@ The full comparison chart is `figures/metric_bar_facets.png`, regenerated with o
 
 Averaging all three metrics into one overall score puts us ahead of every published model baseline, with the human expert still on top (rebuild with `scripts/make_overall_mean_figure.py`):
 
-![Overall score, the mean of chamfer similarity, volume F1 and diff F1, compared across methods](figures/metric_mean_overall.png) Per-request scores live in `src/results/scores/ours_adk-router.json` and in `outputs/manifest.json`.
+![Overall score, the mean of chamfer similarity, volume F1 and diff F1, compared across methods](figures/metric_mean_overall.png)
+
+Per-request scores live in `src/results/scores/ours_adk-router.json` and in `outputs/manifest.json`.
 
 ## The framework
 
