@@ -1,30 +1,30 @@
 {
   "user_id": "ours_adk-router",
   "n_scored": 48,
-  "n_runs_found": 117,
-  "n_superseded": 69,
+  "n_runs_found": 122,
+  "n_superseded": 74,
   "n_failed": 0,
-  "n_unedited_fallback": 4,
+  "n_unedited_fallback": 2,
   "means": {
     "chamfer_similarity_norm": 0.9775,
-    "volume_f1": 0.9103,
-    "diff_f1": 0.3693
+    "volume_f1": 0.9102,
+    "diff_f1": 0.3896
   },
   "means_by_topology": {
     "single_solid": {
       "n": 24,
       "chamfer_similarity_norm": 0.9689,
-      "volume_f1": 0.8401,
-      "diff_f1": 0.3833
+      "volume_f1": 0.8398,
+      "diff_f1": 0.384
     },
     "multi_solid": {
       "n": 24,
       "chamfer_similarity_norm": 0.9861,
-      "volume_f1": 0.9805,
-      "diff_f1": 0.3553
+      "volume_f1": 0.9807,
+      "diff_f1": 0.3952
     }
   },
-  "mean_cost_per_edit": 0.8554,
+  "mean_cost_per_edit": 0.8376,
   "per_request": {
     "ZK22J6VYRKQ2RTFD_1758875163.609787": {
       "chamfer_similarity_norm": 0.9893297646427204,
@@ -159,16 +159,16 @@
       "total_tokens": 205627
     },
     "F332D3FXML85WLR2_1770204558.429523": {
-      "chamfer_similarity_norm": 0.994439147405871,
-      "volume_f1": 0.9940018347329053,
-      "diff_f1": 0.0,
+      "chamfer_similarity_norm": 0.9946458971403601,
+      "volume_f1": 0.9995032995103952,
+      "diff_f1": 0.9570552147239264,
       "failed": false,
-      "edit_id": "ours_adk-router_1786743384.50195",
-      "scored_at": 1786743384.50195,
-      "runs_for_this_request": 1,
-      "geometry_source": "input-unedited",
-      "cost_estimate": 0.33964,
-      "total_tokens": 60903
+      "edit_id": "fable_blade_fix_1786838305.508367",
+      "scored_at": 1786838305.508367,
+      "runs_for_this_request": 2,
+      "geometry_source": "edited",
+      "cost_estimate": 0.23916,
+      "total_tokens": 51198
     },
     "B7A2N74ZJBF9MZHU_1770166308.11235": {
       "chamfer_similarity_norm": 0.9924157918548377,
@@ -303,16 +303,16 @@
       "total_tokens": 56087
     },
     "B7A2N74ZJBF9MZHU_1770171700.697783": {
-      "chamfer_similarity_norm": 0.9956415195443084,
-      "volume_f1": 0.9606986899563319,
-      "diff_f1": 0.0,
+      "chamfer_similarity_norm": 0.9955668373489636,
+      "volume_f1": 0.9528666357595426,
+      "diff_f1": 0.01764705882352941,
       "failed": false,
-      "edit_id": "ours_adk-router_1786933184.844964",
-      "scored_at": 1786933184.844964,
-      "runs_for_this_request": 2,
-      "geometry_source": "input-unedited",
-      "cost_estimate": 2.72882,
-      "total_tokens": 397370
+      "edit_id": "ours_adk-router_1787010680.104523",
+      "scored_at": 1787010680.104523,
+      "runs_for_this_request": 5,
+      "geometry_source": "edited",
+      "cost_estimate": 1.97573,
+      "total_tokens": 275308
     },
     "ZK22J6VYRKQ2RTFD_1758874422.1403751": {
       "chamfer_similarity_norm": 0.9873102017697609,

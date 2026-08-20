@@ -2106,15 +2106,15 @@
   "difficulty": "medium",
   "part": "41115_3ce6b43c_8b509218-0581-11ec-80ed-02d1834e9dbb",
   "scores": {
-   "chamfer_similarity_norm": 0.9956415195443084,
-   "volume_f1": 0.9606986899563319,
-   "diff_f1": 0.0
+   "chamfer_similarity_norm": 0.9955668373489636,
+   "volume_f1": 0.9528666357595426,
+   "diff_f1": 0.01764705882352941
   },
   "baselines": {
    "other_human_diff_f1": 1.0,
    "gpt52_diff_f1": 0.03918495297805643
   },
-  "cost_usd": 2.72882,
+  "cost_usd": 1.97573,
   "tokens": {
    "input_tokens": 153354,
    "output_tokens": 121954,
@@ -2727,15 +2727,15 @@
   "difficulty": "easy",
   "part": "41375_5fbfab64",
   "scores": {
-   "chamfer_similarity_norm": 0.994439147405871,
-   "volume_f1": 0.9940018347329053,
-   "diff_f1": 0.0
+   "chamfer_similarity_norm": 0.9946458971403601,
+   "volume_f1": 0.9995032995103952,
+   "diff_f1": 0.9570552147239264
   },
   "baselines": {
    "other_human_diff_f1": 1.0,
    "gpt52_diff_f1": 0.0
   },
-  "cost_usd": 0.33964,
+  "cost_usd": 0.23916,
   "tokens": {
    "input_tokens": 38989,
    "output_tokens": 12209,

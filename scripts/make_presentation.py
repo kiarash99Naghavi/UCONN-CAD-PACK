@@ -127,7 +127,7 @@ def slide_title(pdf):
             fontsize=17, ha="center", color=MUTED)
     ax.text(50, 44, "neuralCAD-Edit benchmark  |  ASME IDETC-CIE 2026 Hackathon (Autodesk)",
             fontsize=13, ha="center", color=MUTED)
-    ax.text(50, 30, "48 of 48 edit tasks completed  |  Diff F1 0.37 vs 0.18 for the best published model baseline",
+    ax.text(50, 30, "48 of 48 edit tasks completed  |  Diff F1 0.39 vs 0.18 for the best published model baseline",
             fontsize=12, ha="center", color=GOOD)
     footer(ax, 1)
     pdf.savefig(fig)
@@ -191,11 +191,11 @@ def slide_scores(pdf):
     ax_img.axis("off")
 
     rows = [
-        ("Surface Chamfer similarity", "0.978"),
+        ("Surface Chamfer similarity", "0.977"),
         ("Volumetric F1", "0.910"),
-        ("Volumetric Difference F1", "0.369"),
+        ("Volumetric Difference F1", "0.390"),
         ("Tasks completed", "48 / 48"),
-        ("Mean cost per edit", "$0.86"),
+        ("Mean cost per edit", "$0.84"),
     ]
     y = 72
     ax.text(68, 78, "Means over the full split", fontsize=13,

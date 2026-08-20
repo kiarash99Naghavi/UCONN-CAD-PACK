@@ -1,0 +1,844 @@
+========================= EXECUTOR CALL =========================
+tags        : resize-feature
+recipes     : (none)
+prior script: none
+last resort : True
+images      : 7
+
+PROMPT SIZE BY BLOCK
+  geometry index           10367 chars  (~2591 tokens)
+  recipes                      0 chars  (~0 tokens)
+  prior script                66 chars  (~16 tokens)
+  feedback                 14522 chars  (~3630 tokens)
+  contract + tool doc      11758 chars  (~2939 tokens)
+  last resort               1671 chars  (~417 tokens)
+  TOTAL prompt             39604 chars  (~9901 tokens)
+
+========================= SYSTEM =========================
+You are an expert CadQuery programmer editing an existing B-rep solid.
+You write one Python function and nothing else.
+Reply with a single JSON object and nothing else.
+
+========================= USER PROMPT =========================
+OVERALL INSTRUCTION (context only — do NOT try to do all of it now):
+Remove the largest radius that is all around the part and replace it by the same size radius as others. That means in cross section all radiuses will be the same for the profile.
+
+YOUR SINGLE SUB-GOAL FOR THIS STEP:
+On the single body, resize all four GREEN R63 mm cylindrical corner surfaces (faces #21,#23,#44,#48, measured axis [0.0,0.966,-0.259], bounded by r=63 mm circular edges edge_idx [45,49,53,56,58,63,96,105]) to R50 mm, matching the BLUE R50 mm corner family faces #8,#10,#46,#47. Apply the change around the complete rounded-rectangle profile, keep the adjoining straight runs tangent, and verify that these four formerly R63 corners measure R50 mm while the bbox remains [-949.62,-506.698,26.8] to [-163.62,-338.409,595.312].
+Why this step is here: The R63 mm family is uniquely the largest main profile-corner radius and therefore matches the customer's predicate; the existing R50 mm family supplies the requested radius used by the other profile corners, while the R10 mm and R2 mm families are separate edge blends and are not the target.
+
+SOLID B7A2N74ZJBF9MZHU_1770171784.1490738.step  valid=True  solids=1
+  50 faces, 112 edges, 64 vertices
+  surfaces: CYLINDERx24, TORUSx16, PLANEx10
+  volume 611785.5 mm^3, area 153266.527 mm^2
+  bbox size [786.0, 168.29, 568.512]  min [-949.62, -506.698, 26.8]  max [-163.62, -338.409, 595.312]
+  Any list cut for length says '(showing N of M)' — a list without that marker is complete.
+
+CIRCULAR EDGE FAMILIES (candidate holes / round features; edge_idx = unique edge tags; centers are TRUE circle centers, which for a partial arc is NOT where Edge.Center() puts its centroid):
+  r=63.0     d=126.0    [feature] partial_arcs=8/8 count=8    centers=[[-886.62, -488.91, 90.065], [-226.62, -488.91, 90.065], [-226.62, -369.854, 534.391], [-886.62, -369.854, 534.391], [-226.62, -481.183, 87.995], [-886.62, -481.183, 87.995], [-226.62, -362.126, 532.32], [-886.62, -362.126, 532.32]] edge_idx=[45, 49, 53, 56, 58, 63, 96, 105]
+  r=52.0     d=104.0    [feature] partial_arcs=8/8 count=8    centers=[[-226.62, -490.842, 90.583], [-886.62, -490.842, 90.583], [-886.62, -371.785, 534.909], [-226.62, -371.785, 534.909], [-886.62, -471.524, 85.406], [-226.62, -471.524, 85.406], [-226.62, -352.467, 529.732], [-886.62, -352.467, 529.732]] edge_idx=[5, 11, 17, 22, 71, 75, 79, 84]
+  r=50.0     d=100.0    [feature] partial_arcs=8/8 count=8    centers=[[-226.62, -488.91, 90.065], [-886.62, -488.91, 90.065], [-886.62, -369.854, 534.391], [-226.62, -369.854, 534.391], [-886.62, -473.456, 85.924], [-226.62, -473.456, 85.924], [-226.62, -354.399, 530.25], [-886.62, -354.399, 530.25]] edge_idx=[6, 12, 18, 23, 25, 29, 80, 85]
+  r=10.0     d=20.0     [feature] partial_arcs=8/8 count=8    centers=[[-226.62, -348.409, 583.515], [-173.62, -362.126, 532.32], [-173.62, -481.183, 87.995], [-226.62, -494.9, 36.8], [-886.62, -494.9, 36.8], [-939.62, -481.183, 87.995], [-939.62, -362.126, 532.32], [-886.62, -348.409, 583.515]] edge_idx=[95, 97, 98, 100, 101, 102, 103, 104]
+  r=61.0     d=122.0    [feature] partial_arcs=4/4 count=4    centers=[[-886.62, -490.842, 90.583], [-226.62, -490.842, 90.583], [-226.62, -371.785, 534.909], [-886.62, -371.785, 534.909]] edge_idx=[34, 36, 38, 40]
+  r=53.0     d=106.0    [feature] partial_arcs=4/4 count=4    centers=[[-226.62, -352.467, 529.732], [-226.62, -471.524, 85.406], [-886.62, -471.524, 85.406], [-886.62, -352.467, 529.732]] edge_idx=[87, 89, 91, 93]
+  r=2.0      d=4.0      [small] partial_arcs=24/24 count=24   centers=[[-174.62, -369.854, 534.391], [-174.62, -488.91, 90.065], [-226.62, -502.369, 39.837], [-886.62, -502.369, 39.837], [-938.62, -488.91, 90.065], [-938.62, -369.854, 534.391]] (showing 6 of 24) edge_idx=[0, 2, 4, 7, 10, 13, 16, 19, 41, 43, 44, 46, 48, 50, 52, 54] (showing 16 of 24)
+  (all 7 circular-edge radius families listed — no family is filtered out by size. [scale] orders and labels only, it does not filter: 'feature' at or above 1% of the part diagonal — reads as a real feature; 'small' below feature scale but above the absolute noise floor — usually a blend, but on a large part real fastener holes land here (feature scale = 9.845 mm, noise floor = 1.969 mm on this 984.5 mm diagonal))
+
+BORES / PORTS these rings form (paired mouths of one feature — the pair IS one hole, do not count it twice, and a NEW one must go where none of these already is):
+  r=63.0     axis=X at=(*, -488.91, 90.065)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[45, 49]
+  r=63.0     axis=X at=(*, -481.183, 87.995)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[58, 63]
+  r=63.0     axis=X at=(*, -369.854, 534.391)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[53, 56]
+  r=63.0     axis=X at=(*, -362.126, 532.32)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[96, 105]
+  r=61.0     axis=X at=(*, -490.842, 90.583)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[34, 36]
+  r=61.0     axis=X at=(*, -371.785, 534.909)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[38, 40]
+  r=53.0     axis=X at=(*, -471.524, 85.406)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[89, 91]
+  r=53.0     axis=X at=(*, -352.467, 529.732)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[87, 93]
+  r=52.0     axis=X at=(*, -490.842, 90.583)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[5, 11]
+  r=52.0     axis=X at=(*, -471.524, 85.406)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[71, 75]
+  r=52.0     axis=X at=(*, -371.785, 534.909)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[17, 22]
+  r=52.0     axis=X at=(*, -352.467, 529.732)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[79, 84]
+  r=50.0     axis=X at=(*, -488.91, 90.065)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[6, 12]
+  r=50.0     axis=X at=(*, -473.456, 85.924)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[25, 29]
+  r=50.0     axis=X at=(*, -369.854, 534.391)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[18, 23]
+  r=50.0     axis=X at=(*, -354.399, 530.25)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[80, 85]
+  r=10.0     axis=X at=(*, -494.9, 36.8)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[100, 101]
+  r=10.0     axis=X at=(*, -481.183, 87.995)  spans X -939.62..-173.62 (len 766.0)  mouths=2 edge_idx=[98, 102]
+  r=10.0     axis=X at=(*, -362.126, 532.32)  spans X -939.62..-173.62 (len 766.0)  mouths=2 edge_idx=[97, 103]
+  r=10.0     axis=X at=(*, -348.409, 583.515)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[95, 104]
+  ... showing 20 of 30 such features (largest radius first)
+
+CYLINDRICAL FACE FAMILIES (hole walls / bosses; face_idx = unique face tags; axis = the measured direction each bore/boss actually runs — anchor directions to it, never to a guessed world axis; sweep = how far each face wraps around that axis: ~360 is a full bore, ~180 a slot end-wall, and ~90 is a ROUNDED CORNER BLEND, not a hole or slot at all — never build a feature out of 90-degree faces):
+  r=10.0     d=20.0     count=4    [feature] axes=[[0.0, 0.259, 0.966], [1.0, -0.0, -0.0]] sweep=90.0deg (CORNER BLEND, not a hole/slot wall) adjoins_planar=[22, 24, 34, 43, 49] centers=[[-167.254, -415.505, 308.51], [-556.62, -490.399, 29.004], [-945.986, -415.505, 308.51], [-556.62, -340.612, 588.016]] face_idx=[36, 38, 40, 42]
+  r=50.0     d=100.0    count=4    [feature] axis=[0.0, 0.966, -0.259] sweep=90.0deg (CORNER BLEND, not a hole/slot wall) adjoins_planar=[9, 11, 33, 45] centers=[[-918.451, -489.421, 57.248], [-194.789, -489.421, 57.248], [-918.451, -353.888, 563.067], [-194.789, -353.888, 563.067]] face_idx=[8, 10, 46, 47]
+  r=63.0     d=126.0    count=4    [feature] axis=[0.0, 0.966, -0.259] sweep=90.0deg (CORNER BLEND, not a hole/slot wall) adjoins_planar=[22, 24, 43, 49] centers=[[-186.513, -495.427, 50.289], [-926.727, -495.427, 50.289], [-186.513, -355.609, 572.096], [-926.727, -355.609, 572.096]] face_idx=[21, 23, 44, 48]
+  r=2.0      d=4.0      count=12   [small] axes=[[-0.0, 0.259, 0.966], [1.0, -0.0, -0.0]] sweep=90.0deg (CORNER BLEND, not a hole/slot wall) adjoins_planar=[9, 11, 12, 22, 24, 33, 34, 43, 45, 49] centers=[[-175.893, -430.612, 312.558], [-556.62, -503.269, 41.396], [-937.347, -430.612, 312.558], [-556.62, -357.954, 583.719], [-948.893, -430.612, 312.558], [-556.62, -506.258, 30.243]] (showing 6 of 12) face_idx=[0, 2, 4, 6, 13, 15, 17, 19, 25, 27, 29, 31]
+
+PLANAR FACES, largest first (idx, area, center, normal, vertical):
+  #12   area=23355.0   c=[-556.62, -431.314, 312.746] n=[-0.0, -0.966, 0.259] vertical=False
+  #9    area=10560.0   c=[-556.62, -494.124, 39.698] n=[0.0, 0.259, 0.966] vertical=False
+  #45   area=10560.0   c=[-556.62, -349.185, 580.617] n=[-0.0, -0.259, -0.966] vertical=False
+  #11   area=7360.0    c=[-176.62, -421.655, 310.157] n=[-1.0, 0.0, -0.0] vertical=True
+  #33   area=7360.0    c=[-936.62, -421.655, 310.157] n=[1.0, -0.0, 0.0] vertical=True
+  #22   area=5280.0    c=[-556.62, -501.352, 28.177] n=[-0.0, -0.259, -0.966] vertical=False
+  #49   area=5280.0    c=[-556.62, -349.684, 594.209] n=[0.0, 0.259, 0.966] vertical=False
+  #24   area=3680.0    c=[-949.62, -425.518, 311.193] n=[-1.0, 0.0, -0.0] vertical=True
+  #43   area=3680.0    c=[-163.62, -425.518, 311.193] n=[1.0, -0.0, -0.0] vertical=True
+  #34   area=2569.867  c=[-556.62, -411.995, 307.569] n=[0.0, 0.966, -0.259] vertical=False
+
+OTHER FACES — every remaining surface type (spline, torus, cone, sphere ...), largest first. n_wires>1 means the face has a hole or slot opening cut through it:
+  #35   TORUS    area=1464.802  c=[-188.725, -346.31, 567.315] n_wires=1
+  #37   TORUS    area=1464.802  c=[-188.725, -484.983, 49.781] n_wires=1
+  #39   TORUS    area=1464.802  c=[-924.515, -484.983, 49.781] n_wires=1
+  #41   TORUS    area=1464.802  c=[-924.515, -346.31, 567.315] n_wires=1
+  #14   TORUS    area=307.306   c=[-926.268, -500.397, 52.096] n_wires=1
+  #16   TORUS    area=307.306   c=[-186.972, -500.397, 52.096] n_wires=1
+  #18   TORUS    area=307.306   c=[-186.972, -360.816, 573.016] n_wires=1
+  #20   TORUS    area=307.306   c=[-926.268, -360.816, 573.016] n_wires=1
+  #1    TORUS    area=250.327   c=[-194.322, -498.506, 59.199] n_wires=1
+  #3    TORUS    area=250.327   c=[-918.918, -498.506, 59.199] n_wires=1
+  #5    TORUS    area=250.327   c=[-918.918, -362.731, 565.92] n_wires=1
+  #7    TORUS    area=250.327   c=[-194.322, -362.731, 565.92] n_wires=1
+  #26   TORUS    area=250.327   c=[-918.918, -480.579, 54.395] n_wires=1
+  #28   TORUS    area=250.327   c=[-194.322, -480.579, 54.395] n_wires=1
+  #30   TORUS    area=250.327   c=[-194.322, -344.803, 561.116] n_wires=1
+  #32   TORUS    area=250.327   c=[-918.918, -344.803, 561.116] n_wires=1
+
+FACES WITH INNER BOUNDARY LOOPS (each inner loop is an OPENING cut through that face — a hole or slot mouth; inner_edges are the edge tags forming those loops, which is what a rim fillet or chamfer must target. [BLIND] = the opening bottoms out in material (it has a floor and can be opened up); [THROUGH] = it already passes clean out the far side, so 'make it go through' is already true of it):
+  #12   PLANE    area=23355.0   c=[-556.62, -431.314, 312.746] loops=1 [BLIND] inner_edges=[3, 5, 8, 11, 14, 17, 20, 22]
+  #34   PLANE    area=2569.867  c=[-556.62, -411.995, 307.569] loops=1 [BLIND] inner_edges=[69, 71, 73, 75, 77, 79, 82, 84]
+
+You can rely on a pre-computed geometry index of the input solid (provided in
+the prompt as `geometry`). It contains:
+
+  summary                 face/edge/vertex counts, surface-type mix, bbox, volume
+  circular_edge_groups    EVERY circular edge of the solid, grouped by radius -> use
+                          this to find "the hole edges"; each group gives radius,
+                          diameter, count, and per-edge centers and edge indices
+  cylindrical_face_groups every cylindrical face by radius -> hole walls / bosses
+  planar_faces            planar faces sorted by area, each with outward normal,
+                          dominant axis, and a `vertical` flag
+
+Use real numbers from this index (radii, coordinates, z-levels) to build CadQuery
+selectors instead of guessing. Selecting by measured position/size is far more
+reliable than string selectors on an imported B-rep with no feature tree.
+
+The index is complete — no family is withheld for being too small, too large or
+judged irrelevant. The [scale] tag on a family (feature / small / blend /
+oversize) is an ordering hint only: a 0.4 mm chamfer ring is tagged "blend" and
+is still the right target when the instruction asks for a chamfer. Where a long
+list is cut for length it says so inline, e.g. "(showing 6 of 32)"; a list
+without that marker is all of them.
+
+
+Your function must have exactly this shape:
+
+def my_cad_function(args):
+    import cadquery as cq
+    shape = cq.importers.importStep(args["input_file"])   # ALWAYS load the input
+    # ... your edit ...
+    return shape          # a Workplane, Shape, or Assembly
+
+Once you return it, the function is executed in CadQuery. You will then be
+shown renders of the result and everything the function printed, and you can
+refine it. Print freely — those prints are your instruments; a selection that
+silently matched nothing is the most common way an attempt dies, and a printed
+count of 0 catches it.
+
+Requirements:
+- ALWAYS start from args["input_file"] and EDIT the imported shape. Never
+  rebuild the part from scratch — the benchmark scores your *change* against
+  the human's change, so a rebuild that merely looks similar scores near zero.
+- Change only what the sub-goal asks for; leave every other feature untouched.
+- The sub-goal's `face #N` / `edge_idx [...]` tags are indices into the geometry
+  index above, enumerated in the order CadQuery returns entities: resolve them as
+  `base = shape.val() if hasattr(shape, 'val') else shape;
+  target = base.Faces()[N]` (same for `.Edges()`), then PRINT the resolved
+  entity's center/area and check it against the index line before using it — a
+  mismatch means you resolved against a different shape than the index describes.
+  When the renders are color-coded, the legend's colors correspond to exactly
+  these face_idx tags — use them to confirm you resolved the right entity.
+- Return the shape. Do not write files, do not exit.
+- Keep the input's coordinate frame. All metrics voxelize your result and the
+  human's in ABSOLUTE world coordinates with no alignment step, so position is
+  graded as strictly as shape: never translate, rotate, re-centre or rescale
+  the part, and place new geometry at explicit absolute coordinates (beware
+  `centered=True`, `.center()`, and fresh workplanes at the origin).
+- When the sub-goal adds material "on" or "at" an existing face, decide which
+  side it goes: default to keeping the outer envelope unchanged unless the
+  instruction says the part gets bigger.
+- A screw or bolt is NEVER just a cylinder: it has a HEAD — HEXAGONAL unless
+  the instruction says otherwise — sitting on the shaft. Build both: a hex
+  prism (`.polygon(6, d)` with d the circumscribed diameter) unioned with the
+  cylindrical shank, head seated flush on the surface the screw enters. A
+  shaft-only "screw" is scored as missing material exactly where the human
+  put the head.
+- A screw's or pin's shank does NOT stop flush where the hole ends: real
+  fasteners PROTRUDE. Run the shank past the hole's far mouth by a visible
+  offset (a thread-or-two — on the order of the shank diameter, unless the
+  instruction gives a length), and PRINT the shank's extreme along the hole
+  axis against the hole's exit plane to prove the overhang exists. A pin cut
+  to exactly the hole depth reads flush in every render and scores as missing
+  the protruding material the human modelled.
+
+REPORT EVERY SELECTION, every time. The moment your code narrows the part down
+to the entities it will operate on, print one line per selection step:
+
+    SELECTED: <n> <what> for <purpose>   e.g.
+    SELECTED: 4 edges for the slot rim fillet  idx=[0, 4, 7, 10]
+    SELECTED: 0 faces matching normal +Z on solid 1   <-- this is the bug
+
+An attempt that changes nothing is rejected without a QA call, and if it
+printed nothing there is no way to tell a selector that matched the wrong
+entity from one that matched none — the next attempt then gets generic advice
+and repeats the mistake. Measured: 69% of no-op attempts across this project
+printed no diagnosis at all, and they are the single largest block of wasted
+budget. A count of zero is the most valuable line you can print: say so
+loudly, and do not silently fall through to returning the input.
+
+PLACEMENT SELF-CHECK, in the same function, every time:
+1. List every number the sub-goal names: coordinates, a face centre, a target
+   angle, a level the feature must reach but not exceed.
+2. Isolate the new material generically — `added = out.cut(base)`
+   (`removed = base.cut(out)` for cuts), which works for text, polygons,
+   bosses, plateaus and blades alike. Print `added.Center()`,
+   `added.BoundingBox()`, its extreme along the growth axis.
+3. Print each of those against the number the sub-goal named, and the delta.
+4. Off by more than ~1 mm on any axis, or across a plane the sub-goal said not
+   to exceed: TRANSLATE OR REBUILD AND RE-PRINT IN THE SAME ATTEMPT. Never
+   return a feature whose printed position disagrees with the sub-goal. If it
+   named no coordinates, print anyway and change nothing.
+A recipe may offer a sharper measurement for a feature type (a landing angle
+for rotations, vertex angles for polygons, a top level for text) — prefer those
+over the bbox. Measured: a text feature built 48 mm from the centre its
+sub-goal named scored zero while looking correct in every render.
+
+EDIT THE IMPORTED SOLID; NEVER REBUILD IT. Load the STEP and apply local
+operations to it — cut, fuse, fillet, chamfer on the entities you selected.
+Do NOT re-author the whole part: no scale-by-1.0, no global sew/heal/ShapeFix
+pass "to be safe", no reconstructing the body from its faces, no re-tessellation
+of anything you did not change. The score compares your result to the input
+volume-by-volume, and a face that was rebuilt lands in slightly different
+coordinates than the one it replaced even when the shape is visually
+identical — so a global rebuild sprays small differences across the entire
+part and buries the actual edit in noise. On a multi-body file, operate on the
+ONE body that owns your target and recompound the rest untouched:
+
+    sols = base.Solids()
+    edited = sols[k].cut(tool)            # or .fillet(...) / .union(...)
+    out = cq.Compound.makeCompound(
+        [s for i, s in enumerate(sols) if i != k] + [edited])
+
+Every other body then comes through byte-identical, which is both correct and
+exactly what the metric rewards.
+
+ABSOLUTE ANCHORS ARE BUILT, NEVER PICKED. When the sub-goal names an absolute
+plane or coordinate for a feature ("on the plane z=-7.5", "centered at
+(0, ±15) on the bottom face"), construct the sketch plane directly from those
+numbers — `cq.Workplane(cq.Plane(origin=(x, y, z), normal=(nx, ny, nz)))` —
+and NEVER by selecting a face and offsetting from it: a face pick that lands
+on a different surface silently re-anchors the whole feature there, and the
+placement self-check then compares the feature against the wrong reference.
+Print the plane's origin before sketching on it.
+
+A DRAFT IS A WEDGE BOOLEAN, NOT A REBUILD. CadQuery has no draft operation,
+and rebuilding the walls tilted is how a 2-degree draft turns into a doubled
+footprint or a skewed base. Instead, for each face to be drafted: keep its
+hinge edge (the edge on the neutral plane) exactly where it is, and CUT the
+thin wedge between the face and its tilted copy — a prism swept from the
+hinge line, thickness growing from 0 at the hinge to H*tan(angle) at the far
+edge, where H is the face's height off the neutral plane. (Material-adding
+drafts UNION the wedge instead.) Do the faces one at a time in try/except and
+keep the successes. Verify with two prints: the neutral-plane face's bbox
+BEFORE vs AFTER (must be identical — the hinge does not move), and one far
+edge's measured shift vs H*tan(angle). The part's outer bbox on the neutral
+plane must not change at all.
+
+TO REACH "UP TO THE BODY", MEASURE THE LANDING WITH A PROBE. When a feature
+must run from its anchor until it meets the part ("up to the next surface",
+"reach the wall"), do not rely on an `until=` end condition resolving against
+the face you hope for. Measure the stopping height yourself: intersect the
+part with a thin probe prism along the feature's axis at the feature's (x, y)
+— `probe = part.intersect(box_around_axis)` — read the near side of
+`probe.BoundingBox()` along the axis, build the feature as an explicit solid
+from the anchor plane to that measured height (plus a small overlap into the
+body so the union fuses), and print both the measured height and the built
+extent. This works identically for curved, tilted and stepped targets, and
+the print proves where the feature actually stopped.
+
+API FORMS THAT DO NOT EXIST HERE (cadquery 2.8.0 / OCP 7.9.3) — every line
+below was a crashed or silently-wrong attempt in this pipeline, so check your
+code against it before you return:
+- `f.normalAt()` takes NO ARGUMENTS. `f.normalAt(u, v)` does not raise: it
+  returns a (Vector, Vector) TUPLE, so the failure surfaces far away as
+  "'tuple' has no attribute 'z'". This is the single most frequent mistake here.
+- `Vector.Length` is a PROPERTY (`v.Length`); `Edge.Length()` is a method.
+  Calling `v.Length()` gives "'float' object is not callable".
+- `BoundBox` has `.xmin/.xmax/.ymin/.../.xlen/.center` — no `.toTuple()`, no
+  `.min`, no `.max`.
+- `Wire.IsClosed()` is capitalised; there is no `isClosed` anywhere.
+- On a Shape/Solid the booleans are `fuse` / `cut` / `intersect` — `union` and
+  `common` exist only on `Workplane` / in OCC. `chamfer` on a Shape takes three
+  arguments: `solid.chamfer(length, None, edgeList)`.
+- `Workplane` has no `.hull()`, `.wrapped` or `.isValid()`; go through `.val()`.
+- `Face` has no `.extrude()`; use `cq.Solid.extrudeLinear(face, vec)`.
+- `cq.Compound.makeCompound([...])` reads `.wrapped` off each element itself,
+  so pass CadQuery Shapes — never `.wrapped` TopoDS objects, never Workplanes.
+- `Wire.offset2D(d)` returns a LIST of Wires (`Workplane.offset2D` does not).
+- `cq.Plane.XY` is a classmethod: CALL it — `cq.Workplane(cq.Plane.XY())`.
+- OCP: no lowercase `topods`, no `TopTools_*Iterator`, and the statics need an
+  `_s` suffix (`TopExp.MapShapes_s`, `TopoDS.Face_s(shp)`); `cq.Shape.cast(t)`
+  converts back. Prefer staying in CadQuery: `shape.Faces()`, `face.Edges()`.
+
+Approach freely — plain CadQuery selectors (`.faces(">Z")`,
+`.edges("%CIRCLE")`, `NearestToPointSelector`), filtering `shape.Faces()` /
+`shape.Edges()` by the measured values in the geometry index, or direct
+construction all work. Keep the selection simple, and where an operation can
+fail on some entities (fillet/chamfer over many edges), prefer doing it
+per-entity in a try/except and keeping the successes: a partial edit scores, a
+crash does not.
+
+
+This is the first change; args["input_file"] is the original part.
+
+YOUR PREVIOUS ATTEMPT WAS REJECTED AND DISCARDED.
+
+Its geometry is gone. args["input_file"] is the last APPROVED state, untouched
+by the rejected attempt — nothing that script did is in the part you are about
+to load, so never write an "is it already done?" guard.
+
+The script and its output are reproduced below. READ WHAT YOUR SELECTORS
+ACTUALLY MATCHED before you decide what to change: if a selector matched the
+wrong entity, or matched nothing, that is the thing to fix, and rewriting the
+whole approach from scratch usually reintroduces the same mistake in new words.
+Keep whatever demonstrably worked; change the part QA objected to.
+THE FUNCTION YOU JUST RAN:
+
+# ... start of function omitted ...
+nd(axis_new_pt.x,3),round(axis_new_pt.y,3),round(axis_new_pt.z,3)]}"
+            )
+        except Exception as e:
+            print(f"ERROR: failed computing axis for corner#{fi}: {e}")
+            continue
+
+        # Build cylinders long enough to cover the local region, then clip by wedge
+        try:
+            lbb = local.BoundingBox()
+            diag = sqrt(lbb.xlen * lbb.xlen + lbb.ylen * lbb.ylen + lbb.zlen * lbb.zlen)
+            height = max(400.0, diag + 200.0)
+
+            base_old = axis_old_pt - d_old * (height / 2.0)
+            cyl_old = cq.Solid.makeCylinder(r_old + overlap_eps, height, pnt=base_old, dir=d_old)
+
+            base_new = axis_new_pt - d_new * (height / 2.0)
+            cyl_new = cq.Solid.makeCylinder(r_new, height, pnt=base_new, dir=d_new)
+
+            cut_old = cyl_old.intersect(wedge)
+            cut_new = cyl_new.intersect(wedge)
+
+            cobb = cut_old.BoundingBox()
+            cnbb = cut_new.BoundingBox()
+            print(
+                f"INFO: corner#{fi} cut_old(bb)=[{round(cobb.xmin,3)},{round(cobb.ymin,3)},{round(cobb.zmin,3)}]"
+                f"..[{round(cobb.xmax,3)},{round(cobb.ymax,3)},{round(cobb.zmax,3)}]  "
+                f"cut_new(bb)=[{round(cnbb.xmin,3)},{round(cnbb.ymin,3)},{round(cnbb.zmin,3)}]"
+                f"..[{round(cnbb.xmax,3)},{round(cnbb.ymax,3)},{round(cnbb.zmax,3)}]"
+            )
+
+            addback = cut_old.cut(cut_new)
+            abb = addback.BoundingBox()
+            print(
+                f"CHECK: corner#{fi} addback bb=[{round(abb.xmin,3)},{round(abb.ymin,3)},{round(abb.zmin,3)}]"
+                f"..[{round(abb.xmax,3)},{round(abb.ymax,3)},{round(abb.zmax,3)}]"
+            )
+        except Exception as e:
+            print(f"ERROR: failed building tools for corner#{fi}: {e}")
+            continue
+
+        # Apply: fuse addback (restores material), then cut new R50 fillet
+        try:
+            before_solids = len(solid.Solids())
+            solid = solid.fuse(addback)
+            after_fuse_solids = len(solid.Solids())
+            print(f"APPLIED: corner#{fi} fuse addback  solids_before={before_solids} solids_after={after_fuse_solids}")
+
+            before_solids2 = len(solid.Solids())
+            solid = solid.cut(cut_new)
+            after_cut_solids = len(solid.Solids())
+            print(f"APPLIED: corner#{fi} cut new R50  solids_before={before_solids2} solids_after={after_cut_solids}")
+
+            if after_cut_solids != 1:
+                print(f"WARNING: corner#{fi} operation resulted in {after_cut_solids} solids (should remain 1)")
+        except Exception as e:
+            print(f"ERROR: boolean apply failed for corner#{fi}: {e}")
+            continue
+
+    # --- Verification: bbox must remain exactly, and R63 corners must now be R50 ---
+    out_bb = solid.BoundingBox()
+    print(
+        "VERIFY: output bbox min="
+        f"[{round(out_bb.xmin,3)},{round(out_bb.ymin,3)},{round(out_bb.zmin,3)}] "
+        "max="
+        f"[{round(out_bb.xmax,3)},{round(out_bb.ymax,3)},{round(out_bb.zmax,3)}]"
+    )
+    print(
+        "VERIFY: expected bbox min="
+        f"{list(exp_min)} max={list(exp_max)}  "
+        "dmin="
+        f"[{round(out_bb.xmin-exp_min[0],6)},{round(out_bb.ymin-exp_min[1],6)},{round(out_bb.zmin-exp_min[2],6)}] "
+        "dmax="
+        f"[{round(out_bb.xmax-exp_max[0],6)},{round(out_bb.ymax-exp_max[1],6)},{round(out_bb.zmax-exp_max[2],6)}]"
+    )
+
+    print(f"VERIFY: output solids={len(solid.Solids())}")
+
+    # radius verification near the 4 original green face centers
+    try:
+        from OCP.BRepAdaptor import BRepAdaptor_Surface
+        from OCP.GeomAbs import GeomAbs_Cylinder
+
+        # reference points from the original input indices (use the original face centers)
+        ref_centers = {
+            21: v([-186.513, -495.427, 50.289]),
+            23: v([-926.727, -495.427, 50.289]),
+            44: v([-186.513, -355.609, 572.096]),
+            48: v([-926.727, -355.609, 572.096]),
+        }
+
+        out_faces = solid.Faces()
+        print(f"INFO: output faces={len(out_faces)} edges={len(solid.Edges())}")
+
+        hits50 = 0
+        hits63 = 0
+        for fi, ref in ref_centers.items():
+            best50 = None
+            best50_d = 1e99
+            best63 = None
+            best63_d = 1e99
+            for f in out_faces:
+                ad = BRepAdaptor_Surface(f.wrapped)
+                if ad.GetType() != GeomAbs_Cylinder:
+                    continue
+                r = float(ad.Cylinder().Radius())
+                c = f.Center()
+                d = (c - ref).Length
+                if abs(r - 50.0) < 0.6 and d < best50_d:
+                    best50_d = d
+                    best50 = (r, c)
+                if abs(r - 63.0) < 0.6 and d < best63_d:
+                    best63_d = d
+                    best63 = (r, c)
+
+            if best50 is None:
+                print(f"VERIFY: ref corner face#{fi} -> found 0 nearby CYL faces with R~50")
+            else:
+                r, c = best50
+                print(
+                    f"VERIFY: ref corner face#{fi} -> nearest CYL R50: R={round(r,3)} center="
+                    f"[{round(c.x,3)},{round(c.y,3)},{round(c.z,3)}] dist={round(best50_d,3)}"
+                )
+                hits50 += 1
+
+            if best63 is not None and best63_d < 8.0:
+                r, c = best63
+                print(
+                    f"VERIFY: ref corner face#{fi} -> WARNING nearby CYL R63 still present: R={round(r,3)} center="
+                    f"[{round(c.x,3)},{round(c.y,3)},{round(c.z,3)}] dist={round(best63_d,3)}"
+                )
+                hits63 += 1
+            else:
+                print(f"VERIFY: ref corner face#{fi} -> no nearby CYL R63 within 8mm (good)")
+
+        print(f"VERIFY: matched {hits50}/4 corners to CYL R~50")
+        print(f"VERIFY: corners with nearby leftover R~63 cylinders (should be 0): {hits63}")
+
+    except Exception as e:
+        print(f"WARNING: radius verification skipped/failed: {e}")
+
+    return solid
+
+WHAT IT PRINTED:
+INFO: imported solids=1
+INFO: base faces=50 edges=112
+INFO: target radii: old=63.0 new=50.0
+INFO: named axis_dir=[0.0, 0.965886, -0.258969]
+INFO: expected bbox min=[-949.62, -506.698, 26.8] max=[-163.62, -338.409, 595.312]
+SELECTED: 4 faces for GREEN R63 corner family  idx=[21, 23, 44, 48]
+INFO: base bbox min=[-949.62,-506.698,26.8] max=[-163.62,-338.409,595.312]
+INFO: corner face#21 center=[-186.513, -495.427, 50.289] local_bb=[-238.62,-506.698,26.8] to [-163.62,-469.183,102.065]
+SELECTED: 2 planar faces for corner#21 definition  idx=[22,43] n1_out=[-0.0, -0.258819, -0.965926] n2_out=[1.0, -0.0, -0.0]
+INFO: wedge for corner#21 bb=[-238.62,-506.698,26.8] to [-163.62,-469.183,102.065]
+CHECK: corner#21 axis_dir=[-0.0, -0.965926, 0.258819] align_to_named_axis=1.0 axis_old_pt=[-226.62, -485.047, 89.03] axis_new_pt=[-213.62, -488.411, 76.473]
+INFO: corner#21 cut_old(bb)=[-238.62,-506.698,26.8]..[-163.62,-469.183,102.065]  cut_new(bb)=[-238.62,-506.698,26.8]..[-163.62,-469.183,102.065]
+CHECK: corner#21 addback bb=[-238.62,-506.698,26.8]..[-163.62,-469.183,102.065]
+APPLIED: corner#21 fuse addback  solids_before=1 solids_after=1
+APPLIED: corner#21 cut new R50  solids_before=1 solids_after=1
+INFO: corner face#23 center=[-926.727, -495.427, 50.289] local_bb=[-949.62,-506.698,26.8] to [-874.62,-469.183,102.065]
+SELECTED: 2 planar faces for corner#23 definition  idx=[22,24] n1_out=[-0.0, -0.258819, -0.965926] n2_out=[-1.0, 0.0, -0.0]
+INFO: wedge for corner#23 bb=[-949.62,-506.698,26.8] to [-874.62,-469.183,102.065]
+CHECK: corner#23 axis_dir=[0.0, 0.965926, -0.258819] align_to_named_axis=1.0 axis_old_pt=[-886.62, -485.047, 89.03] axis_new_pt=[-899.62, -488.411, 76.473]
+INFO: corner#23 cut_old(bb)=[-949.62,-506.698,26.8]..[-874.62,-469.183,102.065]  cut_new(bb)=[-949.62,-506.698,26.8]..[-874.62,-469.183,102.065]
+CHECK: corner#23 addback bb=[-949.62,-506.698,26.8]..[-874.62,-469.183,102.065]
+APPLIED: corner#23 fuse addback  solids_before=1 solids_after=1
+APPLIED: corner#23 cut new R50  solids_before=1 solids_after=2
+WARNING: corner#23 operation resulted in 2 solids (should remain 1)
+INFO: corner face#44 center=[-186.513, -355.609, 572.096] local_bb=[-238.62,-381.854,520.32] to [-163.62,-338.409,595.312]
+SELECTED: 2 planar faces for corner#44 definition  idx=[43,49] n1_out=[1.0, -0.0, -0.0] n2_out=[0.0, 0.258819, 0.965926]
+INFO: wedge for corner#44 bb=[-238.62,-381.854,520.32] to [-163.62,-338.409,595.312]
+CHECK: corner#44 axis_dir=[-0.0, -0.965926, 0.258819] align_to_named_axis=1.0 axis_old_pt=[-226.62, -365.99, 533.356] axis_new_pt=[-213.62, -362.625, 545.913]
+INFO: corner#44 cut_old(bb)=[-238.62,-381.854,520.32]..[-163.62,-338.409,595.312]  cut_new(bb)=[-238.62,-381.854,520.32]..[-163.62,-338.409,595.312]
+CHECK: corner#44 addback bb=[-238.62,-381.854,520.32]..[-163.62,-338.409,595.312]
+APPLIED: corner#44 fuse addback  solids_before=2 solids_after=2
+APPLIED: corner#44 cut new R50  solids_before=2 solids_after=3
+WARNING: corner#44 operation resulted in 3 solids (should remain 1)
+INFO: corner face#48 center=[-926.727, -355.609, 572.096] local_bb=[-949.62,-381.854,520.32] to [-874.62,-338.409,595.312]
+SELECTED: 2 planar faces for corner#48 definition  idx=[24,49] n1_out=[-1.0, 0.0, -0.0] n2_out=[0.0, 0.258819, 0.965926]
+INFO: wedge for corner#48 bb=[-949.62,-381.854,520.32] to [-874.62,-338.409,595.312]
+CHECK: corner#48 axis_dir=[0.0, 0.965926, -0.258819] align_to_named_axis=1.0 axis_old_pt=[-886.62, -365.99, 533.356] axis_new_pt=[-899.62, -362.625, 545.913]
+INFO: corner#48 cut_old(bb)=[-949.62,-381.854,520.32]..[-874.62,-338.409,595.312]  cut_new(bb)=[-949.62,-381.854,520.32]..[-874.62,-338.409,595.312]
+CHECK: corner#48 addback bb=[-949.62,-381.854,520.32]..[-874.62,-338.409,595.312]
+APPLIED: corner#48 fuse addback  solids_before=3 solids_after=3
+APPLIED: corner#48 cut new R50  solids_before=3 solids_after=4
+WARNING: corner#48 operation resulted in 4 solids (should remain 1)
+VERIFY: output bbox min=[-949.62,-506.698,26.8] max=[-163.62,-338.409,595.312]
+VERIFY: expected bbox min=[-949.62, -506.698, 26.8] max=[-163.62, -338.409, 595.312]  dmin=[3e-06,-0.000315,0.000487] dmax=[3e-06,0.000224,0.000464]
+VERIFY: output solids=4
+INFO: output faces=136 edges=394
+VERIFY: ref corner face#21 -> nearest CYL R50: R=50.0 center=[-165.668,-490.835,90.619] dist=45.63
+VERIFY: ref corner face#21 -> no nearby CYL R63 within 8mm (good)
+VERIFY: ref corner face#23 -> nearest CYL R50: R=50.0 center=[-947.572,-490.835,90.619] dist=45.63
+VERIFY: ref corner face#23 -> no nearby CYL R63 within 8mm (good)
+VERIFY: ref corner face#44 -> nearest CYL R50: R=50.0 center=[-165.99,-360.82,531.134] dist=46.112
+VERIFY: ref corner face#44 -> no nearby CYL R63 within 8mm (good)
+VERIFY: ref corner face#48 -> nearest CYL R50: R=50.0 center=[-947.25,-360.82,531.134] dist=46.112
+VERIFY: ref corner face#48 -> no nearby CYL R63 within 8mm (good)
+VERIFY: matched 4/4 corners to CYL R~50
+VERIFY: corners with nearby leftover R~63 cylinders (should be 0): 0
+RESULT: {"ok": true, "step": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/ours_adk-router/_work/B7A2N74ZJBF9MZHU_1770171700.697783_1787010680/sub0_try2/tmp.step", "volume": 517707.89, "faces": 136, "edges": 394, "bbox": [786.0, 168.29, 568.512]}
+
+WHAT NOT TO DO (from QA's rejection):
+  - DO NOT repeat this: The edit does not preserve the complete rounded-rectangle profile: AFTER toprightiso/top/bottom show the perimeter is fragmented with missing corner connections, so the four corners cannot be verified as continuous R50 transitions with tangent straight runs.
+  - DO NOT repeat this: Magnitude is far beyond a corner-radius tweak: volume decreases by 94,077.61 mm^3 (-15.378%) overall, and the original body loses -75.14% of its volume, indicating substantial unintended geometry removal rather than resizing four R63 corner cylindrical faces to R50.
+
+What QA saw:
+The AFTER part no longer presents a continuous rounded-rectangle ring/profile: in AFTER toprightiso/top/bottom views the shape is broken into separated straight members with large gaps where the corners/continuous perimeter should be. The measured change is also extremely large for a simple R63->R50 corner resize: total volume drops 611785.5 -> 517707.89 mm^3 (-15.378%), and the original main body (body 0) shrinks by -75.14% with three new bodies appearing, consistent with major unintended removal/splitting rather than just adjusting four corner radii. The bbox does remain exactly unchanged.
+
+The one correction QA named: Rebuild/restore the continuous rounded-rectangle ring geometry, then modify only the four specified corner cylindrical faces (formerly R63) so they become R50 and remain tangent to the adjoining straight runs around the full perimeter, while keeping the bbox unchanged.
+
+Measured geometric change of that attempt:
+  faces [50, 136, 86]   edges [112, 388, 276]
+  volume [611785.5, 517707.89, -94077.61]  (-15.378%)
+  new surface types: []
+  bbox before: min [-949.62, -506.698, 26.8] max [-163.62, -338.409, 595.312]
+  bbox after:  min [-949.62, -506.698, 26.8] max [-163.62, -338.409, 595.312]
+  outer envelope grew: unchanged
+  PER-BODY VOLUME (largest first; this is how you tell WHICH body was edited):
+    body 0: 611785.5 -> 152094.193  delta -459691.307 (-75.1393%)
+    body 1: None -> 152617.305  delta 152617.305
+    body 2: None -> 106498.267  delta 106498.267
+    body 3: None -> 106498.267  delta 106498.267
+
+Fix what QA objected to. If the objection is about EXTENT, POSITION or
+COMPLETENESS — too small, too far, only some of the features — correct those
+numbers and keep the approach that located the target. If it is structural —
+wrong feature, wrong side, wrong axis, wrong body — change the approach
+itself, since better parameters cannot rescue the wrong target.
+
+THIS IS YOUR LAST PROPOSAL FOR THIS SUB-GOAL. If it does not land, the part
+ships without this edit and scores zero on the only metric that measures
+editing at all.
+
+So change tactics instead of refining — WRITE THE SIMPLEST THING THAT COULD
+POSSIBLY WORK. Every extra stage of custom selection logic is another place to
+silently match nothing, and that is how the previous attempts died. In order of
+preference:
+
+1. A plain CadQuery selector chain: `.faces(">Z")`, `.edges("%CIRCLE")`,
+   `.edges("|Z")`, `cq.selectors.NearestToPointSelector((x, y, z))`. It may
+   pick a slightly wrong entity; your bespoke selection has already picked
+   NOTHING more than once, which is strictly worse.
+2. ONE filter expression over `shape.Edges()` or `shape.Faces()` with a
+   generous tolerance, then the operation. No ownership search, no multi-stage
+   scoring, no nested fallback ladders.
+3. The bluntest version of the sub-goal that still counts as the edit: one hole
+   family instead of all of them, a subset of the intended edges, one feature
+   instead of the set. The one thing you may NOT blunt is a dimension the
+   CUSTOMER named — a radius, a thickness, a hole diameter — so blunt the edge
+   count or the feature count, never the number, and if the kernel refuses a
+   blend at the customer's radius take the boolean route instead of shrinking
+   it. A partial edit scores; nothing scores zero.
+
+Whatever you do, DO NOT hand back the input untouched. Catch a failing
+operation and keep whatever succeeded, but never end a branch with
+`return shape` as a safety net — that path is what turned the last attempts
+into no-ops, and a no-op is scored exactly like a crash.
+
+Return JSON:
+{
+  "my_cad_function": "<the complete function source as a string>"
+}
+
+========================= REPLY · my_cad_function =========================
+def my_cad_function(args):
+    import cadquery as cq
+    from math import sqrt
+
+    # --- Load ---
+    shape = cq.importers.importStep(args["input_file"])   # ALWAYS load the input
+    base = shape.val() if hasattr(shape, "val") else shape
+    solids = base.Solids()
+    print(f"INFO: imported solids={len(solids)}")
+    if len(solids) != 1:
+        print("WARNING: expected 1 solid; proceeding with solid[0]")
+    solid = solids[0]
+    print(f"INFO: base faces={len(solid.Faces())} edges={len(solid.Edges())}")
+
+    exp_min = (-949.62, -506.698, 26.8)
+    exp_max = (-163.62, -338.409, 595.312)
+    bb0 = solid.BoundingBox()
+    print(
+        "INFO: base bbox min="
+        f"[{bb0.xmin:.3f},{bb0.ymin:.3f},{bb0.zmin:.3f}] max="
+        f"[{bb0.xmax:.3f},{bb0.ymax:.3f},{bb0.zmax:.3f}]"
+    )
+    print(f"INFO: expected bbox min={list(exp_min)} max={list(exp_max)}")
+
+    # --- Resolve target faces by index (must match provided geometry index) ---
+    target_face_idx = [21, 23, 44, 48]
+    faces = solid.Faces()
+    tgt_faces = []
+    for fi in target_face_idx:
+        f = faces[fi]
+        c = f.Center()
+        try:
+            gt = f.geomType()
+        except Exception:
+            gt = "(unknown)"
+        print(
+            f"INFO: target face#{fi} geom={gt} area={f.Area():.3f} center="
+            f"[{c.x:.3f},{c.y:.3f},{c.z:.3f}]"
+        )
+        tgt_faces.append(f)
+    print(f"SELECTED: {len(tgt_faces)} faces for GREEN R63 corner family  idx={target_face_idx}")
+
+    # --- Remove the 4 R63 corner faces using OCCT defeaturing (extends neighbors; restores continuity) ---
+    solid_def = None
+    try:
+        from OCP.BRepAlgoAPI import BRepAlgoAPI_Defeaturing
+
+        df = BRepAlgoAPI_Defeaturing()
+        df.SetShape(solid.wrapped)
+        for fi, f in zip(target_face_idx, tgt_faces):
+            df.AddFaceToRemove(f.wrapped)
+            print(f"INFO: defeaturing will remove face#{fi}")
+        df.Build()
+        res = cq.Shape.cast(df.Shape())
+        res_solids = res.Solids()
+        print(f"INFO: defeaturing result solids={len(res_solids)}")
+        if len(res_solids) >= 1:
+            # If it returned a compound with multiple solids, take the largest (should be 1)
+            res_solids_sorted = sorted(res_solids, key=lambda s: s.Volume(), reverse=True)
+            solid_def = res_solids_sorted[0]
+            if len(res_solids) != 1:
+                print("WARNING: defeaturing produced multiple solids; keeping the largest one")
+        else:
+            print("ERROR: defeaturing produced 0 solids")
+    except Exception as e:
+        print(f"ERROR: defeaturing failed: {e}")
+
+    if solid_def is None:
+        # Last-resort: do not return unchanged; keep original but attempt a direct fillet edit anyway.
+        solid_def = solid
+        print("WARNING: proceeding without defeaturing (fallback path)")
+
+    bb1 = solid_def.BoundingBox()
+    print(
+        "INFO: after defeaturing bbox min="
+        f"[{bb1.xmin:.3f},{bb1.ymin:.3f},{bb1.zmin:.3f}] max="
+        f"[{bb1.xmax:.3f},{bb1.ymax:.3f},{bb1.zmax:.3f}]"
+    )
+
+    # --- Find the 4 sharp corner edges (near the original green face centers) to fillet to R50 ---
+    ref_centers = {
+        21: (-186.513, -495.427, 50.289),
+        23: (-926.727, -495.427, 50.289),
+        44: (-186.513, -355.609, 572.096),
+        48: (-926.727, -355.609, 572.096),
+    }
+
+    edges1 = solid_def.Edges()
+    print(f"INFO: candidate edges after defeaturing count={len(edges1)}")
+
+    # Use robust distance-to-vertex if available
+    def edge_dist_to_point(edge, pt_xyz):
+        vx = cq.Vertex.makeVertex(pt_xyz[0], pt_xyz[1], pt_xyz[2])
+        try:
+            from OCP.BRepExtrema import BRepExtrema_DistShapeShape
+
+            dss = BRepExtrema_DistShapeShape(edge.wrapped, vx.wrapped)
+            try:
+                dss.Perform()
+            except Exception:
+                pass
+            return float(dss.Value())
+        except Exception:
+            # fallback: center distance
+            c = edge.Center()
+            dx = c.x - pt_xyz[0]
+            dy = c.y - pt_xyz[1]
+            dz = c.z - pt_xyz[2]
+            return sqrt(dx * dx + dy * dy + dz * dz)
+
+    picked_edges = []
+    picked_edge_ids = []
+    for fi in target_face_idx:
+        ref = ref_centers[fi]
+        best_i = None
+        best_e = None
+        best_d = 1e99
+        for i, e in enumerate(edges1):
+            # We expect the corner "spine" after defeaturing to be a LINE edge
+            gt = None
+            try:
+                gt = e.geomType()
+            except Exception:
+                gt = None
+            if gt is not None and gt != "LINE":
+                continue
+            try:
+                if e.Length() < 20.0:
+                    continue
+            except Exception:
+                pass
+            d = edge_dist_to_point(e, ref)
+            if d < best_d:
+                best_d = d
+                best_i = i
+                best_e = e
+        if best_e is None:
+            print(f"SELECTED: 0 edges near ref for corner face#{fi} (this is a bug)")
+            continue
+        c = best_e.Center()
+        try:
+            L = best_e.Length()
+        except Exception:
+            L = float('nan')
+        print(
+            f"SELECTED: 1 edge for corner face#{fi}  edge_list_idx={best_i} geom={best_e.geomType()} "
+            f"len={L:.3f}  center=[{c.x:.3f},{c.y:.3f},{c.z:.3f}]  dist_to_ref={best_d:.3f}"
+        )
+        picked_edges.append(best_e)
+        picked_edge_ids.append(best_i)
+
+    # Deduplicate (sometimes nearest-to-point can pick same edge if something went wrong)
+    uniq_edges = []
+    uniq_ids = []
+    seen = set()
+    for i, e in zip(picked_edge_ids, picked_edges):
+        if i in seen:
+            continue
+        seen.add(i)
+        uniq_edges.append(e)
+        uniq_ids.append(i)
+    print(f"SELECTED: {len(uniq_edges)} unique edges for R50 corner fillet  edge_list_idx={uniq_ids}")
+
+    # --- Apply fillet R50 on those edges ---
+    out = solid_def
+    fillet_r = 50.0
+    applied = 0
+    if len(uniq_edges) > 0:
+        try:
+            out = out.fillet(fillet_r, uniq_edges)
+            applied = len(uniq_edges)
+            print(f"APPLIED: fillet R{fillet_r} on {applied} edges (batch)")
+        except Exception as e:
+            print(f"WARNING: batch fillet failed: {e}")
+            # fallback: one-by-one
+            out2 = out
+            for i, ed in zip(uniq_ids, uniq_edges):
+                try:
+                    out2 = out2.fillet(fillet_r, [ed])
+                    applied += 1
+                    print(f"APPLIED: fillet R{fillet_r} on 1 edge (edge_list_idx={i})")
+                except Exception as e2:
+                    print(f"ERROR: fillet failed on edge_list_idx={i}: {e2}")
+            out = out2
+    else:
+        print("ERROR: no edges selected for fillet; returning defeatured shape (will not meet R50 requirement)")
+
+    # --- Verify: bbox unchanged, single solid, and corners now show R~50 cylinders near the 4 ref centers ---
+    out_bb = out.BoundingBox()
+    print(
+        "VERIFY: output bbox min="
+        f"[{out_bb.xmin:.3f},{out_bb.ymin:.3f},{out_bb.zmin:.3f}] max="
+        f"[{out_bb.xmax:.3f},{out_bb.ymax:.3f},{out_bb.zmax:.3f}]"
+    )
+    print(
+        "VERIFY: expected bbox min="
+        f"{list(exp_min)} max={list(exp_max)}  dmin="
+        f"[{out_bb.xmin-exp_min[0]:.6f},{out_bb.ymin-exp_min[1]:.6f},{out_bb.zmin-exp_min[2]:.6f}] dmax="
+        f"[{out_bb.xmax-exp_max[0]:.6f},{out_bb.ymax-exp_max[1]:.6f},{out_bb.zmax-exp_max[2]:.6f}]"
+    )
+
+    out_solids = out.Solids()
+    print(f"VERIFY: output solids={len(out_solids)}")
+
+    # Radius verification near the 4 original green face centers
+    try:
+        from OCP.BRepAdaptor import BRepAdaptor_Surface
+        from OCP.GeomAbs import GeomAbs_Cylinder
+
+        out_faces = out.Faces()
+        print(f"INFO: output faces={len(out_faces)} edges={len(out.Edges())}")
+
+        def nearest_cyl(ref_xyz, r_target, r_tol=0.6):
+            best = None
+            best_d = 1e99
+            for f in out_faces:
+                ad = BRepAdaptor_Surface(f.wrapped)
+                if ad.GetType() != GeomAbs_Cylinder:
+                    continue
+                r = float(ad.Cylinder().Radius())
+                if abs(r - r_target) > r_tol:
+                    continue
+                c = f.Center()
+                dx = c.x - ref_xyz[0]
+                dy = c.y - ref_xyz[1]
+                dz = c.z - ref_xyz[2]
+                d = sqrt(dx * dx + dy * dy + dz * dz)
+                if d < best_d:
+                    best_d = d
+                    best = (r, c)
+            return best, best_d
+
+        hits50 = 0
+        leftover63 = 0
+        for fi in target_face_idx:
+            ref = ref_centers[fi]
+            best50, d50 = nearest_cyl(ref, 50.0, r_tol=0.8)
+            best63, d63 = nearest_cyl(ref, 63.0, r_tol=0.8)
+
+            if best50 is None:
+                print(f"VERIFY: ref corner face#{fi} -> found 0 nearby CYL faces with R~50")
+            else:
+                r, c = best50
+                print(
+                    f"VERIFY: ref corner face#{fi} -> nearest CYL R50: R={r:.3f} center=[{c.x:.3f},{c.y:.3f},{c.z:.3f}] dist={d50:.3f}"
+                )
+                hits50 += 1
+
+            if best63 is not None and d63 < 10.0:
+                r, c = best63
+                print(
+                    f"VERIFY: ref corner face#{fi} -> WARNING nearby CYL R63 still present: R={r:.3f} center=[{c.x:.3f},{c.y:.3f},{c.z:.3f}] dist={d63:.3f}"
+                )
+                leftover63 += 1
+            else:
+                print(f"VERIFY: ref corner face#{fi} -> no nearby CYL R63 within 10mm (good)")
+
+        print(f"VERIFY: matched {hits50}/4 corners to CYL R~50")
+        print(f"VERIFY: corners with nearby leftover R~63 cylinders (should be 0): {leftover63}")
+
+    except Exception as e:
+        print(f"WARNING: radius verification skipped/failed: {e}")
+
+    return out

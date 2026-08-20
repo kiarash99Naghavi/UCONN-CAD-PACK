@@ -1,0 +1,683 @@
+========================= EXECUTOR CALL =========================
+tags        : fillet-chamfer
+recipes     : (none)
+prior script: none
+last resort : True
+images      : 7
+
+PROMPT SIZE BY BLOCK
+  geometry index            7657 chars  (~1914 tokens)
+  recipes                      0 chars  (~0 tokens)
+  prior script                66 chars  (~16 tokens)
+  feedback                 13006 chars  (~3251 tokens)
+  contract + tool doc       5064 chars  (~1266 tokens)
+  last resort               1671 chars  (~417 tokens)
+  TOTAL prompt             28226 chars  (~7056 tokens)
+
+========================= SYSTEM =========================
+You are an expert CadQuery programmer editing an existing B-rep solid.
+You write one Python function and nothing else.
+Reply with a single JSON object and nothing else.
+
+========================= USER PROMPT =========================
+OVERALL INSTRUCTION (context only — do NOT try to do all of it now):
+One of the long edges of the blade does not have a radius. Add radius to that long edge R=0,635cm
+
+YOUR SINGLE SUB-GOAL FOR THIS STEP:
+Apply an edge fillet of radius R = 6.35 mm to the long, currently-sharp blade edge where planar face #14 meets planar face #21, for the full length of that edge (terminate naturally into the blade end faces #40 and #44).
+Why this step is here: This is the only requested change, and fillets should be applied directly to the identified sharp edge without introducing any other geometry edits.
+
+SOLID F332D3FXML85WLR2_1770204569.6643417.step  valid=True  solids=3
+  90 faces, 243 edges, 157 vertices
+  surfaces: PLANEx45, CYLINDERx37, BSPLINEx8
+  volume 208586.11 mm^3, area 79413.713 mm^2
+  bbox size [331.753, 43.18, 381.0]  min [-165.877, -15.24, -190.5]  max [165.877, 27.94, 190.5]
+  the index below covers the WHOLE solid: no family is withheld for being too small or too large.
+  Any list cut for length says '(showing N of M)' — a list without that marker is complete.
+
+CIRCULAR EDGE FAMILIES (candidate holes / round features; edge_idx = unique edge tags; centers are TRUE circle centers, which for a partial arc is NOT where Edge.Center() puts its centroid):
+  r=7.62     d=15.24    count=32   [feature] partial_arcs=32/32 centers=[[-15.24, 27.94, -15.24], [-15.24, 17.78, -15.24], [-15.24, 27.94, 15.24], [-15.24, 17.78, 15.24], [17.78, 15.24, -17.78], [17.78, 27.94, -17.78]] (showing 6 of 32) edge_idx=[139, 141, 146, 147, 151, 153, 158, 160, 162, 165, 167, 169, 172, 178, 180, 185] (showing 16 of 32)
+  r=6.35     d=12.7     count=18   [feature] partial_arcs=16/18 centers=[[39.514, 6.35, 18.533], [32.506, 6.35, 29.124], [-39.514, 6.35, -18.533], [-32.506, 6.35, -29.124], [-155.364, 6.35, -110.42], [-162.372, 6.35, -99.829]] (showing 6 of 18) edge_idx=[27, 33, 34, 41, 42, 45, 59, 63, 80, 86, 91, 99, 102, 106, 126, 131] (showing 16 of 18)
+  r=5.08     d=10.16    count=16   [feature] partial_arcs=16/16 centers=[[40.215, 6.35, 17.473], [-31.805, 6.35, -30.183], [-40.215, 6.35, -17.473], [31.805, 6.35, 30.183], [39.514, 7.62, 18.533], [32.506, 7.62, 29.124]] (showing 6 of 16) edge_idx=[10, 12, 14, 16, 28, 30, 35, 37, 79, 81, 83, 87, 90, 92, 95, 100]
+  r=6.477    d=12.954   count=6    [feature] partial_arcs=4/6 centers=[[0.0, 6.35, 0.0], [-0.0, -0.0, 0.0], [-0.0, -0.0, 0.0], [0.0, 6.35, 0.0], [0.0, 12.7, 0.0], [0.0, 12.7, 0.0]] edge_idx=[19, 48, 49, 122, 133, 135]
+  r=9.525    d=19.05    count=4    [feature] centers=[[0.0, 15.24, 0.0], [0.0, -2.54, -0.0], [0.0, 0.0, 0.0], [0.0, 12.7, 0.0]] edge_idx=[181, 230, 236, 239]
+  r=3.175    d=6.35     count=17   [small] partial_arcs=9/17 centers=[[-21.182, -0.0, -14.017], [-21.182, 6.35, -14.017], [21.182, -0.0, 14.017], [21.182, 6.35, 14.017], [31.774, 6.35, 21.025], [31.774, 6.35, 21.025]] (showing 6 of 17) edge_idx=[1, 2, 4, 6, 21, 23, 24, 66, 68, 72, 74, 75, 110, 111, 117, 119] (showing 16 of 17)
+  r=1.27     d=2.54     count=8    [small] partial_arcs=8/8 centers=[[35.278, 6.35, 15.729], [28.27, 6.35, 26.32], [-35.278, 6.35, -15.729], [-28.27, 6.35, -26.32], [6.35, 6.35, -38.1], [-6.35, 6.35, -38.1]] (showing 6 of 8) edge_idx=[26, 32, 36, 40, 77, 85, 89, 98]
+  (all 7 circular-edge radius families listed — no family is filtered out by size. [scale] orders and labels only, it does not filter: 'feature' at or above 1% of the part diagonal — reads as a real feature; 'small' below feature scale but above the absolute noise floor — usually a blend, but on a large part real fastener holes land here (feature scale = 5.07 mm, noise floor = 1.014 mm on this 507.0 mm diagonal))
+
+CYLINDRICAL FACE FAMILIES (hole walls / bosses; face_idx = unique face tags):
+  r=7.62     d=15.24    count=16   [feature] centers=[[-20.091, 22.86, -20.091], [-20.091, 22.86, 20.091], [22.631, 21.59, -22.631], [20.091, 22.86, 20.091], [22.631, 21.59, 22.631], [-22.631, 21.59, 22.631]] (showing 6 of 16) face_idx=[47, 49, 51, 54, 56, 59, 61, 62, 66, 68, 70, 73, 75, 78, 80, 81]
+  r=6.35     d=12.7     count=6    [feature] centers=[[-103.174, 10.393, -55.809], [91.704, 10.393, 73.143], [5.735, 5.833, -8.667], [10.393, 6.867, -0.0], [-10.393, 6.867, -0.0], [0.0, 6.35, 0.0]] face_idx=[16, 18, 20, 33, 41, 89]
+  r=5.08     d=10.16    count=4    [feature] centers=[[33.441, 11.067, 22.128], [-33.313, 10.854, -22.044], [0.0, 1.633, -40.099], [-0.0, 1.633, 40.099]] face_idx=[6, 10, 27, 31]
+  r=6.477    d=12.954   count=2    [feature] centers=[[0.0, 3.175, 0.0], [0.0, 9.525, 0.0]] face_idx=[15, 45]
+  r=9.525    d=19.05    count=2    [feature] centers=[[-0.0, -1.27, 0.0], [-0.0, 13.97, 0.0]] face_idx=[86, 88]
+  r=3.175    d=6.35     count=7    [small] centers=[[-21.182, 3.175, -14.017], [20.789, 2.81, 13.756], [93.045, 6.283, 61.569], [-0.0, 6.417, -111.571], [0.0, 9.89, -24.928], [-0.0, 6.417, 111.571]] (showing 6 of 7) face_idx=[0, 1, 3, 23, 24, 36, 37]
+
+PLANAR FACES, largest first (idx, area, center, normal, vertical):
+  #14   area=7063.134  c=[-1.8, -0.0, 2.721] n=[-0.0, -1.0, -0.0] vertical=True
+  #21   area=2419.35   c=[-7.008, 3.175, 10.591] n=[-0.552, 0.0, 0.834] vertical=False
+  #42   area=2322.0    c=[0.0, 12.7, -98.819] n=[-0.0, 1.0, -0.0] vertical=True
+  #43   area=2322.0    c=[-0.0, 12.7, 98.819] n=[-0.0, 1.0, -0.0] vertical=True
+  #58   area=2245.774  c=[0.0, 15.24, -0.0] n=[0.0, -1.0, 0.0] vertical=True
+  #77   area=2245.774  c=[0.0, -2.54, -0.0] n=[-0.0, 1.0, 0.0] vertical=True
+  #63   area=2040.476  c=[0.0, 17.78, 0.0] n=[0.0, 1.0, -0.0] vertical=True
+  #82   area=2040.476  c=[0.0, -5.08, 0.0] n=[0.0, -1.0, -0.0] vertical=True
+  #17   area=1870.964  c=[-97.439, 12.7, -64.476] n=[0.0, 1.0, 0.0] vertical=True
+  #19   area=1870.964  c=[97.439, 12.7, 64.476] n=[0.0, 1.0, 0.0] vertical=True
+  #39   area=1870.964  c=[-0.0, 0.0, 116.84] n=[0.0, -1.0, 0.0] vertical=True
+  #46   area=1870.964  c=[0.0, 0.0, -116.84] n=[0.0, -1.0, 0.0] vertical=True
+  #2    area=1697.689  c=[-1.05, 6.35, -0.695] n=[0.0, 1.0, 0.0] vertical=True
+  #38   area=1632.879  c=[0.0, 6.35, -0.0] n=[0.0, -1.0, 0.0] vertical=True
+  #53   area=490.321   c=[0.0, 27.94, -0.0] n=[-0.0, 1.0, -0.0] vertical=True
+  #72   area=490.321   c=[0.0, -15.24, -0.0] n=[0.0, -1.0, -0.0] vertical=True
+  #52   area=451.612   c=[0.0, 21.59, -25.4] n=[0.0, -0.0, -1.0] vertical=False
+  #57   area=451.612   c=[0.0, 21.59, 25.4] n=[-0.0, 0.0, 1.0] vertical=False
+  #60   area=451.612   c=[-25.4, 21.59, -0.0] n=[-1.0, 0.0, 0.0] vertical=True
+  #65   area=451.612   c=[25.4, 21.59, -0.0] n=[1.0, 0.0, 0.0] vertical=True
+  #71   area=451.612   c=[0.0, -8.89, -25.4] n=[-0.0, 0.0, -1.0] vertical=False
+  #76   area=451.612   c=[0.0, -8.89, 25.4] n=[-0.0, -0.0, 1.0] vertical=False
+  #79   area=451.612   c=[-25.4, -8.89, -0.0] n=[-1.0, -0.0, -0.0] vertical=True
+  #84   area=451.612   c=[25.4, -8.89, -0.0] n=[1.0, -0.0, -0.0] vertical=True
+  #48   area=309.677   c=[-22.86, 22.86, -0.0] n=[1.0, 0.0, -0.0] vertical=True
+  #50   area=309.677   c=[0.0, 22.86, 22.86] n=[0.0, -0.0, -1.0] vertical=False
+  #55   area=309.677   c=[22.86, 22.86, -0.0] n=[-1.0, 0.0, 0.0] vertical=True
+  #64   area=309.677   c=[-0.0, 22.86, -22.86] n=[0.0, 0.0, 1.0] vertical=False
+  #67   area=309.677   c=[-22.86, -10.16, -0.0] n=[1.0, -0.0, -0.0] vertical=True
+  #69   area=309.677   c=[0.0, -10.16, 22.86] n=[-0.0, 0.0, -1.0] vertical=False
+  #74   area=309.677   c=[22.86, -10.16, -0.0] n=[-1.0, 0.0, -0.0] vertical=True
+  #83   area=309.677   c=[-0.0, -10.16, -22.86] n=[-0.0, -0.0, 1.0] vertical=False
+  #13   area=296.62    c=[-159.05, 6.206, -104.85] n=[-0.834, 0.0, -0.552] vertical=False
+  #22   area=264.951   c=[158.665, 6.189, 105.432] n=[0.834, -0.0, 0.552] vertical=False
+  #40   area=256.298   c=[-0.0, 6.35, 190.5] n=[-0.0, -0.0, 1.0] vertical=False
+  #44   area=256.298   c=[0.0, 6.35, -190.5] n=[0.0, 0.0, -1.0] vertical=False
+  #85   area=158.346   c=[0.0, 0.0, -0.0] n=[0.0, 1.0, 0.0] vertical=True
+  #87   area=158.346   c=[0.0, 12.7, 0.0] n=[-0.0, -1.0, -0.0] vertical=True
+  #12   area=18.663    c=[-31.774, 6.972, -21.025] n=[0.834, -0.0, 0.552] vertical=False
+  #4    area=5.409     c=[34.658, 6.969, 16.666] n=[-0.834, 0.0, -0.552] vertical=False
+  ... showing 40 of 45 planar faces (largest first)
+
+You can rely on a pre-computed geometry index of the input solid (provided in
+the prompt as `geometry`). It contains:
+
+  summary                 face/edge/vertex counts, surface-type mix, bbox, volume
+  circular_edge_groups    EVERY circular edge of the solid, grouped by radius -> use
+                          this to find "the hole edges"; each group gives radius,
+                          diameter, count, and per-edge centers and edge indices
+  cylindrical_face_groups every cylindrical face by radius -> hole walls / bosses
+  planar_faces            planar faces sorted by area, each with outward normal,
+                          dominant axis, and a `vertical` flag
+
+Use real numbers from this index (radii, coordinates, z-levels) to build CadQuery
+selectors instead of guessing. Selecting by measured position/size is far more
+reliable than string selectors on an imported B-rep with no feature tree.
+
+The index is complete — no family is withheld for being too small, too large or
+judged irrelevant. The [scale] tag on a family (feature / small / blend /
+oversize) is an ordering hint only: a 0.4 mm chamfer ring is tagged "blend" and
+is still the right target when the instruction asks for a chamfer. Where a long
+list is cut for length it says so inline, e.g. "(showing 6 of 32)"; a list
+without that marker is all of them.
+
+
+Your function must have exactly this shape:
+
+def my_cad_function(args):
+    import cadquery as cq
+    shape = cq.importers.importStep(args["input_file"])   # ALWAYS load the input
+    # ... your edit ...
+    return shape          # a Workplane, Shape, or Assembly
+
+Once you return it, the function is executed in CadQuery. You will then be
+shown renders of the result and everything the function printed, and you can
+refine it. Print freely — those prints are your instruments; a selection that
+silently matched nothing is the most common way an attempt dies, and a printed
+count of 0 catches it.
+
+Requirements:
+- ALWAYS start from args["input_file"] and EDIT the imported shape. Never
+  rebuild the part from scratch — the benchmark scores your *change* against
+  the human's change, so a rebuild that merely looks similar scores near zero.
+- Change only what the sub-goal asks for; leave every other feature untouched.
+- The sub-goal's `face #N` / `edge_idx [...]` tags are indices into the geometry
+  index above, enumerated in the order CadQuery returns entities: resolve them as
+  `base = shape.val() if hasattr(shape, 'val') else shape;
+  target = base.Faces()[N]` (same for `.Edges()`), then PRINT the resolved
+  entity's center/area and check it against the index line before using it — a
+  mismatch means you resolved against a different shape than the index describes.
+  When the renders are color-coded, the legend's colors correspond to exactly
+  these face_idx tags — use them to confirm you resolved the right entity.
+- Return the shape. Do not write files, do not exit.
+- Keep the input's coordinate frame. All metrics voxelize your result and the
+  human's in ABSOLUTE world coordinates with no alignment step, so position is
+  graded as strictly as shape: never translate, rotate, re-centre or rescale
+  the part, and place new geometry at explicit absolute coordinates (beware
+  `centered=True`, `.center()`, and fresh workplanes at the origin).
+- When the sub-goal adds material "on" or "at" an existing face, decide which
+  side it goes: default to keeping the outer envelope unchanged unless the
+  instruction says the part gets bigger.
+
+PLACEMENT SELF-CHECK, in the same function, every time:
+1. List every number the sub-goal names: coordinates, a face centre, a target
+   angle, a level the feature must reach but not exceed.
+2. Isolate the new material generically — `added = out.cut(base)`
+   (`removed = base.cut(out)` for cuts), which works for text, polygons,
+   bosses, plateaus and blades alike. Print `added.Center()`,
+   `added.BoundingBox()`, its extreme along the growth axis.
+3. Print each of those against the number the sub-goal named, and the delta.
+4. Off by more than ~1 mm on any axis, or across a plane the sub-goal said not
+   to exceed: TRANSLATE OR REBUILD AND RE-PRINT IN THE SAME ATTEMPT. Never
+   return a feature whose printed position disagrees with the sub-goal. If it
+   named no coordinates, print anyway and change nothing.
+A recipe may offer a sharper measurement for a feature type (a landing angle
+for rotations, vertex angles for polygons, a top level for text) — prefer those
+over the bbox. Measured: a text feature built 48 mm from the centre its
+sub-goal named scored zero while looking correct in every render.
+
+Approach freely — plain CadQuery selectors (`.faces(">Z")`,
+`.edges("%CIRCLE")`, `NearestToPointSelector`), filtering `shape.Faces()` /
+`shape.Edges()` by the measured values in the geometry index, or direct
+construction all work. Keep the selection simple, and where an operation can
+fail on some entities (fillet/chamfer over many edges), prefer doing it
+per-entity in a try/except and keeping the successes: a partial edit scores, a
+crash does not.
+
+
+This is the first change; args["input_file"] is the original part.
+
+YOUR PREVIOUS ATTEMPT RAN WITHOUT ERROR BUT CHANGED NOTHING.
+
+The output solid is geometrically identical to the input: [90, 90, 0]
+faces, [243, 243, 0] edges, volume unchanged. A no-op scores ZERO on the
+metric that matters, so this is as bad as a crash.
+
+WHAT YOUR OWN PRINTS SAY WENT WRONG — fix THIS, not the symptom:
+  Fillet operation: FAILED with exception: BRep_API: command not done
+
+THE FUNCTION YOU JUST RAN:
+
+def my_cad_function(args):
+    import cadquery as cq
+
+    shape = cq.importers.importStep(args["input_file"])   # ALWAYS load the input
+    base = shape.val() if hasattr(shape, "val") else shape
+
+    # --- Numbers explicitly named by the sub-goal ---
+    R = 6.35  # mm (0.635 cm)
+    face_idx_a = 14
+    face_idx_b = 21
+    end_face_idxs = (40, 44)
+    print(f"Target fillet radius R = {R} mm (0.635 cm)")
+    print(f"Target faces: #{face_idx_a} meets #{face_idx_b}; termination into end faces {end_face_idxs}")
+
+    faces = base.Faces()
+    edges = base.Edges()
+    print(f"Base entity counts: faces={len(faces)}, edges={len(edges)}, solids={len(base.Solids())}")
+
+    f14 = faces[face_idx_a]
+    f21 = faces[face_idx_b]
+    print(f"Resolved Face #{face_idx_a}: area={f14.Area():.3f}, center={list(map(lambda x: round(x,3), f14.Center().toTuple()))}")
+    print(f"Resolved Face #{face_idx_b}: area={f21.Area():.3f}, center={list(map(lambda x: round(x,3), f21.Center().toTuple()))}")
+
+    # Find owning solid (important since STEP import is a compound of 3 solids)
+    solids = base.Solids()
+    owner = None
+    for si, s in enumerate(solids):
+        sf = s.Faces()
+        has14 = any(ff.wrapped.IsSame(f14.wrapped) for ff in sf)
+        has21 = any(ff.wrapped.IsSame(f21.wrapped) for ff in sf)
+        if has14 and has21:
+            owner = s
+            print(f"Owning solid index in compound: {si}")
+            break
+    if owner is None:
+        # Fallback: if faces are not found together (shouldn't happen), try using the whole base
+        owner = base
+        print("WARNING: Could not isolate owning solid containing both faces; will attempt fillet on whole shape.")
+
+    # Re-resolve the faces from the owner's face list to ensure topological consistency for edge matching
+    owner_faces = owner.Faces()
+    of14 = None
+    of21 = None
+    for ff in owner_faces:
+        if ff.wrapped.IsSame(f14.wrapped):
+            of14 = ff
+        if ff.wrapped.IsSame(f21.wrapped):
+            of21 = ff
+    if of14 is None or of21 is None:
+        print("WARNING: Could not re-resolve both faces on the owning shape; using originally resolved faces for edge matching.")
+        of14, of21 = f14, f21
+
+    # Find shared edge(s) between the two faces
+    shared = []
+    e14s = of14.Edges()
+    e21s = of21.Edges()
+    for e1 in e14s:
+        for e2 in e21s:
+            if e1.wrapped.IsSame(e2.wrapped):
+                shared.append(e1)
+                break
+
+    print(f"Shared edge candidates between Face #{face_idx_a} and Face #{face_idx_b}: {len(shared)}")
+    for i, e in enumerate(shared):
+        c = e.Center().toTuple()
+        print(f"  cand[{i}]: length={e.Length():.3f} center={[round(c[0],3), round(c[1],3), round(c[2],3)]}")
+
+    if not shared:
+        print("ERROR: No shared edge found; no change applied.")
+        return shape
+
+    # Choose the longest shared edge (the 'long blade edge')
+    target_edge = max(shared, key=lambda ee: ee.Length())
+    tec = target_edge.Center().toTuple()
+    print(f"Selected target edge: length={target_edge.Length():.3f} center={[round(tec[0],3), round(tec[1],3), round(tec[2],3)]}")
+
+    # Apply fillet only to that edge
+    try:
+        filleted_owner = owner.fillet(R, [target_edge])
+        print("Fillet operation: SUCCESS")
+    except Exception as ex:
+        print(f"Fillet operation: FAILED with exception: {ex}")
+        return shape
+
+    # Self-check: material removed by fillet (approximate) and location
+    try:
+        removed = owner.cut(filleted_owner)
+        if removed and removed.Volume() > 1e-6:
+            bb = removed.BoundingBox()
+            cc = removed.Center().toTuple()
+            print(f"Removed material (owner - filleted_owner): vol={removed.Volume():.3f} mm^3")
+            print(f"  removed.Center={list(map(lambda x: round(x,3), cc))}")
+            print(f"  removed.BBox min={[round(bb.xmin,3), round(bb.ymin,3), round(bb.zmin,3)]} max={[round(bb.xmax,3), round(bb.ymax,3), round(bb.zmax,3)]}")
+        else:
+            print("Removed material check: none/too small to measure")
+    except Exception as ex:
+        print(f"Removed material check: skipped due to exception: {ex}")
+
+    # Recombine with other solids unchanged if we isolated an owner solid
+    if owner is base:
+        return filleted_owner
+
+    new_solids = []
+    replaced = False
+    for s in solids:
+        if s.wrapped.IsSame(owner.wrapped):
+            new_solids.append(filleted_owner)
+            replaced = True
+        else:
+            new_solids.append(s)
+    if not replaced:
+        print("WARNING: Owner solid replacement failed; returning filleted owner only.")
+        return filleted_owner
+
+    out = cq.Compound.makeCompound(new_solids)
+    print(f"Output solids recombined: {len(new_solids)}")
+    return out
+
+WHAT IT PRINTED:
+Target fillet radius R = 6.35 mm (0.635 cm)
+Target faces: #14 meets #21; termination into end faces (40, 44)
+Base entity counts: faces=90, edges=243, solids=3
+Resolved Face #14: area=7063.134, center=[-1.8, -0.0, 2.721]
+Resolved Face #21: area=2419.350, center=[-7.008, 3.175, 10.591]
+Owning solid index in compound: 0
+Shared edge candidates between Face #14 and Face #21: 1
+  cand[0]: length=381.000 center=[-7.008, -0.0, 10.591]
+Selected target edge: length=381.000 center=[-7.008, -0.0, 10.591]
+Fillet operation: FAILED with exception: BRep_API: command not done
+RESULT: {"ok": true, "step": "/Users/kiarash/Downloads/2026ASMEHackathon/ourimplementation/results/runs/fable_blade_fix/_work/F332D3FXML85WLR2_1770204558.429523_1786838305/sub0_try1/tmp.step", "volume": 208586.1098, "faces": 90, "edges": 243, "bbox": [331.753, 43.18, 381.0]}
+
+Read what it printed first — a count of 0, or a volume that did not move, is
+the whole diagnosis. The usual cause is a selection that matched nothing: a
+selector string that found no entities, a radius/position tolerance too tight
+to match anything, or an operation whose result was computed but never
+returned.
+
+Fix it by:
+- PRINTING how many entities your selection matched before you modify them,
+  e.g. print(f"selected {len(edges)} edges"). If it prints 0, the selection is
+  the bug, not the operation.
+- Widening the tolerance, or selecting from the geometry index by a value you
+  can see listed there.
+- Making sure you return the MODIFIED shape, not the original one you loaded.
+- Changing the APPROACH if you already tried the same selection twice —
+  repeating it with different syntax will produce the same nothing.
+
+YOUR BLEND WAS REFUSED, NOT MIS-SELECTED. Your ladder returned the input
+because `applied == 0`; a boolean blend cannot be refused by the kernel.
+Pick the recipe by the refused edge's TYPE — straight edge or circular edge:
+
+When the OCC kernel refuses a fillet at a radius the CUSTOMER specified, the
+radius is not negotiable — change the METHOD. For a CONVEX edge `e` that is a
+LINE between two PLANE faces, blend it with booleans instead:
+
+      adj = [f for f in solid.Faces() if any(x.hashCode() == e.hashCode() for x in f.Edges())]
+      n1, n2 = [f.normalAt().normalized() for f in adj[:2]]
+      P, t = e.positionAt(0.5), e.tangentAt(0.5).normalized()
+      b = (n1 + n2).normalized()
+      C = P - b * (r / b.dot(n1))            # axis of the fillet cylinder
+      slab = lambda n: cq.Workplane(cq.Plane(P, (cq.Vector(0,0,1) if abs(n.z)<0.9
+                       else cq.Vector(1,0,0)).cross(n).normalized(), n)
+                       ).rect(BIG, BIG).extrude(-r).val()
+      corner = slab(n1).intersect(slab(n2)).intersect(solid)
+      cutter = corner.cut(cq.Solid.makeCylinder(r, L, C - t*L/2, t))
+      out    = solid.cut(cutter)
+
+Three checks, all cheap:
+- CONVEXITY FIRST: `solid.isInside(P - b*eps)` must be True and
+  `solid.isInside(P + b*eps)` False. On a CONCAVE edge this removes the very
+  material a fillet would have added.
+- The slabs are unbounded along `t`: if `corner` runs longer than `e.Length()`,
+  clip it to the edge's endpoints before cutting.
+- PRINT `removed = solid.Volume() - out.Volume()` and check it against
+  `cutter.Volume()`, and for a 90-degree corner against
+  `(1 - math.pi/4) * r**2 * L`.
+
+This reproduced a ground-truth blade radius to 0.003% (removed 3296.9 against
+an expected 3297.0) on an edge where `fillet()` refused outright.
+
+When the refused edge is a CIRCLE or circular ARC (a hole entrance or a boss
+rim), the blend is a surface of revolution — build it by cutting a CONE. Two
+traps first:
+
+- For an ARC, `e.Center()` is the arc's CENTER OF MASS, not the circle
+  center: on a measured 3.25 mm arc of an r=1.4 circle they differ by 1.1 mm,
+  so a cutter placed at `e.Center()` carves the wrong region entirely. Take
+  the true center and axis from the curve:
+
+      from OCP.BRepAdaptor import BRepAdaptor_Curve
+      circ = BRepAdaptor_Curve(e.wrapped).Circle()
+      L, A = circ.Location(), circ.Axis().Direction()
+      C = cq.Vector(L.X(), L.Y(), L.Z())
+      n = cq.Vector(A.X(), A.Y(), A.Z()).normalized()
+
+- Decide which side holds material BEFORE building the cutter — do not trust
+  the sub-goal's wording ("hole" may turn out to be a boss rim). With
+  `pm = e.positionAt(0.5)` and `radial = (pm - C).normalized()`:
+
+      probe = lambda d, rr: solid.isInside(C + d*(c/2) + radial*rr)
+      # Axial direction into material. Probe INSIDE the rim radius, BOTH ways
+      # — do not shortcut this with a single probe or a probe outside r: on a
+      # boss rim, outside-r is air in both directions, so an outside probe
+      # picks a direction at random and the cutter is built floating in air
+      # (measured: cutterVol 0.2, removed 0.000, attempt died as a no-op).
+      into = n if probe(n, r - 0.05) else (-n if probe(-n, r - 0.05) else None)
+      if into is None:      # both inside-r probes are air: a hole entrance —
+                            # material lies OUTSIDE r, so orient by that
+          into = n if probe(n, r + 0.05) else -n
+      boss  = not probe(into, r + 0.05)         # True: material INSIDE r (rim)
+                                                # False: material OUTSIDE r (hole)
+
+Then cut (c = chamfer leg, r = edge radius):
+
+      if boss:      # convex rim: wedge between a widening cone and the rim
+          cutter = cq.Solid.makeCylinder(r + 0.2, c, C, into).cut(
+                   cq.Solid.makeCone(r - c, r, c, pnt=C, dir=into))
+      else:         # hole entrance: cone ring, bore left untouched
+          cutter = cq.Solid.makeCone(r + c, r, c, pnt=C, dir=into).cut(
+                   cq.Solid.makeCylinder(r, c + 0.1, C - into*0.05, into))
+      out = solid.cut(cutter)
+
+If the edge is a PARTIAL arc, clip the cutter to the arc's angular span first
+— an unclipped ring gouges a groove wherever the rest of the circle runs
+through solid material (measured: 6x the intended removal). Skip this for a
+full 360-degree circle:
+
+      pts  = [C + (e.positionAt(i/16) - C)*3.0 for i in range(17)]
+      ring = [C - into*0.05] + [p - into*0.05 for p in pts]
+      wire = cq.Wire.assembleEdges([cq.Edge.makeLine(a, b)
+                                    for a, b in zip(ring, ring[1:] + ring[:1])])
+      pie  = cq.Solid.extrudeLinear(cq.Face.makeFromWires(wire), into*(c + 0.1))
+      cutter = cutter.intersect(pie)
+
+PRINT `before.Volume() - out.Volume()` and check it against the wedge
+estimate `0.5 * c*c * sum(e.Length() for e in edges) * ((r -/+ c/2) / r)`
+(minus for a boss rim, plus for a hole entrance). If the cut removed ZERO
+volume, the cutter is floating in air on the wrong side of the surface —
+FLIP `into`, rebuild the cutter and re-cut IN THE SAME ATTEMPT; zero removal
+is never evidence the edge was already done.
+
+THE VOLUME CHECK ALONE IS NOT ENOUGH: a cutter clipped to the wrong angular
+span removes exactly the right amount of material from the wrong part of the
+rim and passes it. Measured: a lug-rim retry removed 0.25 mm^3 (expected
+0.24) but carved the +Z side of each rim circle while the physical arc — and
+the human's chamfer — sat on the opposite side; the attempt scored diff F1
+0.0 with a perfect volume print. So ALSO PRINT WHERE it came off:
+`removed = before.cut(out)`, then `removed.Center()` against the mean of the
+selected arcs' own midpoints `e.positionAt(0.5)`. They must agree to within
+about `c` plus a voxel; a mismatch on the order of `r` means the cut landed
+on the wrong span — rebuild the pie clip from the edges you actually
+selected and re-cut IN THE SAME ATTEMPT. This recipe reproduced a refused
+0.2 mm lug-rim chamfer to 2.5% (removed 0.2475 against an expected 0.2414) on
+four arcs where `chamfer()` AND `fillet()` were refused at every size.
+
+THIS IS YOUR LAST PROPOSAL FOR THIS SUB-GOAL. If it does not land, the part
+ships without this edit and scores zero on the only metric that measures
+editing at all.
+
+So change tactics instead of refining — WRITE THE SIMPLEST THING THAT COULD
+POSSIBLY WORK. Every extra stage of custom selection logic is another place to
+silently match nothing, and that is how the previous attempts died. In order of
+preference:
+
+1. A plain CadQuery selector chain: `.faces(">Z")`, `.edges("%CIRCLE")`,
+   `.edges("|Z")`, `cq.selectors.NearestToPointSelector((x, y, z))`. It may
+   pick a slightly wrong entity; your bespoke selection has already picked
+   NOTHING more than once, which is strictly worse.
+2. ONE filter expression over `shape.Edges()` or `shape.Faces()` with a
+   generous tolerance, then the operation. No ownership search, no multi-stage
+   scoring, no nested fallback ladders.
+3. The bluntest version of the sub-goal that still counts as the edit: one hole
+   family instead of all of them, a subset of the intended edges, one feature
+   instead of the set. The one thing you may NOT blunt is a dimension the
+   CUSTOMER named — a radius, a thickness, a hole diameter — so blunt the edge
+   count or the feature count, never the number, and if the kernel refuses a
+   blend at the customer's radius take the boolean route instead of shrinking
+   it. A partial edit scores; nothing scores zero.
+
+Whatever you do, DO NOT hand back the input untouched. Catch a failing
+operation and keep whatever succeeded, but never end a branch with
+`return shape` as a safety net — that path is what turned the last attempts
+into no-ops, and a no-op is scored exactly like a crash.
+
+Return JSON:
+{
+  "approach": "<one or two sentences: how you will select and modify>",
+  "my_cad_function": "<the complete function source as a string>"
+}
+
+========================= REPLY · approach =========================
+Since OCC refuses a direct fillet on the long straight edge shared by planar faces #14 and #21, build the R=6.35 mm round with a boolean cutter: form the local corner chunk (intersection of two r-thick inward slabs on the two faces), subtract the appropriate radius cylinder from that chunk, then cut the remainder from the owning solid and recombine into the original 3-solid compound.
+
+========================= REPLY · my_cad_function =========================
+def my_cad_function(args):
+    import cadquery as cq
+    import math
+
+    shape = cq.importers.importStep(args["input_file"])   # ALWAYS load the input
+    base = shape.val() if hasattr(shape, "val") else shape
+
+    # --- Numbers explicitly named by the sub-goal ---
+    R = 6.35  # mm (0.635 cm)
+    face_idx_a = 14
+    face_idx_b = 21
+    end_face_idxs = (40, 44)
+    print(f"Target fillet radius R = {R} mm")
+    print(f"Target sharp edge: intersection of planar faces #{face_idx_a} and #{face_idx_b}; should terminate naturally into end faces {end_face_idxs}")
+
+    faces = base.Faces()
+    print(f"Base entity counts: faces={len(faces)}, edges={len(base.Edges())}, solids={len(base.Solids())}")
+
+    fA = faces[face_idx_a]
+    fB = faces[face_idx_b]
+    print(f"Resolved Face #{face_idx_a}: area={fA.Area():.3f}, center={[round(x,3) for x in fA.Center().toTuple()]}")
+    print(f"Resolved Face #{face_idx_b}: area={fB.Area():.3f}, center={[round(x,3) for x in fB.Center().toTuple()]}")
+
+    # Find owning solid (STEP import is a compound of 3 solids)
+    solids = base.Solids()
+    owner = None
+    for si, s in enumerate(solids):
+        sf = s.Faces()
+        hasA = any(ff.wrapped.IsSame(fA.wrapped) for ff in sf)
+        hasB = any(ff.wrapped.IsSame(fB.wrapped) for ff in sf)
+        if hasA and hasB:
+            owner = s
+            owner_index = si
+            break
+    if owner is None:
+        owner = base
+        owner_index = None
+        print("WARNING: Could not isolate owning solid containing both faces; will operate on whole base shape.")
+    else:
+        print(f"Owning solid index in compound: {owner_index}")
+
+    # Resolve the faces on the owner to keep topology consistent
+    ofA = None
+    ofB = None
+    for ff in owner.Faces():
+        if ff.wrapped.IsSame(fA.wrapped):
+            ofA = ff
+        if ff.wrapped.IsSame(fB.wrapped):
+            ofB = ff
+    if ofA is None or ofB is None:
+        ofA, ofB = fA, fB
+        print("WARNING: Could not re-resolve both faces on owner; using faces from base for edge matching.")
+
+    # Shared edge between the two faces
+    shared = []
+    eAs = ofA.Edges()
+    eBs = ofB.Edges()
+    for e1 in eAs:
+        for e2 in eBs:
+            if e1.wrapped.IsSame(e2.wrapped):
+                shared.append(e1)
+                break
+
+    print(f"Shared edge candidates between Face #{face_idx_a} and Face #{face_idx_b}: {len(shared)}")
+    for i, e in enumerate(shared):
+        c = e.Center().toTuple()
+        print(f"  cand[{i}]: length={e.Length():.3f} center={[round(c[0],3), round(c[1],3), round(c[2],3)]}")
+
+    if not shared:
+        print("ERROR: No shared edge found; returning input unchanged (cannot apply edit).")
+        return shape
+
+    edge = max(shared, key=lambda ee: ee.Length())
+    P = edge.positionAt(0.5)
+    t = edge.tangentAt(0.5).normalized()
+    L = edge.Length()
+    print(f"Selected target edge: length={L:.3f} midpoint={[round(x,3) for x in P.toTuple()]} tangent={[round(x,3) for x in t.toTuple()]}")
+
+    # Compute outward normals from the two adjacent planar faces at P
+    n1 = ofA.normalAt(P).normalized()
+    n2 = ofB.normalAt(P).normalized()
+    print(f"Face normals at edge midpoint: n1={[round(x,4) for x in n1.toTuple()]}, n2={[round(x,4) for x in n2.toTuple()]}")
+
+    # Convexity / bisector direction (outward) and axis point for the fillet cylinder
+    b = (n1 + n2)
+    if b.Length < 1e-9:
+        print("ERROR: Face normals nearly opposite; cannot build bisector cylinder. Returning input unchanged.")
+        return shape
+    b = b.normalized()
+
+    # Convexity probe
+    eps = 0.2
+    inside_minus = owner.isInside(P - b * eps)
+    inside_plus = owner.isInside(P + b * eps)
+    print(f"Convexity probe: isInside(P - b*eps)={inside_minus}, isInside(P + b*eps)={inside_plus} (expect True/False for convex external edge)")
+
+    denom = b.dot(n1)
+    if abs(denom) < 1e-9:
+        print("ERROR: b.dot(n1) ~ 0; cannot locate cylinder axis. Returning input unchanged.")
+        return shape
+
+    C = P - b * (R / denom)  # cylinder axis point (centerline) for fillet
+    print(f"Computed cylinder axis point C={[round(x,3) for x in C.toTuple()]}  (R={R} mm)")
+
+    # Build two inward slabs of thickness R from each face, then their intersection gives the local corner chunk.
+    def make_slab(outward_n):
+        inward = (-outward_n).normalized()
+        ref = cq.Vector(0, 0, 1)
+        if abs(ref.dot(inward)) > 0.9:
+            ref = cq.Vector(1, 0, 0)
+        xdir = ref.cross(inward).normalized()
+        pl = cq.Plane(P, xdir, inward)
+        BIG = 2000.0
+        return cq.Workplane(pl).rect(BIG, BIG).extrude(R).val()
+
+    slab1 = make_slab(n1)
+    slab2 = make_slab(n2)
+
+    try:
+        corner = slab1.intersect(slab2).intersect(owner)
+    except Exception as ex:
+        print(f"ERROR: Failed building corner intersection: {ex}")
+        return shape
+
+    try:
+        corner_vol = corner.Volume() if hasattr(corner, "Volume") else 0.0
+        print(f"Corner chunk: volume={corner_vol:.3f} mm^3")
+    except Exception as ex:
+        print(f"Corner chunk volume check failed: {ex}")
+
+    # Cylinder along the edge direction, long enough to cover the full edge and naturally terminate at ends.
+    extra = max(5.0, 2 * R)
+    height = L + 2 * extra
+    cyl_base = C - t * (height / 2.0)
+    cylinder = cq.Solid.makeCylinder(R, height, cyl_base, t)
+
+    # cutter = (corner chunk) minus (cylinder) ; removing cutter from owner produces the fillet
+    try:
+        cutter = corner.cut(cylinder)
+    except Exception as ex:
+        print(f"ERROR: Failed creating cutter (corner - cylinder): {ex}")
+        return shape
+
+    try:
+        cutter_vol = cutter.Volume() if hasattr(cutter, "Volume") else 0.0
+        print(f"Cutter chunk (to remove): volume={cutter_vol:.3f} mm^3")
+    except Exception as ex:
+        print(f"Cutter volume check failed: {ex}")
+
+    # Apply cut
+    try:
+        out_owner = owner.cut(cutter)
+    except Exception as ex:
+        print(f"ERROR: Final cut failed: {ex}")
+        return shape
+
+    # Self-check: removed material and its location
+    try:
+        removed = owner.cut(out_owner)
+        rem_vol = removed.Volume() if hasattr(removed, "Volume") else 0.0
+        print(f"Removed material (owner - out_owner): vol={rem_vol:.3f} mm^3")
+        if rem_vol > 1e-6:
+            bb = removed.BoundingBox()
+            cc = removed.Center().toTuple()
+            print(f"  removed.Center={[round(x,3) for x in cc]}")
+            print(f"  removed.BBox min={[round(bb.xmin,3), round(bb.ymin,3), round(bb.zmin,3)]} max={[round(bb.xmax,3), round(bb.ymax,3), round(bb.zmax,3)]}")
+            pm = P.toTuple()
+            print(f"  target edge midpoint P={[round(x,3) for x in pm]} delta_center={[round(cc[i]-pm[i],3) for i in range(3)]}")
+        else:
+            print("WARNING: Removed volume is ~0; edit may have failed (no-op).")
+    except Exception as ex:
+        print(f"Removed material check failed: {ex}")
+
+    # Recombine with other solids unchanged if we isolated an owner solid
+    if owner is base:
+        return out_owner
+
+    new_solids = []
+    replaced = False
+    for s in solids:
+        if s.wrapped.IsSame(owner.wrapped):
+            new_solids.append(out_owner)
+            replaced = True
+        else:
+            new_solids.append(s)
+    if not replaced:
+        print("WARNING: Owner solid replacement failed; returning modified owner only.")
+        return out_owner
+
+    out = cq.Compound.makeCompound(new_solids)
+    print(f"Output solids recombined: {len(new_solids)}")
+    return out

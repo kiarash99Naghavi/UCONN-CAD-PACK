@@ -1,0 +1,574 @@
+========================= EXECUTOR CALL =========================
+tags        : resize-feature
+recipes     : (none)
+prior script: none
+last resort : False
+images      : 7
+
+PROMPT SIZE BY BLOCK
+  geometry index           10367 chars  (~2591 tokens)
+  recipes                      0 chars  (~0 tokens)
+  prior script                66 chars  (~16 tokens)
+  feedback                    38 chars  (~9 tokens)
+  contract + tool doc      11758 chars  (~2939 tokens)
+  last resort                  0 chars  (~0 tokens)
+  TOTAL prompt             23449 chars  (~5862 tokens)
+
+========================= SYSTEM =========================
+You are an expert CadQuery programmer editing an existing B-rep solid.
+You write one Python function and nothing else.
+Reply with a single JSON object and nothing else.
+
+========================= USER PROMPT =========================
+OVERALL INSTRUCTION (context only — do NOT try to do all of it now):
+Remove the largest radius that is all around the part and replace it by the same size radius as others. That means in cross section all radiuses will be the same for the profile.
+
+YOUR SINGLE SUB-GOAL FOR THIS STEP:
+On the single body, resize all four GREEN R63 mm cylindrical corner surfaces (faces #21,#23,#44,#48, measured axis [0.0,0.966,-0.259], bounded by r=63 mm circular edges edge_idx [45,49,53,56,58,63,96,105]) to R50 mm, matching the BLUE R50 mm corner family faces #8,#10,#46,#47. Apply the change around the complete rounded-rectangle profile, keep the adjoining straight runs tangent, and verify that these four formerly R63 corners measure R50 mm while the bbox remains [-949.62,-506.698,26.8] to [-163.62,-338.409,595.312].
+Why this step is here: The R63 mm family is uniquely the largest main profile-corner radius and therefore matches the customer's predicate; the existing R50 mm family supplies the requested radius used by the other profile corners, while the R10 mm and R2 mm families are separate edge blends and are not the target.
+
+SOLID B7A2N74ZJBF9MZHU_1770171784.1490738.step  valid=True  solids=1
+  50 faces, 112 edges, 64 vertices
+  surfaces: CYLINDERx24, TORUSx16, PLANEx10
+  volume 611785.5 mm^3, area 153266.527 mm^2
+  bbox size [786.0, 168.29, 568.512]  min [-949.62, -506.698, 26.8]  max [-163.62, -338.409, 595.312]
+  Any list cut for length says '(showing N of M)' — a list without that marker is complete.
+
+CIRCULAR EDGE FAMILIES (candidate holes / round features; edge_idx = unique edge tags; centers are TRUE circle centers, which for a partial arc is NOT where Edge.Center() puts its centroid):
+  r=63.0     d=126.0    [feature] partial_arcs=8/8 count=8    centers=[[-886.62, -488.91, 90.065], [-226.62, -488.91, 90.065], [-226.62, -369.854, 534.391], [-886.62, -369.854, 534.391], [-226.62, -481.183, 87.995], [-886.62, -481.183, 87.995], [-226.62, -362.126, 532.32], [-886.62, -362.126, 532.32]] edge_idx=[45, 49, 53, 56, 58, 63, 96, 105]
+  r=52.0     d=104.0    [feature] partial_arcs=8/8 count=8    centers=[[-226.62, -490.842, 90.583], [-886.62, -490.842, 90.583], [-886.62, -371.785, 534.909], [-226.62, -371.785, 534.909], [-886.62, -471.524, 85.406], [-226.62, -471.524, 85.406], [-226.62, -352.467, 529.732], [-886.62, -352.467, 529.732]] edge_idx=[5, 11, 17, 22, 71, 75, 79, 84]
+  r=50.0     d=100.0    [feature] partial_arcs=8/8 count=8    centers=[[-226.62, -488.91, 90.065], [-886.62, -488.91, 90.065], [-886.62, -369.854, 534.391], [-226.62, -369.854, 534.391], [-886.62, -473.456, 85.924], [-226.62, -473.456, 85.924], [-226.62, -354.399, 530.25], [-886.62, -354.399, 530.25]] edge_idx=[6, 12, 18, 23, 25, 29, 80, 85]
+  r=10.0     d=20.0     [feature] partial_arcs=8/8 count=8    centers=[[-226.62, -348.409, 583.515], [-173.62, -362.126, 532.32], [-173.62, -481.183, 87.995], [-226.62, -494.9, 36.8], [-886.62, -494.9, 36.8], [-939.62, -481.183, 87.995], [-939.62, -362.126, 532.32], [-886.62, -348.409, 583.515]] edge_idx=[95, 97, 98, 100, 101, 102, 103, 104]
+  r=61.0     d=122.0    [feature] partial_arcs=4/4 count=4    centers=[[-886.62, -490.842, 90.583], [-226.62, -490.842, 90.583], [-226.62, -371.785, 534.909], [-886.62, -371.785, 534.909]] edge_idx=[34, 36, 38, 40]
+  r=53.0     d=106.0    [feature] partial_arcs=4/4 count=4    centers=[[-226.62, -352.467, 529.732], [-226.62, -471.524, 85.406], [-886.62, -471.524, 85.406], [-886.62, -352.467, 529.732]] edge_idx=[87, 89, 91, 93]
+  r=2.0      d=4.0      [small] partial_arcs=24/24 count=24   centers=[[-174.62, -369.854, 534.391], [-174.62, -488.91, 90.065], [-226.62, -502.369, 39.837], [-886.62, -502.369, 39.837], [-938.62, -488.91, 90.065], [-938.62, -369.854, 534.391]] (showing 6 of 24) edge_idx=[0, 2, 4, 7, 10, 13, 16, 19, 41, 43, 44, 46, 48, 50, 52, 54] (showing 16 of 24)
+  (all 7 circular-edge radius families listed — no family is filtered out by size. [scale] orders and labels only, it does not filter: 'feature' at or above 1% of the part diagonal — reads as a real feature; 'small' below feature scale but above the absolute noise floor — usually a blend, but on a large part real fastener holes land here (feature scale = 9.845 mm, noise floor = 1.969 mm on this 984.5 mm diagonal))
+
+BORES / PORTS these rings form (paired mouths of one feature — the pair IS one hole, do not count it twice, and a NEW one must go where none of these already is):
+  r=63.0     axis=X at=(*, -488.91, 90.065)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[45, 49]
+  r=63.0     axis=X at=(*, -481.183, 87.995)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[58, 63]
+  r=63.0     axis=X at=(*, -369.854, 534.391)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[53, 56]
+  r=63.0     axis=X at=(*, -362.126, 532.32)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[96, 105]
+  r=61.0     axis=X at=(*, -490.842, 90.583)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[34, 36]
+  r=61.0     axis=X at=(*, -371.785, 534.909)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[38, 40]
+  r=53.0     axis=X at=(*, -471.524, 85.406)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[89, 91]
+  r=53.0     axis=X at=(*, -352.467, 529.732)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[87, 93]
+  r=52.0     axis=X at=(*, -490.842, 90.583)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[5, 11]
+  r=52.0     axis=X at=(*, -471.524, 85.406)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[71, 75]
+  r=52.0     axis=X at=(*, -371.785, 534.909)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[17, 22]
+  r=52.0     axis=X at=(*, -352.467, 529.732)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[79, 84]
+  r=50.0     axis=X at=(*, -488.91, 90.065)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[6, 12]
+  r=50.0     axis=X at=(*, -473.456, 85.924)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[25, 29]
+  r=50.0     axis=X at=(*, -369.854, 534.391)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[18, 23]
+  r=50.0     axis=X at=(*, -354.399, 530.25)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[80, 85]
+  r=10.0     axis=X at=(*, -494.9, 36.8)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[100, 101]
+  r=10.0     axis=X at=(*, -481.183, 87.995)  spans X -939.62..-173.62 (len 766.0)  mouths=2 edge_idx=[98, 102]
+  r=10.0     axis=X at=(*, -362.126, 532.32)  spans X -939.62..-173.62 (len 766.0)  mouths=2 edge_idx=[97, 103]
+  r=10.0     axis=X at=(*, -348.409, 583.515)  spans X -886.62..-226.62 (len 660.0)  mouths=2 edge_idx=[95, 104]
+  ... showing 20 of 30 such features (largest radius first)
+
+CYLINDRICAL FACE FAMILIES (hole walls / bosses; face_idx = unique face tags; axis = the measured direction each bore/boss actually runs — anchor directions to it, never to a guessed world axis; sweep = how far each face wraps around that axis: ~360 is a full bore, ~180 a slot end-wall, and ~90 is a ROUNDED CORNER BLEND, not a hole or slot at all — never build a feature out of 90-degree faces):
+  r=10.0     d=20.0     count=4    [feature] axes=[[0.0, 0.259, 0.966], [1.0, -0.0, -0.0]] sweep=90.0deg (CORNER BLEND, not a hole/slot wall) adjoins_planar=[22, 24, 34, 43, 49] centers=[[-167.254, -415.505, 308.51], [-556.62, -490.399, 29.004], [-945.986, -415.505, 308.51], [-556.62, -340.612, 588.016]] face_idx=[36, 38, 40, 42]
+  r=50.0     d=100.0    count=4    [feature] axis=[0.0, 0.966, -0.259] sweep=90.0deg (CORNER BLEND, not a hole/slot wall) adjoins_planar=[9, 11, 33, 45] centers=[[-918.451, -489.421, 57.248], [-194.789, -489.421, 57.248], [-918.451, -353.888, 563.067], [-194.789, -353.888, 563.067]] face_idx=[8, 10, 46, 47]
+  r=63.0     d=126.0    count=4    [feature] axis=[0.0, 0.966, -0.259] sweep=90.0deg (CORNER BLEND, not a hole/slot wall) adjoins_planar=[22, 24, 43, 49] centers=[[-186.513, -495.427, 50.289], [-926.727, -495.427, 50.289], [-186.513, -355.609, 572.096], [-926.727, -355.609, 572.096]] face_idx=[21, 23, 44, 48]
+  r=2.0      d=4.0      count=12   [small] axes=[[-0.0, 0.259, 0.966], [1.0, -0.0, -0.0]] sweep=90.0deg (CORNER BLEND, not a hole/slot wall) adjoins_planar=[9, 11, 12, 22, 24, 33, 34, 43, 45, 49] centers=[[-175.893, -430.612, 312.558], [-556.62, -503.269, 41.396], [-937.347, -430.612, 312.558], [-556.62, -357.954, 583.719], [-948.893, -430.612, 312.558], [-556.62, -506.258, 30.243]] (showing 6 of 12) face_idx=[0, 2, 4, 6, 13, 15, 17, 19, 25, 27, 29, 31]
+
+PLANAR FACES, largest first (idx, area, center, normal, vertical):
+  #12   area=23355.0   c=[-556.62, -431.314, 312.746] n=[-0.0, -0.966, 0.259] vertical=False
+  #9    area=10560.0   c=[-556.62, -494.124, 39.698] n=[0.0, 0.259, 0.966] vertical=False
+  #45   area=10560.0   c=[-556.62, -349.185, 580.617] n=[-0.0, -0.259, -0.966] vertical=False
+  #11   area=7360.0    c=[-176.62, -421.655, 310.157] n=[-1.0, 0.0, -0.0] vertical=True
+  #33   area=7360.0    c=[-936.62, -421.655, 310.157] n=[1.0, -0.0, 0.0] vertical=True
+  #22   area=5280.0    c=[-556.62, -501.352, 28.177] n=[-0.0, -0.259, -0.966] vertical=False
+  #49   area=5280.0    c=[-556.62, -349.684, 594.209] n=[0.0, 0.259, 0.966] vertical=False
+  #24   area=3680.0    c=[-949.62, -425.518, 311.193] n=[-1.0, 0.0, -0.0] vertical=True
+  #43   area=3680.0    c=[-163.62, -425.518, 311.193] n=[1.0, -0.0, -0.0] vertical=True
+  #34   area=2569.867  c=[-556.62, -411.995, 307.569] n=[0.0, 0.966, -0.259] vertical=False
+
+OTHER FACES — every remaining surface type (spline, torus, cone, sphere ...), largest first. n_wires>1 means the face has a hole or slot opening cut through it:
+  #35   TORUS    area=1464.802  c=[-188.725, -346.31, 567.315] n_wires=1
+  #37   TORUS    area=1464.802  c=[-188.725, -484.983, 49.781] n_wires=1
+  #39   TORUS    area=1464.802  c=[-924.515, -484.983, 49.781] n_wires=1
+  #41   TORUS    area=1464.802  c=[-924.515, -346.31, 567.315] n_wires=1
+  #14   TORUS    area=307.306   c=[-926.268, -500.397, 52.096] n_wires=1
+  #16   TORUS    area=307.306   c=[-186.972, -500.397, 52.096] n_wires=1
+  #18   TORUS    area=307.306   c=[-186.972, -360.816, 573.016] n_wires=1
+  #20   TORUS    area=307.306   c=[-926.268, -360.816, 573.016] n_wires=1
+  #1    TORUS    area=250.327   c=[-194.322, -498.506, 59.199] n_wires=1
+  #3    TORUS    area=250.327   c=[-918.918, -498.506, 59.199] n_wires=1
+  #5    TORUS    area=250.327   c=[-918.918, -362.731, 565.92] n_wires=1
+  #7    TORUS    area=250.327   c=[-194.322, -362.731, 565.92] n_wires=1
+  #26   TORUS    area=250.327   c=[-918.918, -480.579, 54.395] n_wires=1
+  #28   TORUS    area=250.327   c=[-194.322, -480.579, 54.395] n_wires=1
+  #30   TORUS    area=250.327   c=[-194.322, -344.803, 561.116] n_wires=1
+  #32   TORUS    area=250.327   c=[-918.918, -344.803, 561.116] n_wires=1
+
+FACES WITH INNER BOUNDARY LOOPS (each inner loop is an OPENING cut through that face — a hole or slot mouth; inner_edges are the edge tags forming those loops, which is what a rim fillet or chamfer must target. [BLIND] = the opening bottoms out in material (it has a floor and can be opened up); [THROUGH] = it already passes clean out the far side, so 'make it go through' is already true of it):
+  #12   PLANE    area=23355.0   c=[-556.62, -431.314, 312.746] loops=1 [BLIND] inner_edges=[3, 5, 8, 11, 14, 17, 20, 22]
+  #34   PLANE    area=2569.867  c=[-556.62, -411.995, 307.569] loops=1 [BLIND] inner_edges=[69, 71, 73, 75, 77, 79, 82, 84]
+
+You can rely on a pre-computed geometry index of the input solid (provided in
+the prompt as `geometry`). It contains:
+
+  summary                 face/edge/vertex counts, surface-type mix, bbox, volume
+  circular_edge_groups    EVERY circular edge of the solid, grouped by radius -> use
+                          this to find "the hole edges"; each group gives radius,
+                          diameter, count, and per-edge centers and edge indices
+  cylindrical_face_groups every cylindrical face by radius -> hole walls / bosses
+  planar_faces            planar faces sorted by area, each with outward normal,
+                          dominant axis, and a `vertical` flag
+
+Use real numbers from this index (radii, coordinates, z-levels) to build CadQuery
+selectors instead of guessing. Selecting by measured position/size is far more
+reliable than string selectors on an imported B-rep with no feature tree.
+
+The index is complete — no family is withheld for being too small, too large or
+judged irrelevant. The [scale] tag on a family (feature / small / blend /
+oversize) is an ordering hint only: a 0.4 mm chamfer ring is tagged "blend" and
+is still the right target when the instruction asks for a chamfer. Where a long
+list is cut for length it says so inline, e.g. "(showing 6 of 32)"; a list
+without that marker is all of them.
+
+
+Your function must have exactly this shape:
+
+def my_cad_function(args):
+    import cadquery as cq
+    shape = cq.importers.importStep(args["input_file"])   # ALWAYS load the input
+    # ... your edit ...
+    return shape          # a Workplane, Shape, or Assembly
+
+Once you return it, the function is executed in CadQuery. You will then be
+shown renders of the result and everything the function printed, and you can
+refine it. Print freely — those prints are your instruments; a selection that
+silently matched nothing is the most common way an attempt dies, and a printed
+count of 0 catches it.
+
+Requirements:
+- ALWAYS start from args["input_file"] and EDIT the imported shape. Never
+  rebuild the part from scratch — the benchmark scores your *change* against
+  the human's change, so a rebuild that merely looks similar scores near zero.
+- Change only what the sub-goal asks for; leave every other feature untouched.
+- The sub-goal's `face #N` / `edge_idx [...]` tags are indices into the geometry
+  index above, enumerated in the order CadQuery returns entities: resolve them as
+  `base = shape.val() if hasattr(shape, 'val') else shape;
+  target = base.Faces()[N]` (same for `.Edges()`), then PRINT the resolved
+  entity's center/area and check it against the index line before using it — a
+  mismatch means you resolved against a different shape than the index describes.
+  When the renders are color-coded, the legend's colors correspond to exactly
+  these face_idx tags — use them to confirm you resolved the right entity.
+- Return the shape. Do not write files, do not exit.
+- Keep the input's coordinate frame. All metrics voxelize your result and the
+  human's in ABSOLUTE world coordinates with no alignment step, so position is
+  graded as strictly as shape: never translate, rotate, re-centre or rescale
+  the part, and place new geometry at explicit absolute coordinates (beware
+  `centered=True`, `.center()`, and fresh workplanes at the origin).
+- When the sub-goal adds material "on" or "at" an existing face, decide which
+  side it goes: default to keeping the outer envelope unchanged unless the
+  instruction says the part gets bigger.
+- A screw or bolt is NEVER just a cylinder: it has a HEAD — HEXAGONAL unless
+  the instruction says otherwise — sitting on the shaft. Build both: a hex
+  prism (`.polygon(6, d)` with d the circumscribed diameter) unioned with the
+  cylindrical shank, head seated flush on the surface the screw enters. A
+  shaft-only "screw" is scored as missing material exactly where the human
+  put the head.
+- A screw's or pin's shank does NOT stop flush where the hole ends: real
+  fasteners PROTRUDE. Run the shank past the hole's far mouth by a visible
+  offset (a thread-or-two — on the order of the shank diameter, unless the
+  instruction gives a length), and PRINT the shank's extreme along the hole
+  axis against the hole's exit plane to prove the overhang exists. A pin cut
+  to exactly the hole depth reads flush in every render and scores as missing
+  the protruding material the human modelled.
+
+REPORT EVERY SELECTION, every time. The moment your code narrows the part down
+to the entities it will operate on, print one line per selection step:
+
+    SELECTED: <n> <what> for <purpose>   e.g.
+    SELECTED: 4 edges for the slot rim fillet  idx=[0, 4, 7, 10]
+    SELECTED: 0 faces matching normal +Z on solid 1   <-- this is the bug
+
+An attempt that changes nothing is rejected without a QA call, and if it
+printed nothing there is no way to tell a selector that matched the wrong
+entity from one that matched none — the next attempt then gets generic advice
+and repeats the mistake. Measured: 69% of no-op attempts across this project
+printed no diagnosis at all, and they are the single largest block of wasted
+budget. A count of zero is the most valuable line you can print: say so
+loudly, and do not silently fall through to returning the input.
+
+PLACEMENT SELF-CHECK, in the same function, every time:
+1. List every number the sub-goal names: coordinates, a face centre, a target
+   angle, a level the feature must reach but not exceed.
+2. Isolate the new material generically — `added = out.cut(base)`
+   (`removed = base.cut(out)` for cuts), which works for text, polygons,
+   bosses, plateaus and blades alike. Print `added.Center()`,
+   `added.BoundingBox()`, its extreme along the growth axis.
+3. Print each of those against the number the sub-goal named, and the delta.
+4. Off by more than ~1 mm on any axis, or across a plane the sub-goal said not
+   to exceed: TRANSLATE OR REBUILD AND RE-PRINT IN THE SAME ATTEMPT. Never
+   return a feature whose printed position disagrees with the sub-goal. If it
+   named no coordinates, print anyway and change nothing.
+A recipe may offer a sharper measurement for a feature type (a landing angle
+for rotations, vertex angles for polygons, a top level for text) — prefer those
+over the bbox. Measured: a text feature built 48 mm from the centre its
+sub-goal named scored zero while looking correct in every render.
+
+EDIT THE IMPORTED SOLID; NEVER REBUILD IT. Load the STEP and apply local
+operations to it — cut, fuse, fillet, chamfer on the entities you selected.
+Do NOT re-author the whole part: no scale-by-1.0, no global sew/heal/ShapeFix
+pass "to be safe", no reconstructing the body from its faces, no re-tessellation
+of anything you did not change. The score compares your result to the input
+volume-by-volume, and a face that was rebuilt lands in slightly different
+coordinates than the one it replaced even when the shape is visually
+identical — so a global rebuild sprays small differences across the entire
+part and buries the actual edit in noise. On a multi-body file, operate on the
+ONE body that owns your target and recompound the rest untouched:
+
+    sols = base.Solids()
+    edited = sols[k].cut(tool)            # or .fillet(...) / .union(...)
+    out = cq.Compound.makeCompound(
+        [s for i, s in enumerate(sols) if i != k] + [edited])
+
+Every other body then comes through byte-identical, which is both correct and
+exactly what the metric rewards.
+
+ABSOLUTE ANCHORS ARE BUILT, NEVER PICKED. When the sub-goal names an absolute
+plane or coordinate for a feature ("on the plane z=-7.5", "centered at
+(0, ±15) on the bottom face"), construct the sketch plane directly from those
+numbers — `cq.Workplane(cq.Plane(origin=(x, y, z), normal=(nx, ny, nz)))` —
+and NEVER by selecting a face and offsetting from it: a face pick that lands
+on a different surface silently re-anchors the whole feature there, and the
+placement self-check then compares the feature against the wrong reference.
+Print the plane's origin before sketching on it.
+
+A DRAFT IS A WEDGE BOOLEAN, NOT A REBUILD. CadQuery has no draft operation,
+and rebuilding the walls tilted is how a 2-degree draft turns into a doubled
+footprint or a skewed base. Instead, for each face to be drafted: keep its
+hinge edge (the edge on the neutral plane) exactly where it is, and CUT the
+thin wedge between the face and its tilted copy — a prism swept from the
+hinge line, thickness growing from 0 at the hinge to H*tan(angle) at the far
+edge, where H is the face's height off the neutral plane. (Material-adding
+drafts UNION the wedge instead.) Do the faces one at a time in try/except and
+keep the successes. Verify with two prints: the neutral-plane face's bbox
+BEFORE vs AFTER (must be identical — the hinge does not move), and one far
+edge's measured shift vs H*tan(angle). The part's outer bbox on the neutral
+plane must not change at all.
+
+TO REACH "UP TO THE BODY", MEASURE THE LANDING WITH A PROBE. When a feature
+must run from its anchor until it meets the part ("up to the next surface",
+"reach the wall"), do not rely on an `until=` end condition resolving against
+the face you hope for. Measure the stopping height yourself: intersect the
+part with a thin probe prism along the feature's axis at the feature's (x, y)
+— `probe = part.intersect(box_around_axis)` — read the near side of
+`probe.BoundingBox()` along the axis, build the feature as an explicit solid
+from the anchor plane to that measured height (plus a small overlap into the
+body so the union fuses), and print both the measured height and the built
+extent. This works identically for curved, tilted and stepped targets, and
+the print proves where the feature actually stopped.
+
+API FORMS THAT DO NOT EXIST HERE (cadquery 2.8.0 / OCP 7.9.3) — every line
+below was a crashed or silently-wrong attempt in this pipeline, so check your
+code against it before you return:
+- `f.normalAt()` takes NO ARGUMENTS. `f.normalAt(u, v)` does not raise: it
+  returns a (Vector, Vector) TUPLE, so the failure surfaces far away as
+  "'tuple' has no attribute 'z'". This is the single most frequent mistake here.
+- `Vector.Length` is a PROPERTY (`v.Length`); `Edge.Length()` is a method.
+  Calling `v.Length()` gives "'float' object is not callable".
+- `BoundBox` has `.xmin/.xmax/.ymin/.../.xlen/.center` — no `.toTuple()`, no
+  `.min`, no `.max`.
+- `Wire.IsClosed()` is capitalised; there is no `isClosed` anywhere.
+- On a Shape/Solid the booleans are `fuse` / `cut` / `intersect` — `union` and
+  `common` exist only on `Workplane` / in OCC. `chamfer` on a Shape takes three
+  arguments: `solid.chamfer(length, None, edgeList)`.
+- `Workplane` has no `.hull()`, `.wrapped` or `.isValid()`; go through `.val()`.
+- `Face` has no `.extrude()`; use `cq.Solid.extrudeLinear(face, vec)`.
+- `cq.Compound.makeCompound([...])` reads `.wrapped` off each element itself,
+  so pass CadQuery Shapes — never `.wrapped` TopoDS objects, never Workplanes.
+- `Wire.offset2D(d)` returns a LIST of Wires (`Workplane.offset2D` does not).
+- `cq.Plane.XY` is a classmethod: CALL it — `cq.Workplane(cq.Plane.XY())`.
+- OCP: no lowercase `topods`, no `TopTools_*Iterator`, and the statics need an
+  `_s` suffix (`TopExp.MapShapes_s`, `TopoDS.Face_s(shp)`); `cq.Shape.cast(t)`
+  converts back. Prefer staying in CadQuery: `shape.Faces()`, `face.Edges()`.
+
+Approach freely — plain CadQuery selectors (`.faces(">Z")`,
+`.edges("%CIRCLE")`, `NearestToPointSelector`), filtering `shape.Faces()` /
+`shape.Edges()` by the measured values in the geometry index, or direct
+construction all work. Keep the selection simple, and where an operation can
+fail on some entities (fillet/chamfer over many edges), prefer doing it
+per-entity in a try/except and keeping the successes: a partial edit scores, a
+crash does not.
+
+
+This is the first change; args["input_file"] is the original part.
+
+No previous attempt for this sub-goal.
+
+Return JSON:
+{
+  "my_cad_function": "<the complete function source as a string>"
+}
+
+========================= REPLY · my_cad_function =========================
+def my_cad_function(args):
+    import cadquery as cq
+    from OCP.BRepAdaptor import BRepAdaptor_Surface
+    from OCP.GeomAbs import GeomAbs_Cylinder
+
+    shape = cq.importers.importStep(args["input_file"])   # ALWAYS load the input
+
+    base = shape.val() if hasattr(shape, "val") else shape
+    sols = base.Solids()
+    print(f"INFO: imported solids={len(sols)}")
+    if len(sols) != 1:
+        print("ERROR: expected exactly 1 solid; returning original")
+        return shape
+    solid = sols[0]
+
+    # --- Resolve target entities by geometry index tags ---
+    faces = base.Faces()
+    edges = base.Edges()
+    print(f"INFO: base faces={len(faces)} edges={len(edges)}")
+
+    green_face_idx = [21, 23, 44, 48]
+    planar_candidate_idx = [22, 24, 43, 49]
+
+    green_faces = []
+    for i in green_face_idx:
+        try:
+            f = faces[i]
+        except Exception as e:
+            print(f"ERROR: cannot resolve face idx {i}: {e}")
+            continue
+        c = f.Center()
+        a = f.Area()
+        ad = BRepAdaptor_Surface(f.wrapped)
+        st = ad.GetType()
+        if st == GeomAbs_Cylinder:
+            cyl = ad.Cylinder()
+            rr = cyl.Radius()
+            d = cyl.Axis().Direction()
+            loc = cyl.Axis().Location()
+            print(
+                f"RESOLVED: face#{i} center={[round(c.x,3),round(c.y,3),round(c.z,3)]} area={round(a,3)} "
+                f"CYL r={round(rr,3)} axis_dir={[round(d.X(),6),round(d.Y(),6),round(d.Z(),6)]} "
+                f"axis_loc={[round(loc.X(),3),round(loc.Y(),3),round(loc.Z(),3)]}"
+            )
+        else:
+            print(
+                f"RESOLVED: face#{i} center={[round(c.x,3),round(c.y,3),round(c.z,3)]} area={round(a,3)} type={st}"
+            )
+        green_faces.append((i, f))
+
+    print(f"SELECTED: {len(green_faces)} faces for GREEN R63 corner family  idx={green_face_idx}")
+    if len(green_faces) != 4:
+        print("ERROR: did not resolve 4 green faces; returning original")
+        return shape
+
+    planar_faces = {}
+    for i in planar_candidate_idx:
+        try:
+            pf = faces[i]
+            c = pf.Center()
+            n = pf.normalAt()
+            print(
+                f"RESOLVED: planar face#{i} center={[round(c.x,3),round(c.y,3),round(c.z,3)]} "
+                f"area={round(pf.Area(),3)} normal={[round(n.x,6),round(n.y,6),round(n.z,6)]}"
+            )
+            planar_faces[i] = pf
+        except Exception as e:
+            print(f"ERROR: cannot resolve planar face idx {i}: {e}")
+
+    print(f"SELECTED: {len(planar_faces)} faces for planar-candidates  idx={planar_candidate_idx}")
+
+    def edge_key(e):
+        # stable-ish key to detect shared TopoDS_Edge
+        try:
+            return int(e.wrapped.HashCode(1000003))
+        except Exception:
+            # fallback: geometric hash
+            c = e.Center()
+            return (round(c.x, 6), round(c.y, 6), round(c.z, 6), round(e.Length(), 6))
+
+    def make_aabb_from_bb(bb, pad=5.0):
+        dx = bb.xlen + 2 * pad
+        dy = bb.ylen + 2 * pad
+        dz = bb.zlen + 2 * pad
+        p0 = cq.Vector(bb.xmin - pad, bb.ymin - pad, bb.zmin - pad)
+        return cq.Solid.makeBox(dx, dy, dz, pnt=p0)
+
+    def make_slab_on_plane(p_on_plane, outward_n, thickness=200.0, size=600.0):
+        # slab inside the solid = extrude along inward normal (-outward_n)
+        n_in = cq.Vector(-outward_n.x, -outward_n.y, -outward_n.z)
+        # choose xDir not parallel to normal
+        cand = cq.Vector(1, 0, 0)
+        if abs(n_in.normalized().dot(cand)) > 0.9:
+            cand = cq.Vector(0, 1, 0)
+        pl = cq.Plane(origin=(p_on_plane.x, p_on_plane.y, p_on_plane.z), normal=(n_in.x, n_in.y, n_in.z), xDir=(cand.x, cand.y, cand.z))
+        wp = cq.Workplane(pl)
+        return wp.rect(size, size).extrude(thickness).val()
+
+    def solve_point_on_line_of_two_planes_closest_to_ref(p1, n1, p2, n2, pref):
+        # Minimize ||p - pref|| subject to n1·(p-p1)=0 and n2·(p-p2)=0
+        # p = pref - l1*n1 - l2*n2
+        n1v = cq.Vector(n1.x, n1.y, n1.z)
+        n2v = cq.Vector(n2.x, n2.y, n2.z)
+        # ensure unit normals
+        if n1v.Length > 0:
+            n1v = n1v.normalized()
+        if n2v.Length > 0:
+            n2v = n2v.normalized()
+
+        a11 = n1v.dot(n1v)
+        a12 = n1v.dot(n2v)
+        a21 = a12
+        a22 = n2v.dot(n2v)
+        b1 = n1v.dot(pref - p1)
+        b2 = n2v.dot(pref - p2)
+        det = a11 * a22 - a12 * a21
+        if abs(det) < 1e-12:
+            # nearly parallel; fallback: just project to plane1 then to plane2
+            p = pref - n1v * b1
+            b2b = n2v.dot(p - p2)
+            return p - n2v * b2b
+        l1 = (b1 * a22 - b2 * a12) / det
+        l2 = (a11 * b2 - a21 * b1) / det
+        return pref - n1v * l1 - n2v * l2
+
+    # --- Apply corner conversion: R63 -> R50 on 4 green faces ---
+    target_r = 50.0
+
+    for fi, gf in green_faces:
+        gcen = gf.Center()
+        gbb = gf.BoundingBox()
+        local = make_aabb_from_bb(gbb, pad=8.0)
+        print(
+            f"INFO: face#{fi} local-box bb: xmin={round(local.BoundingBox().xmin,3)} xmax={round(local.BoundingBox().xmax,3)} "
+            f"ymin={round(local.BoundingBox().ymin,3)} ymax={round(local.BoundingBox().ymax,3)} "
+            f"zmin={round(local.BoundingBox().zmin,3)} zmax={round(local.BoundingBox().zmax,3)}"
+        )
+
+        # Find which two of the candidate planar faces actually adjoin this green face
+        g_edges = {edge_key(e) for e in gf.Edges()}
+        adj_planars = []
+        for pi, pf in planar_faces.items():
+            p_edges = {edge_key(e) for e in pf.Edges()}
+            if len(g_edges.intersection(p_edges)) > 0:
+                adj_planars.append((pi, pf))
+
+        print(f"SELECTED: {len(adj_planars)} planar faces adjoining green face#{fi}  idx={[p[0] for p in adj_planars]}")
+        if len(adj_planars) != 2:
+            print(f"WARNING: expected 2 adjoining planar faces for green face#{fi}; skipping this corner")
+            continue
+
+        (p1i, p1f), (p2i, p2f) = adj_planars
+        n1 = p1f.normalAt()
+        n2 = p2f.normalAt()
+        p1 = p1f.Center()
+        p2 = p2f.Center()
+        print(
+            f"INFO: green face#{fi} adjoins planar#{p1i} n1={[round(n1.x,6),round(n1.y,6),round(n1.z,6)]} "
+            f"and planar#{p2i} n2={[round(n2.x,6),round(n2.y,6),round(n2.z,6)]}"
+        )
+
+        # 1) FILL: add back material locally to remove the existing (larger) fillet
+        try:
+            slab1 = make_slab_on_plane(p1, n1, thickness=220.0, size=900.0)
+            slab2 = make_slab_on_plane(p2, n2, thickness=220.0, size=900.0)
+            wedge = slab1.intersect(slab2).intersect(local)
+            wbb = wedge.BoundingBox()
+            print(
+                f"INFO: filler-wedge for face#{fi} bb=[{round(wbb.xmin,3)},{round(wbb.ymin,3)},{round(wbb.zmin,3)}] to "
+                f"[{round(wbb.xmax,3)},{round(wbb.ymax,3)},{round(wbb.zmax,3)}]"
+            )
+            solid = solid.fuse(wedge)
+            print(f"APPLIED: fused filler wedge for green face#{fi}")
+        except Exception as e:
+            print(f"ERROR: filler wedge fuse failed for green face#{fi}: {e}")
+            continue
+
+        # 2) CUT: carve the new R50 fillet using a cylinder whose axis is the intersection of the two planes offset inward by R
+        try:
+            n1u = n1.normalized()
+            n2u = n2.normalized()
+            p1off = p1 - n1u * target_r
+            p2off = p2 - n2u * target_r
+            d = n1u.cross(n2u)
+            if d.Length < 1e-9:
+                print(f"ERROR: computed near-zero axis direction for green face#{fi}; skipping cut")
+                continue
+            d = d.normalized()
+
+            # choose axis point as closest on the intersection line to the old face center
+            axis_pt = solve_point_on_line_of_two_planes_closest_to_ref(p1off, n1u, p2off, n2u, gcen)
+
+            # long cutter cylinder, clipped to local box
+            height = max(400.0, gbb.xlen + gbb.ylen + gbb.zlen + 300.0)
+            base_pt = axis_pt - d * (height / 2.0)
+            cyl = cq.Solid.makeCylinder(target_r, height, pnt=base_pt, dir=d)
+            cutter = cyl.intersect(local)
+
+            # placement self-check
+            cbb = cutter.BoundingBox()
+            print(
+                f"CHECK: cutter for face#{fi}: R={target_r} axis_dir={[round(d.x,6),round(d.y,6),round(d.z,6)]} "
+                f"axis_pt={[round(axis_pt.x,3),round(axis_pt.y,3),round(axis_pt.z,3)]} "
+                f"cutter_bb=[{round(cbb.xmin,3)},{round(cbb.ymin,3)},{round(cbb.zmin,3)}] to [{round(cbb.xmax,3)},{round(cbb.ymax,3)},{round(cbb.zmax,3)}]"
+            )
+
+            solid = solid.cut(cutter)
+            print(f"APPLIED: cut R50 cylinder tool for green face#{fi}")
+        except Exception as e:
+            print(f"ERROR: cylinder cut failed for green face#{fi}: {e}")
+            continue
+
+    # --- Verification: bbox and presence of 4 cylinder faces near the old green centers with ~R50 ---
+    out_bb = solid.BoundingBox()
+    print(
+        "VERIFY: output bbox min="
+        f"[{round(out_bb.xmin,3)},{round(out_bb.ymin,3)},{round(out_bb.zmin,3)}] "
+        "max="
+        f"[{round(out_bb.xmax,3)},{round(out_bb.ymax,3)},{round(out_bb.zmax,3)}]"
+    )
+    exp_min = (-949.62, -506.698, 26.8)
+    exp_max = (-163.62, -338.409, 595.312)
+    print(
+        "VERIFY: expected bbox min="
+        f"{list(exp_min)} max={list(exp_max)}  "
+        "dmin="
+        f"[{round(out_bb.xmin-exp_min[0],3)},{round(out_bb.ymin-exp_min[1],3)},{round(out_bb.zmin-exp_min[2],3)}] "
+        "dmax="
+        f"[{round(out_bb.xmax-exp_max[0],3)},{round(out_bb.ymax-exp_max[1],3)},{round(out_bb.zmax-exp_max[2],3)}]"
+    )
+
+    # find cylindrical faces near each original green face center with radius ~50
+    out_faces = solid.Faces()
+    hits = []
+    for (fi, gf) in green_faces:
+        ref = gf.Center()
+        best = None
+        best_dist = 1e99
+        for f in out_faces:
+            ad = BRepAdaptor_Surface(f.wrapped)
+            if ad.GetType() != GeomAbs_Cylinder:
+                continue
+            r = ad.Cylinder().Radius()
+            if abs(r - target_r) > 1.0:
+                continue
+            c = f.Center()
+            d2 = (c.x - ref.x) ** 2 + (c.y - ref.y) ** 2 + (c.z - ref.z) ** 2
+            if d2 < best_dist:
+                best_dist = d2
+                best = (r, c)
+        if best is None:
+            print(f"VERIFY: green face#{fi} -> found 0 nearby CYL faces with R~{target_r}")
+        else:
+            r, c = best
+            dist = best_dist ** 0.5
+            print(
+                f"VERIFY: green face#{fi} -> nearest CYL face R={round(r,3)} center={[round(c.x,3),round(c.y,3),round(c.z,3)]} "
+                f"dist_to_old_center={round(dist,3)}"
+            )
+            hits.append(fi)
+
+    print(f"VERIFY: matched {len(hits)}/4 green corners to CYL R~{target_r}")
+
+    return solid

@@ -173,11 +173,11 @@
    "gt.stl"
   ],
   "scores": {
-   "chamfer_similarity_norm": 0.994439147405871,
-   "volume_f1": 0.9940018347329053,
-   "diff_f1": 0.0
+   "chamfer_similarity_norm": 0.9946458971403601,
+   "volume_f1": 0.9995032995103952,
+   "diff_f1": 0.9570552147239264
   },
-  "cost_estimate_usd": 0.33964
+  "cost_estimate_usd": 0.23916
  },
  "B7A2N74ZJBF9MZHU_1770166308.11235": {
   "instruction": "If this is a spanner, the main cutout is too deep which is weakening the tool. Make the cutout shallower by 10mm, but keep the \"size\" of the spanner the same - meaning the parallel surfaces remain 20mm apart.",
@@ -353,11 +353,11 @@
    "gt.stl"
   ],
   "scores": {
-   "chamfer_similarity_norm": 0.9956415195443084,
-   "volume_f1": 0.9606986899563319,
-   "diff_f1": 0.0
+   "chamfer_similarity_norm": 0.9955668373489636,
+   "volume_f1": 0.9528666357595426,
+   "diff_f1": 0.01764705882352941
   },
-  "cost_estimate_usd": 2.72882
+  "cost_estimate_usd": 1.97573
  },
  "ZK22J6VYRKQ2RTFD_1758874422.1403751": {
   "instruction": "Add a connecting hole of 1.7 millimetre diameter and apply 0.1 millimetre grooves to increase grip and prevent slipping.",

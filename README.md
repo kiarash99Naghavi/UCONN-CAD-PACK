@@ -18,7 +18,7 @@ Computed with the benchmark's own metric code (`src/utils/evals_diff.py` and `sr
 | Volumetric F1 | **0.910** | 0.85 (gpt-5.2) |
 | Volumetric Difference F1 (most important) | **0.390** | 0.18 (gpt-5.2) |
 
-Mean cost per edit: $0.86. All 48 tasks produced valid edited geometry.
+Mean cost per edit: $0.84. All 48 tasks produced valid edited geometry.
 
 The full comparison chart is `figures/metric_bar_facets.png`, regenerated with our method added next to the published baselines (rebuild it any time with `scripts/make_metric_figure.py`).
 
