@@ -1,36 +1,5 @@
-/* Page shell: theme, in-page table of contents, sortable tables.
+/* Page shell: in-page table of contents, sortable tables.
  * Loaded on every page; each block no-ops when its markup is absent. */
-
-/* ---------- theme ---------- */
-
-const root = document.documentElement;
-
-function setTheme(mode) {
-  if (mode) root.dataset.theme = mode;
-  else delete root.dataset.theme;
-  try { mode ? localStorage.setItem("theme", mode) : localStorage.removeItem("theme"); }
-  catch { /* private mode: the choice just does not persist */ }
-  document.dispatchEvent(new CustomEvent("themechange"));
-}
-
-function currentlyDark() {
-  return root.dataset.theme
-    ? root.dataset.theme === "dark"
-    : matchMedia("(prefers-color-scheme: dark)").matches;
-}
-
-for (const button of document.querySelectorAll(".theme-toggle")) {
-  const paint = () => {
-    const dark = currentlyDark();
-    button.textContent = dark ? "☀" : "☾";
-    button.setAttribute("aria-label",
-      dark ? "Switch to light theme" : "Switch to dark theme");
-  };
-  button.addEventListener("click", () => { setTheme(currentlyDark() ? "light" : "dark"); paint(); });
-  document.addEventListener("themechange", paint);
-  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paint);
-  paint();
-}
 
 /* ---------- table of contents ---------- */
 

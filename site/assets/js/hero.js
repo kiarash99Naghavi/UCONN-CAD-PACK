@@ -5,7 +5,7 @@
  * observer fires once, then disconnects.
  */
 
-import { mount, retheme, ROLE_COLOR } from "./viewer.js";
+import { mount, ROLE_COLOR } from "./viewer.js";
 
 const host = document.querySelector("#hero-viewer");
 if (host) {
@@ -34,7 +34,4 @@ if (host) {
     if (entries.some((e) => e.isIntersecting)) { observer.disconnect(); start(); }
   }, { rootMargin: "200px" });
   observer.observe(host);
-
-  document.addEventListener("themechange", retheme);
-  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", retheme);
 }

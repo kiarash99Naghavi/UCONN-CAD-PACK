@@ -1,7 +1,6 @@
 /* UCONN CAD PACK — site styles.
    Palette is UConn navy with the pitch deck's blue as the single accent.
-   Every colour is a token defined on :root so the dark block only has to
-   restate the tokens, never the rules. */
+   Every colour is a token defined on :root. Light theme only, by design. */
 
 :root {
   --navy:        #0d2440;
@@ -35,52 +34,6 @@
   --wide: 1180px;
   --text-col: 74ch;
   --radius: 12px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:          #0b1220;
-    --bg-sunk:     #0f1829;
-    --bg-band:     #0d1524;
-    --surface:     #131d30;
-    --line:        #21304a;
-    --line-strong: #31456a;
-    --ink:         #e8eef8;
-    --ink-soft:    #a8b8d0;
-    --ink-faint:   #7d8ea9;
-    --blue:        #63a8ff;
-    --blue-deep:   #8cc0ff;
-    --blue-wash:   #16294a;
-    --amber:       #e8a83a;
-    --green:       #35c48f;
-    --red:         #f0736a;
-    --navy:        #e8eef8;
-    --on-accent:   #06101f;
-    --shadow:      0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .6);
-    --shadow-lift: 0 2px 4px rgba(0, 0, 0, .5), 0 18px 40px -18px rgba(0, 0, 0, .7);
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg:          #0b1220;
-  --bg-sunk:     #0f1829;
-  --bg-band:     #0d1524;
-  --surface:     #131d30;
-  --line:        #21304a;
-  --line-strong: #31456a;
-  --ink:         #e8eef8;
-  --ink-soft:    #a8b8d0;
-  --ink-faint:   #7d8ea9;
-  --blue:        #63a8ff;
-  --blue-deep:   #8cc0ff;
-  --blue-wash:   #16294a;
-  --amber:       #e8a83a;
-  --green:       #35c48f;
-  --red:         #f0736a;
-  --navy:        #e8eef8;
-  --on-accent:   #06101f;
-  --shadow:      0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .6);
-  --shadow-lift: 0 2px 4px rgba(0, 0, 0, .5), 0 18px 40px -18px rgba(0, 0, 0, .7);
 }
 
 /* ---------- base ---------- */
@@ -208,13 +161,6 @@ tbody tr:hover { background: var(--bg-band); }
 .brand .logo { display: block; width: auto; flex: none; }
 .brand .logo.uconn { height: 26px; }
 .brand .logo.hack { height: 24px; }
-/* The UConn wordmark is navy artwork on transparency, which disappears against
-   a dark page. It is effectively two-tone, so flattening it to white reads
-   correctly rather than as an inverted photograph. */
-:root[data-theme="dark"] .brand .logo.uconn { filter: brightness(0) invert(1); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .brand .logo.uconn { filter: brightness(0) invert(1); }
-}
 
 .nav { display: flex; gap: .25rem; margin-left: auto; align-items: center; }
 .nav a {
@@ -223,15 +169,6 @@ tbody tr:hover { background: var(--bg-band); }
 }
 .nav a:hover { background: var(--bg-sunk); color: var(--ink); text-decoration: none; }
 .nav a[aria-current="page"] { color: var(--blue); background: var(--accent-wash); }
-
-.theme-toggle {
-  display: grid; place-items: center;
-  width: 34px; height: 34px; margin-left: .3rem;
-  border: 1px solid var(--line); border-radius: 8px;
-  background: var(--surface); color: var(--ink-soft); cursor: pointer;
-  font-size: .95rem; line-height: 1;
-}
-.theme-toggle:hover { border-color: var(--line-strong); color: var(--ink); }
 
 @media (max-width: 900px) {
   .topbar .wrap { height: auto; flex-wrap: wrap; padding-top: .6rem; padding-bottom: .6rem; }
@@ -420,11 +357,6 @@ h2:hover .headline-anchor, h3:hover .headline-anchor { opacity: 1; }
   display: grid; place-items: center; border-bottom: 1px solid var(--line);
 }
 .task-card .shot img { width: 100%; height: 100%; object-fit: contain; padding: 6%; }
-:root[data-theme="dark"] .task-card .shot img,
-:root:not([data-theme="light"]) .task-card .shot img { filter: invert(1) hue-rotate(180deg) brightness(1.06); }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) .task-card .shot img { filter: none; }
-}
 .task-card .shot .corner { position: absolute; top: .6rem; left: .6rem; }
 .task-card .shot .f1 {
   position: absolute; right: .6rem; bottom: .6rem;

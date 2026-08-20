@@ -4,17 +4,13 @@
  * on it — which is one page — and only once that diagram is near the viewport.
  * Every fence's source is kept, so a failed render (or a reader with JavaScript
  * off) still gets the plain-text version the write-up was written to be
- * readable as, and a theme flip can re-render from it.
+ * readable as.
  */
 
 const diagrams = [...document.querySelectorAll("pre > code.language-mermaid")]
   .map((code, i) => ({ host: code.parentElement, source: code.textContent, id: i }));
 
 if (diagrams.length) {
-  const dark = () => (document.documentElement.dataset.theme
-    ? document.documentElement.dataset.theme === "dark"
-    : matchMedia("(prefers-color-scheme: dark)").matches);
-
   let loading = null;
   const load = () => {
     if (globalThis.mermaid) return Promise.resolve(globalThis.mermaid);
@@ -34,12 +30,11 @@ if (diagrams.length) {
     const mine = ++generation;
     let mermaid;
     try { mermaid = await load(); } catch { return; }
-    if (mine !== generation) return;         // a theme flip overtook this pass
+    if (mine !== generation) return;
 
-    const theme = dark() ? "dark" : "default";
     mermaid.initialize({
       startOnLoad: false,
-      theme,
+      theme: "default",
       securityLevel: "strict",
       flowchart: { htmlLabels: true, curve: "basis" },
       fontFamily: getComputedStyle(document.body).fontFamily,
@@ -65,10 +60,4 @@ if (diagrams.length) {
     if (entries.some((e) => e.isIntersecting)) { observer.disconnect(); render(); }
   }, { rootMargin: "600px" });
   diagrams.forEach((d) => observer.observe(d.host));
-
-  // only re-render once something has been drawn; before that the observer
-  // will pick the right theme up on its own
-  const reflow = () => { if (globalThis.mermaid) render(); };
-  document.addEventListener("themechange", reflow);
-  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", reflow);
 }

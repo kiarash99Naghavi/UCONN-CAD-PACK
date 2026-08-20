@@ -9,7 +9,7 @@
  * plausible.
  */
 
-import { mount, linkCameras, retheme, ROLE_COLOR } from "./viewer.js";
+import { mount, linkCameras, ROLE_COLOR } from "./viewer.js";
 
 const data = JSON.parse(document.querySelector("#task-data").textContent);
 
@@ -129,8 +129,5 @@ const hint = document.createElement("span");
 hint.className = "hint";
 hint.textContent = "drag to orbit · scroll to zoom · cameras are locked together";
 bar.append(hint);
-
-document.addEventListener("themechange", retheme);
-matchMedia("(prefers-color-scheme: dark)").addEventListener("change", retheme);
 
 rebuild();

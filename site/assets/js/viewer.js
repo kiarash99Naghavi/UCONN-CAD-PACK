@@ -33,25 +33,7 @@ export const ROLE_COLOR = {
   gt:    0xdda23a,
 };
 
-/* Edges are drawn near-black on a light page and near-white on a dark one.
- * The page owns the theme, so this asks the document rather than keeping its
- * own copy of the answer. */
-function isDark() {
-  const set = document.documentElement.dataset.theme;
-  if (set) return set === "dark";
-  return matchMedia("(prefers-color-scheme: dark)").matches;
-}
-
-const edgeColor = () => (isDark() ? 0xc4d3e8 : 0x1b2836);
-
-/** Re-tint every live viewer's edges after the page theme changes. */
-export function retheme() {
-  const color = new THREE.Color(edgeColor());
-  for (const v of live) {
-    for (const p of v.parts) if (p.line) p.line.material.color.copy(color);
-    v.needsRender = true;
-  }
-}
+const EDGE_COLOR = 0x1b2836;
 
 /** Load one GLB and return its geometry, centred on nothing and shared. */
 export function loadGeometry(url) {
@@ -141,7 +123,7 @@ class Viewer {
       line = new THREE.LineSegments(
         new THREE.EdgesGeometry(geometry, 24),
         new THREE.LineBasicMaterial({
-          color: edgeColor(), transparent: true,
+          color: EDGE_COLOR, transparent: true,
           opacity: opacity < 1 ? 0.28 : 0.42,
         }));
       this.pivot.add(line);

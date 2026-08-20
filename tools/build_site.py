@@ -157,13 +157,6 @@ def page(title, body, *, active="", description="", scripts=(), depth=0,
 <meta property="og:type" content="website">
 <link rel="icon" href="{up}assets/img/favicon.svg">
 <link rel="stylesheet" href="{up}assets/css/site.css">
-<script>
-  /* Applied before first paint so a dark-theme reader never sees a white flash. */
-  try {{
-    var t = localStorage.getItem("theme");
-    if (t) document.documentElement.dataset.theme = t;
-  }} catch (e) {{}}
-</script>
 <script type="importmap">
 {{"imports": {{
   "three": "{mod}assets/js/vendor/three.module.min.js",
@@ -186,7 +179,6 @@ def page(title, body, *, active="", description="", scripts=(), depth=0,
     </a>
     <nav class="nav" aria-label="Main">
 {nav}
-      <button class="theme-toggle" type="button" aria-label="Switch theme">☾</button>
     </nav>
   </div>
 </header>
@@ -428,7 +420,7 @@ def build_index(tasks, stats):
         accept each attempt, and the router carries accepted state forward.">
       <figcaption>
         Generated from the source by <code>tools/blockdiagram.py</code>.
-        <a href="method.html">The method in five steps →</a>
+        <a href="method.html">The method →</a>
       </figcaption>
     </figure>
 
@@ -812,68 +804,26 @@ def step(number, title, body):
 
 
 def build_method(stats):
-    """The method in five steps.
+    """The method: three agents, each deciding one thing.
 
     Deliberately short. The long version is `docs/method_overview.md`, linked at
     the bottom — a landing-length page that someone will actually read beats a
     complete one they will not.
     """
-    gates = [
-        ("lint", "Asks the installed CadQuery and OCP whether every attribute "
-                 "the code calls exists, and repairs the nearest real name in "
-                 "place. The attempt is not spent."),
-        ("no-op", "Output identical to the input, which scores zero."),
-        ("phantom material", "Summed volume rose but occupied volume did not — "
-                             "a duplicate body buried inside the part, invisible "
-                             "in every render."),
-        ("direction", "A sub-goal tagged <code>cut-hole-slot</code> that added "
-                      "material, or <code>add-body</code> that removed it."),
-        ("frame drift", "The part was translated, rescaled or re-centred. Views "
-                        "auto-frame, so QA cannot see it, and every metric "
-                        "scores it near zero."),
-        ("envelope", "A bounding-box face moved that the sub-goal never declared "
-                     "it could move."),
-    ]
-    gate_rows = "".join(
-        f'<tr><td><strong>{name}</strong></td><td>{why}</td></tr>'
-        for name, why in gates)
-
     body = f"""
 <section class="section" style="padding-bottom:1.5rem">
   <div class="wrap">
     <h1>Method</h1>
     <p class="section-lede">
       One CAD part as a STEP file, one sentence from a customer, and no feature
-      tree — just a solved B-rep with a few hundred faces. Five steps from that
-      to an edited part.
+      tree — just a solved B-rep with a few hundred faces. Three agents, each
+      deciding one thing.
     </p>
   </div>
 </section>
 
 <div class="wrap">
   <div class="steps">
-    {step("01", "The metric is what makes this hard", f'''
-      <p>Three numbers come back, all against the edit a human expert made from
-      the same sentence. Two of them are dominated by the material nobody
-      touched — we average {fmt(stats['chamfer'], 2)} and
-      {fmt(stats['volume_f1'], 2)} on those while still getting edits wrong.</p>
-      <p><strong>Diff F1 discriminates.</strong> All three parts are voxelised
-      on one shared grid, the voxels each edit changed are taken as an XOR
-      against the start part, and F1 compares the human's change set with ours.
-      So a no-op scores 0, a clean rebuild scores 0, and a correct part sitting
-      5&nbsp;mm off scores 0 — there is no alignment step.</p>''')}
-
-    {step("02", "One model writing one script is not enough", '''
-      <p>The published baselines already iterate: the benchmark's own harness
-      lets a model write a function, run it, look at a render, and try again up
-      to ten times. The gap is not model quality. Three things stall it.</p>
-      <p><strong>Selection.</strong> The customer says "that vertical slot", the
-      STEP file has no names, so a model writing selectors blind picks by
-      position. <strong>Self-grading.</strong> A render cannot show that the
-      part shifted or that a fillet landed on the opposite rim.
-      <strong>The API surface.</strong> One wrong call form crashed 8 attempts
-      across 5 sessions, and each crash burns one of the ten.</p>''')}
-
     {step("03", "Three agents, each deciding one thing", f'''
       <div class="cols-2" style="margin:1.2rem 0">
         <div class="card">
@@ -905,28 +855,6 @@ def build_method(stats):
         <figcaption>What goes into each prompt, what is parsed back out, and
           where the output comes round again.</figcaption>
       </figure>''')}
-
-    {step("04", "Six gates reject before any model looks", f'''
-      <p>Every attempt is measured against the geometry it started from before
-      QA is called. Each gate rejects for free and hands back text, not just a
-      retry.</p>
-      <div class="scroll-x">
-        <table><tbody>{gate_rows}</tbody></table>
-      </div>''')}
-
-    {step("05", "The router carries only what survived", '''
-      <p>Accepted geometry is checkpointed and the part is re-indexed before the
-      next sub-goal, so the executor always selects against the shape actually
-      in front of it. When every attempt on a sub-goal dies, the strategist
-      replans — at most twice. What ships is the best checkpoint, not the last
-      one.</p>
-      <figure class="figure">
-        <img src="assets/repo/architecture.svg" loading="lazy"
-          alt="Signal-flow schematic of the harness, from the task library
-               through the strategist, executor and gates to the scored output.">
-        <figcaption>One request, end to end. Amber wires are feedback — they
-          send the attempt back to be retried.</figcaption>
-      </figure>''')}
   </div>
 
   <p style="margin:3rem 0 0">
@@ -937,8 +865,8 @@ def build_method(stats):
 """
     return page("Method — UCONN CAD PACK", body, active="method.html",
                 description="How the harness turns one sentence and one B-rep "
-                            "into an edited part: the metric, three agents, and "
-                            "six deterministic gates.")
+                            "into an edited part: three agents, each deciding "
+                            "one thing.")
 
 
 def build_dashboard():
