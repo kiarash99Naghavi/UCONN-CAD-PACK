@@ -129,7 +129,7 @@ UCONN-CAD-PACK/
 │                              every candidate's CadQuery source, the verbatim
 │                              executor prompts, and the selector study
 ├── figures/metric_bar_facets.png
-├── presentation/UCONN-CAD-PACK.pdf
+├── presentation/UCONN_CAD_Pack.pdf
 ├── site/                      source for the GitHub Pages site — styles, the
 │                              three.js viewer, the task index, and the GLB
 │                              meshes the browser loads

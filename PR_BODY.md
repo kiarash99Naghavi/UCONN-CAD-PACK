@@ -13,7 +13,7 @@ Everything lives in `submissions/UCONN-CAD-PACK/`:
   - Volumetric F1: **0.910**
   - Volumetric Difference F1 (most important): **0.369**, vs 0.18 for the best published model baseline
   - `figures/metric_bar_facets.png` has the full comparison, and `outputs/manifest.json` the per-request numbers.
-- **Presentation**: `presentation/UCONN-CAD-PACK.pdf`, with the method overview, the metric chart, and the five organiser-named test examples on one slide.
+- **Presentation**: `presentation/UCONN_CAD_Pack.pdf`, with the method overview, the metric chart, and the five organiser-named test examples on one slide.
 - **Dashboard**: `./submissions/UCONN-CAD-PACK/run_dashboard.sh` from the repo root starts a Dash app with the method deck, side-by-side geometry viewers, per-task scores, and saved run replays. No API key needed to browse.
 
 The 3-minute video is uploaded to the shared Drive folder as `UCONN-CAD-PACK.mp4`.
