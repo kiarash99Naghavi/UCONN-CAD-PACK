@@ -4,6 +4,8 @@ Final submission for the ASME IDETC-CIE 2026 Hackathon (Autodesk neuralCAD-Edit 
 
 We edit 3D CAD models from one-sentence customer instructions with a three-agent harness over CadQuery: a strategist plans, an executor writes code, deterministic gates reject bad geometry for free, and a QA agent verifies what survives. Everything in this folder is self-contained: the code, the dashboard, the output CAD files for all 48 tasks, the ground truth meshes, the scores, and the presentation.
 
+**→ [kiarash99naghavi.github.io/UCONN-CAD-PACK](https://kiarash99naghavi.github.io/UCONN-CAD-PACK/)** — every task in the browser: the input part, our edit and the expert's edit as three live 3D views on one locked camera, plus every score and every write-up.
+
 ![Demo: the dashboard replaying one edit request over the pipeline](Demo/CADPACK.gif)
 
 ## Final scores
@@ -109,10 +111,41 @@ UCONN-CAD-PACK/
 │   ├── ours.stl               our edited mesh (the file that was scored)
 │   ├── gt.stl                 the human expert's edit (ground truth)
 │   └── manifest.json          instruction, difficulty, scores per request
+├── handoff/                   the exported run records: every task's plan,
+│                              every candidate's CadQuery source, the verbatim
+│                              executor prompts, and the selector study
 ├── figures/metric_bar_facets.png
 ├── presentation/UCONN-CAD-PACK.pdf
+├── site/                      source for the GitHub Pages site — styles, the
+│                              three.js viewer, the task index, and the GLB
+│                              meshes the browser loads
 └── scripts/                   rebuild the figure and the presentation
 ```
+
+## The website
+
+The site at [kiarash99naghavi.github.io/UCONN-CAD-PACK](https://kiarash99naghavi.github.io/UCONN-CAD-PACK/)
+is built from what is already in this repository and deployed by
+`.github/workflows/pages.yml` on every push to `main`.
+
+```bash
+python3 -m pip install markdown
+python3 tools/build_site.py --serve      # http://localhost:8000
+```
+
+That is all CI runs. The two inputs it depends on are regenerated locally,
+because they need OpenCASCADE and the licensed dataset:
+
+```bash
+export NEURALCAD_REPO=/path/to/IDETC26-Hackathon-Autodesk-neuralCAD-Edit
+$NEURALCAD_REPO/.venv/bin/python tools/make_web_meshes.py   # site/assets/meshes
+$NEURALCAD_REPO/.venv/bin/python tools/make_site_data.py    # index + thumbnails
+```
+
+`make_web_meshes.py` re-tessellates each part from its B-rep at a deflection
+chosen for a browser viewport rather than for a voxel metric — 642 MB of scored
+STL becomes 56 MB of GLB without decimating anything, because the geometry it
+comes from is still exact.
 
 The intermediate attempt geometry (about 2.5 GB per full sweep) is not included; the winning run records keep every attempt's script, log, and rendered views, so each edit is still auditable end to end.
 

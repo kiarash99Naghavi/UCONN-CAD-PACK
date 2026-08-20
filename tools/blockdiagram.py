@@ -1298,7 +1298,7 @@ def render_doc(facts: dict, drift: list, knobs: list, stamp: str) -> str:
     P = []
     add = P.append
 
-    add("# Architecture — CADEDITOR\n")
+    add("# Architecture — UCONN CAD PACK\n")
     add("> **Generated file — do not edit by hand.** Regenerate with "
         "`python3 tools/blockdiagram.py` after any change to the code; a hook "
         "does it automatically when Claude edits a file.\n")

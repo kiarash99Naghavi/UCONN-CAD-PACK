@@ -1,0 +1,674 @@
+{
+ "3YH2WFSRM22W7DKT_1769174947.8063738": {
+  "gt": {
+   "bytes": 18212,
+   "tris": 996
+  },
+  "input": {
+   "bytes": 9604,
+   "tris": 504
+  },
+  "ours": {
+   "bytes": 18492,
+   "tris": 1008
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769175216.745646": {
+  "gt": {
+   "bytes": 76392,
+   "tris": 4278
+  },
+  "input": {
+   "bytes": 9604,
+   "tris": 504
+  },
+  "ours": {
+   "bytes": 77560,
+   "tris": 4316
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769175629.871246": {
+  "gt": {
+   "bytes": 34484,
+   "tris": 1890
+  },
+  "input": {
+   "bytes": 9604,
+   "tris": 504
+  },
+  "ours": {
+   "bytes": 36308,
+   "tris": 1988
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769176912.388391": {
+  "gt": {
+   "bytes": 16992,
+   "tris": 886
+  },
+  "input": {
+   "bytes": 14424,
+   "tris": 746
+  },
+  "ours": {
+   "bytes": 16980,
+   "tris": 886
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769177020.525719": {
+  "gt": {
+   "bytes": 21768,
+   "tris": 1138
+  },
+  "input": {
+   "bytes": 14424,
+   "tris": 746
+  },
+  "ours": {
+   "bytes": 43140,
+   "tris": 2314
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769177116.6129558": {
+  "gt": {
+   "bytes": 33588,
+   "tris": 1899
+  },
+  "input": {
+   "bytes": 14424,
+   "tris": 746
+  },
+  "ours": {
+   "bytes": 20480,
+   "tris": 1062
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769773134.1453462": {
+  "gt": {
+   "bytes": 437724,
+   "tris": 27560
+  },
+  "input": {
+   "bytes": 276012,
+   "tris": 18560
+  },
+  "ours": {
+   "bytes": 426000,
+   "tris": 26828
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769773335.525203": {
+  "gt": {
+   "bytes": 240780,
+   "tris": 15088
+  },
+  "input": {
+   "bytes": 276012,
+   "tris": 18560
+  },
+  "ours": {
+   "bytes": 283188,
+   "tris": 18608
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769773481.491738": {
+  "gt": {
+   "bytes": 164552,
+   "tris": 10848
+  },
+  "input": {
+   "bytes": 276012,
+   "tris": 18560
+  },
+  "ours": {
+   "bytes": 211808,
+   "tris": 13656
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769779150.98797": {
+  "gt": {
+   "bytes": 216304,
+   "tris": 13378
+  },
+  "input": {
+   "bytes": 220192,
+   "tris": 13562
+  },
+  "ours": {
+   "bytes": 227408,
+   "tris": 13944
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769782403.586036": {
+  "gt": {
+   "bytes": 240748,
+   "tris": 15006
+  },
+  "input": {
+   "bytes": 220192,
+   "tris": 13562
+  },
+  "ours": {
+   "bytes": 250284,
+   "tris": 15550
+  }
+ },
+ "3YH2WFSRM22W7DKT_1769783385.069543": {
+  "gt": {
+   "bytes": 220480,
+   "tris": 13578
+  },
+  "input": {
+   "bytes": 220192,
+   "tris": 13562
+  },
+  "ours": {
+   "bytes": 220544,
+   "tris": 13588
+  }
+ },
+ "4E22SJE7QVTSP2E3_1758737060.465216": {
+  "gt": {
+   "bytes": 59596,
+   "tris": 3726
+  },
+  "input": {
+   "bytes": 44112,
+   "tris": 2506
+  },
+  "ours": {
+   "bytes": 47340,
+   "tris": 2676
+  }
+ },
+ "4E22SJE7QVTSP2E3_1758737118.288898": {
+  "gt": {
+   "bytes": 265328,
+   "tris": 15576
+  },
+  "input": {
+   "bytes": 44112,
+   "tris": 2506
+  },
+  "ours": {
+   "bytes": 54624,
+   "tris": 3036
+  }
+ },
+ "4E22SJE7QVTSP2E3_1758737238.499021": {
+  "gt": {
+   "bytes": 625004,
+   "tris": 37288
+  },
+  "input": {
+   "bytes": 44112,
+   "tris": 2506
+  },
+  "ours": {
+   "bytes": 46704,
+   "tris": 2646
+  }
+ },
+ "4S7JQK6ZQMAD25GL_1758863141.735564": {
+  "gt": {
+   "bytes": 40600,
+   "tris": 2798
+  },
+  "input": {
+   "bytes": 31360,
+   "tris": 2252
+  },
+  "ours": {
+   "bytes": 37124,
+   "tris": 2642
+  }
+ },
+ "4S7JQK6ZQMAD25GL_1758863286.214549": {
+  "gt": {
+   "bytes": 50924,
+   "tris": 3370
+  },
+  "input": {
+   "bytes": 31360,
+   "tris": 2252
+  },
+  "ours": {
+   "bytes": 35504,
+   "tris": 2472
+  }
+ },
+ "4S7JQK6ZQMAD25GL_1758863403.376244": {
+  "gt": {
+   "bytes": 46024,
+   "tris": 3169
+  },
+  "input": {
+   "bytes": 31360,
+   "tris": 2252
+  },
+  "ours": {
+   "bytes": 63076,
+   "tris": 4446
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770166308.11235": {
+  "gt": {
+   "bytes": 14148,
+   "tris": 720
+  },
+  "input": {
+   "bytes": 14148,
+   "tris": 720
+  },
+  "ours": {
+   "bytes": 14676,
+   "tris": 744
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770166901.871316": {
+  "gt": {
+   "bytes": 12108,
+   "tris": 600
+  },
+  "input": {
+   "bytes": 14148,
+   "tris": 720
+  },
+  "ours": {
+   "bytes": 19740,
+   "tris": 1008
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770167800.9857888": {
+  "gt": {
+   "bytes": 29184,
+   "tris": 1482
+  },
+  "input": {
+   "bytes": 14148,
+   "tris": 720
+  },
+  "ours": {
+   "bytes": 35368,
+   "tris": 1826
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770169445.8914912": {
+  "gt": {
+   "bytes": 2184980,
+   "tris": 92288
+  },
+  "input": {
+   "bytes": 2184404,
+   "tris": 92275
+  },
+  "ours": {
+   "bytes": 2183780,
+   "tris": 92247
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770169718.2982779": {
+  "gt": {
+   "bytes": 2178644,
+   "tris": 92025
+  },
+  "input": {
+   "bytes": 2184404,
+   "tris": 92275
+  },
+  "ours": {
+   "bytes": 2184632,
+   "tris": 92271
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770169975.851399": {
+  "gt": {
+   "bytes": 2074040,
+   "tris": 87692
+  },
+  "input": {
+   "bytes": 2184404,
+   "tris": 92275
+  },
+  "ours": {
+   "bytes": 2079392,
+   "tris": 87868
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770171470.1448698": {
+  "gt": {
+   "bytes": 47140,
+   "tris": 3200
+  },
+  "input": {
+   "bytes": 47140,
+   "tris": 3200
+  },
+  "ours": {
+   "bytes": 56848,
+   "tris": 3678
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770171700.697783": {
+  "gt": {
+   "bytes": 47144,
+   "tris": 3200
+  },
+  "input": {
+   "bytes": 47140,
+   "tris": 3200
+  },
+  "ours": {
+   "bytes": 47140,
+   "tris": 3200
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770172545.5244548": {
+  "gt": {
+   "bytes": 50208,
+   "tris": 3360
+  },
+  "input": {
+   "bytes": 47140,
+   "tris": 3200
+  },
+  "ours": {
+   "bytes": 56692,
+   "tris": 3700
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770174133.012106": {
+  "gt": {
+   "bytes": 1008592,
+   "tris": 68450
+  },
+  "input": {
+   "bytes": 1027120,
+   "tris": 69946
+  },
+  "ours": {
+   "bytes": 1017512,
+   "tris": 69158
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770174308.67968": {
+  "gt": {
+   "bytes": 1049944,
+   "tris": 71604
+  },
+  "input": {
+   "bytes": 1027120,
+   "tris": 69946
+  },
+  "ours": {
+   "bytes": 1056920,
+   "tris": 72188
+  }
+ },
+ "B7A2N74ZJBF9MZHU_1770174519.556716": {
+  "gt": {
+   "bytes": 1033144,
+   "tris": 70252
+  },
+  "input": {
+   "bytes": 1027120,
+   "tris": 69946
+  },
+  "ours": {
+   "bytes": 1037756,
+   "tris": 70730
+  }
+ },
+ "F332D3FXML85WLR2_1769424096.996583": {
+  "gt": {
+   "bytes": 17576,
+   "tris": 1060
+  },
+  "input": {
+   "bytes": 2580,
+   "tris": 92
+  },
+  "ours": {
+   "bytes": 35916,
+   "tris": 2300
+  }
+ },
+ "F332D3FXML85WLR2_1769607142.566352": {
+  "gt": {
+   "bytes": 85652,
+   "tris": 4654
+  },
+  "input": {
+   "bytes": 62648,
+   "tris": 3404
+  },
+  "ours": {
+   "bytes": 100508,
+   "tris": 5366
+  }
+ },
+ "F332D3FXML85WLR2_1770204558.429523": {
+  "gt": {
+   "bytes": 63236,
+   "tris": 3438
+  },
+  "input": {
+   "bytes": 62648,
+   "tris": 3404
+  },
+  "ours": {
+   "bytes": 62648,
+   "tris": 3404
+  }
+ },
+ "F332D3FXML85WLR2_1770204696.542443": {
+  "gt": {
+   "bytes": 68732,
+   "tris": 3716
+  },
+  "input": {
+   "bytes": 62648,
+   "tris": 3404
+  },
+  "ours": {
+   "bytes": 68708,
+   "tris": 3714
+  }
+ },
+ "F332D3FXML85WLR2_1770205912.1187751": {
+  "gt": {
+   "bytes": 13528,
+   "tris": 700
+  },
+  "input": {
+   "bytes": 2580,
+   "tris": 92
+  },
+  "ours": {
+   "bytes": 13792,
+   "tris": 712
+  }
+ },
+ "F332D3FXML85WLR2_1770206307.074256": {
+  "gt": {
+   "bytes": 66300,
+   "tris": 4262
+  },
+  "input": {
+   "bytes": 2580,
+   "tris": 92
+  },
+  "ours": {
+   "bytes": 2580,
+   "tris": 92
+  }
+ },
+ "F332D3FXML85WLR2_1770208282.204381": {
+  "gt": {
+   "bytes": 25100,
+   "tris": 1490
+  },
+  "input": {
+   "bytes": 17752,
+   "tris": 992
+  },
+  "ours": {
+   "bytes": 33328,
+   "tris": 2015
+  }
+ },
+ "F332D3FXML85WLR2_1770208371.265217": {
+  "gt": {
+   "bytes": 22264,
+   "tris": 1240
+  },
+  "input": {
+   "bytes": 17752,
+   "tris": 992
+  },
+  "ours": {
+   "bytes": 25780,
+   "tris": 1428
+  }
+ },
+ "F332D3FXML85WLR2_1770208398.300075": {
+  "gt": {
+   "bytes": 46612,
+   "tris": 2992
+  },
+  "input": {
+   "bytes": 17752,
+   "tris": 992
+  },
+  "ours": {
+   "bytes": 15448,
+   "tris": 818
+  }
+ },
+ "SUJ2G2UMJQR7PMBX_1759203600.26663": {
+  "gt": {
+   "bytes": 970612,
+   "tris": 68632
+  },
+  "input": {
+   "bytes": 912340,
+   "tris": 63934
+  },
+  "ours": {
+   "bytes": 916288,
+   "tris": 63958
+  }
+ },
+ "SUJ2G2UMJQR7PMBX_1759203664.9815512": {
+  "gt": {
+   "bytes": 1171516,
+   "tris": 82414
+  },
+  "input": {
+   "bytes": 912340,
+   "tris": 63934
+  },
+  "ours": {
+   "bytes": 967720,
+   "tris": 66702
+  }
+ },
+ "SUJ2G2UMJQR7PMBX_1759203739.2515829": {
+  "gt": {
+   "bytes": 979440,
+   "tris": 68742
+  },
+  "input": {
+   "bytes": 912340,
+   "tris": 63934
+  },
+  "ours": {
+   "bytes": 915540,
+   "tris": 63774
+  }
+ },
+ "SUJ2G2UMJQR7PMBX_1759209917.917027": {
+  "gt": {
+   "bytes": 804672,
+   "tris": 49208
+  },
+  "input": {
+   "bytes": 805812,
+   "tris": 49302
+  },
+  "ours": {
+   "bytes": 805812,
+   "tris": 49302
+  }
+ },
+ "SUJ2G2UMJQR7PMBX_1759209987.785593": {
+  "gt": {
+   "bytes": 771468,
+   "tris": 47358
+  },
+  "input": {
+   "bytes": 805812,
+   "tris": 49302
+  },
+  "ours": {
+   "bytes": 775392,
+   "tris": 47544
+  }
+ },
+ "SUJ2G2UMJQR7PMBX_1759210049.432666": {
+  "gt": {
+   "bytes": 753444,
+   "tris": 46502
+  },
+  "input": {
+   "bytes": 805812,
+   "tris": 49302
+  },
+  "ours": {
+   "bytes": 804312,
+   "tris": 49156
+  }
+ },
+ "ZK22J6VYRKQ2RTFD_1758873912.731081": {
+  "gt": {
+   "bytes": 302704,
+   "tris": 20564
+  },
+  "input": {
+   "bytes": 298804,
+   "tris": 20376
+  },
+  "ours": {
+   "bytes": 295784,
+   "tris": 19985
+  }
+ },
+ "ZK22J6VYRKQ2RTFD_1758874422.1403751": {
+  "gt": {
+   "bytes": 335284,
+   "tris": 22750
+  },
+  "input": {
+   "bytes": 298804,
+   "tris": 20376
+  },
+  "ours": {
+   "bytes": 317828,
+   "tris": 21168
+  }
+ },
+ "ZK22J6VYRKQ2RTFD_1758875163.609787": {
+  "gt": {
+   "bytes": 304084,
+   "tris": 20664
+  },
+  "input": {
+   "bytes": 298804,
+   "tris": 20376
+  },
+  "ours": {
+   "bytes": 315412,
+   "tris": 21299
+  }
+ }
+}
